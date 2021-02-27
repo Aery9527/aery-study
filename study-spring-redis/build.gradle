@@ -1,0 +1,18 @@
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.3.7.RELEASE'
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-pool2
+    compile group: 'org.apache.commons', name: 'commons-pool2', version: '2.9.0'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.1'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.3.4.RELEASE'
+
+    // https://mvnrepository.com/artifact/it.ozimov/embedded-redis
+    testCompile group: 'it.ozimov', name: 'embedded-redis', version: '0.7.3'
+
+}
