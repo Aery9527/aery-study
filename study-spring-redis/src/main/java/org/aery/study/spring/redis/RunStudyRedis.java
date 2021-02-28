@@ -1,9 +1,8 @@
-package org.aery.study.redis;
+package org.aery.study.spring.redis;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.data.redis.core.StringRedisTemplate;
 
 @SpringBootApplication
 public class RunStudyRedis {

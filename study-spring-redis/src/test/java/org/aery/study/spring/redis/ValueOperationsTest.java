@@ -1,4 +1,4 @@
-package org.aery.study.redis;
+package org.aery.study.spring.redis;
 
 import io.lettuce.core.RedisCommandExecutionException;
 import org.assertj.core.api.Assertions;
@@ -16,7 +16,7 @@ import java.util.*;
 import java.util.function.BooleanSupplier;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = RedisEmbeddedServerConfig.class)
 @ActiveProfiles("test")
 public class ValueOperationsTest {
 

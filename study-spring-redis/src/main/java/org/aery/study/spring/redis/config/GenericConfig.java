@@ -1,4 +1,4 @@
-package org.aery.study.redis.config;
+package org.aery.study.spring.redis.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;

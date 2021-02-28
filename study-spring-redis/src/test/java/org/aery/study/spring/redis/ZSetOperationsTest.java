@@ -1,4 +1,4 @@
-package org.aery.study.redis;
+package org.aery.study.spring.redis;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
@@ -12,8 +12,6 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
