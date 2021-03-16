@@ -1,0 +1,9 @@
+jar {
+    manifest {
+        attributes(
+                "Premain-Class": "org.aery.study.java.agent.PremainAgent",
+                "Can-Redefine-Classes": false,
+                "Can-Set-Native-Method-Prefix": false
+        )
+    }
+}
