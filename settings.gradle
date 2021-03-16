@@ -2,4 +2,5 @@
 include 'study-util'
 include 'study-spring-redis'
 include 'study-java-native'
+include 'study-java-agent'
 
