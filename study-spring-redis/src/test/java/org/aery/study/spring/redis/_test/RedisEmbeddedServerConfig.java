@@ -1,4 +1,4 @@
-package org.aery.study.spring.redis;
+package org.aery.study.spring.redis._test;
 
 import org.springframework.boot.test.context.TestConfiguration;
 import redis.embedded.RedisServer;

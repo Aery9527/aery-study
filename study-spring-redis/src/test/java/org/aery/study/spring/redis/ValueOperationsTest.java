@@ -1,6 +1,7 @@
 package org.aery.study.spring.redis;
 
 import io.lettuce.core.RedisCommandExecutionException;
+import org.aery.study.spring.redis._test.RedisEmbeddedServerConfig;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
