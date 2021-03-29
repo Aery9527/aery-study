@@ -48,6 +48,10 @@ public class ValueOperationsTest {
         }
     }
 
+    public enum Kerker {
+        Aery, Rion;
+    }
+
     @Autowired
     private ValueOperations<String, Object> redisValueOps;
 
@@ -107,6 +111,10 @@ public class ValueOperationsTest {
         Map<String, Object> getedVal2 = (Map<String, Object>) this.redisValueOps.get(key);
         Assertions.assertThat(getedVal2.get("a")).isEqualTo("3");
         Assertions.assertThat(getedVal2.get("b")).isEqualTo("4");
+
+        this.redisValueOps.set(key, Kerker.Rion);
+        Object v = this.redisValueOps.get(key);
+        Assertions.assertThat(Kerker.valueOf(v.toString())).isEqualTo(Kerker.Rion);
     }
 
     /**
