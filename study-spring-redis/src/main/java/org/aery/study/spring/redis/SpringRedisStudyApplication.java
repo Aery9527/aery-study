@@ -5,11 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
-public class RunStudyRedis {
+public class SpringRedisStudyApplication {
 
     public static void main(String[] args) throws Throwable {
-        try (ConfigurableApplicationContext application = SpringApplication.run(RunStudyRedis.class, args)) {
-        }
+        SpringApplication.run(SpringRedisStudyApplication.class, args);
     }
 
 }
