@@ -37,4 +37,11 @@ public class FeignApiImpl implements FeignApi {
         this.logger.info("receive : " + vo1);
         return vo1;
     }
+
+    @Override
+    public String test5(String kerker) {
+        this.logger.info("receive : " + kerker);
+        return kerker;
+    }
+
 }
