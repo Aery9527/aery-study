@@ -80,6 +80,12 @@ public class FeignClientTest {
         this.logger.info(result);
     }
 
+    @Test
+    public void test6() {
+        String result = invoke(() -> this.feignApi.test6("Aery", "Alicia"));
+        this.logger.info(result);
+    }
+
     private <T> T invoke(Supplier<T> action) {
         StackTraceElement[] stes = Thread.currentThread().getStackTrace();
         StackTraceElement ste = stes[2];

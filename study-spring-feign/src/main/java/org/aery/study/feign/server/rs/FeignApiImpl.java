@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @RestController
@@ -44,4 +45,12 @@ public class FeignApiImpl implements FeignApi {
         return kerker;
     }
 
+    @Override
+    public String test6(String kerker, String haha) {
+        Map<String, String> received = new HashMap<>();
+        received.put("kerker", kerker);
+        received.put("haha", haha);
+        this.logger.info("receive : " + received);
+        return received.toString();
+    }
 }
