@@ -84,12 +84,14 @@ public class HashOperationsTest {
     public void test_putIfAbsent() {
         final String key = Thread.currentThread().getStackTrace()[1].getMethodName();
         final String k1 = "Rion";
+        final String k2 = "Aery";
 
         Assertions.assertThat(this.redisHashOps.get(key, k1)).isNull();
         Assertions.assertThat(this.redisHashOps.putIfAbsent(key, k1, "123")).isEqualTo(true); // 寫入成功
         Assertions.assertThat(this.redisHashOps.get(key, k1)).isEqualTo("123");
         Assertions.assertThat(this.redisHashOps.putIfAbsent(key, k1, "123")).isEqualTo(false); // 寫入失敗
         Assertions.assertThat(this.redisHashOps.get(key, k1)).isEqualTo("123");
+        Assertions.assertThat(this.redisHashOps.putIfAbsent(key, k2, "456")).isEqualTo(true); // 寫入成功
     }
 
     @Test
