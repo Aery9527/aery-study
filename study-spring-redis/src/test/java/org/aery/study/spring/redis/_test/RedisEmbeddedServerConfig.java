@@ -18,6 +18,9 @@ public class RedisEmbeddedServerConfig {
     @PostConstruct
     public void postConstruct() {
         this.redisServer.start();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            this.redisServer.stop();
+        }));
     }
 
     @PreDestroy
