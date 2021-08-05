@@ -6,8 +6,12 @@ import org.springframework.data.redis.core.index.Indexed;
 
 import java.util.*;
 
-@RedisHash("key1:key2")
+@RedisHash(value = "key1:key2", timeToLive = DataEntity.TTL.SECOND)
 public class DataEntity {
+
+    public static class TTL {
+        public static final long SECOND = 3;
+    }
 
     public static class Detail {
         private String a;
@@ -52,18 +56,31 @@ public class DataEntity {
         }
     }
 
+    public DataEntity() {
+    }
+
+    public DataEntity(String id) {
+        this.id = id;
+    }
+
     @Id // 該數據唯一id, redis會建立索引
     private String id;
 
-    @Indexed // 單純建立索引
+    @Indexed // 單純建立索引, 可以用來一次搜尋多個資料用的
     private String index1;
 
-    @Indexed // 單純建立索引
+    @Indexed
     private String index2;
 
     private String parameter1;
 
     private String parameter2;
+
+    //    @TimeToLive // 這個定義後會蓋過class上定義的ttl, <=0等於無ttl
+    private int ttl1;
+
+    //    @TimeToLive // 若定義多個會以最前面那個為主
+    private int ttl2;
 
     private Date date;
 
@@ -72,6 +89,26 @@ public class DataEntity {
     private List<String> list;
 
     private Set<String> set;
+
+    @Override
+    public String toString() {
+        return "DataEntity{" +
+                "id='" + id + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DataEntity that = (DataEntity) o;
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 
     public String getId() {
         return id;
@@ -111,6 +148,22 @@ public class DataEntity {
 
     public void setParameter2(String parameter2) {
         this.parameter2 = parameter2;
+    }
+
+    public int getTtl1() {
+        return ttl1;
+    }
+
+    public void setTtl1(int ttl1) {
+        this.ttl1 = ttl1;
+    }
+
+    public int getTtl2() {
+        return ttl2;
+    }
+
+    public void setTtl2(int ttl2) {
+        this.ttl2 = ttl2;
     }
 
     public Date getDate() {

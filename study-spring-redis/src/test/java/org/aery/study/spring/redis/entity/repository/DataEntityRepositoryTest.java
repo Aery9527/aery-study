@@ -7,10 +7,12 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.mapping.PropertyReferenceException;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.*;
+import java.util.function.Consumer;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = RedisEmbeddedServerConfig.class)
@@ -92,8 +94,126 @@ public class DataEntityRepositoryTest {
     }
 
     @Test
-    public void findByIndex() {
+    public void extendedMethod() {
+        String id = "Aery";
+        String index1 = "kerker";
+        String index2 = "puipui";
+        String parameter1 = "parameter1";
+        String exceed = "Rion";
 
+        DataEntity data1 = new DataEntity();
+//        data1.setId(id); // id為空時, 預設會使用UUID
+        data1.setIndex1(index1);
+        data1.setIndex2(index2);
+        data1.setParameter1(parameter1);
+        this.dataRepository.save(data1);
+
+        Assertions.assertThat(this.dataRepository.findByIndex1(index1)).isNotEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex2(index2)).isNotEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex1AndIndex2(index1, index2)).isNotEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex1OrIndex2(index1, index2)).isNotEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex1OrIndex2(exceed, index2)).isNotEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex1OrIndex2(index1, exceed)).isNotEmpty();
+
+        Assertions.assertThat(this.dataRepository.findByIndex1(exceed)).isEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex2(exceed)).isEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex1AndIndex2(exceed, exceed)).isEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex1AndIndex2(exceed, index2)).isEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex1AndIndex2(index1, exceed)).isEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex1OrIndex2(exceed, exceed)).isEmpty();
+
+        // 雖然DataEntity有parameter1這個field, 但因為沒定義Indexed, 所以是查不出來的
+        Assertions.assertThat(this.dataRepository.findByParameter1(parameter1)).isEmpty();
+
+        Assertions.assertThatThrownBy(() -> this.dataRepository.findByKerker(index1))
+                .isInstanceOf(PropertyReferenceException.class)
+                .hasMessageContaining("No property " + index1 + " found for type DataEntity!");
     }
 
+    @Test
+    public void findByIndex() {
+        String id1 = "Aery";
+        String id2 = "Rion";
+        String indexA = "A";
+        String indexB = "B";
+        String indexC = "C";
+        String exceed = "Fuko";
+
+        DataEntity data1 = new DataEntity(id1);
+        data1.setIndex1(indexA);
+        data1.setIndex2(indexB);
+        this.dataRepository.save(data1);
+
+        DataEntity data2 = new DataEntity(id2);
+        data2.setIndex1(indexA);
+        data2.setIndex2(indexC);
+        this.dataRepository.save(data2);
+
+        Assertions.assertThat(this.dataRepository.findByIndex1(indexA)).containsExactlyInAnyOrder(data1, data2);
+        Assertions.assertThat(this.dataRepository.findByIndex1(indexB)).isEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex1(indexC)).isEmpty();
+
+        Assertions.assertThat(this.dataRepository.findByIndex2(indexA)).isEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex2(indexB)).containsExactlyInAnyOrder(data1);
+        Assertions.assertThat(this.dataRepository.findByIndex2(indexC)).containsExactlyInAnyOrder(data2);
+
+        Assertions.assertThat(this.dataRepository.findByIndex1AndIndex2(indexA, indexB)).containsExactlyInAnyOrder(data1);
+        Assertions.assertThat(this.dataRepository.findByIndex1AndIndex2(indexA, indexC)).containsExactlyInAnyOrder(data2);
+        Assertions.assertThat(this.dataRepository.findByIndex1AndIndex2(indexA, exceed)).isEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex1AndIndex2(indexA, exceed)).isEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex1AndIndex2(exceed, indexB)).isEmpty();
+        Assertions.assertThat(this.dataRepository.findByIndex1AndIndex2(exceed, indexC)).isEmpty();
+
+        Assertions.assertThat(this.dataRepository.findByIndex1OrIndex2(indexA, indexB)).containsExactlyInAnyOrder(data1, data2);
+        Assertions.assertThat(this.dataRepository.findByIndex1OrIndex2(indexA, indexC)).containsExactlyInAnyOrder(data1, data2);
+        Assertions.assertThat(this.dataRepository.findByIndex1OrIndex2(indexA, exceed)).containsExactlyInAnyOrder(data1, data2);
+        Assertions.assertThat(this.dataRepository.findByIndex1OrIndex2(indexA, exceed)).containsExactlyInAnyOrder(data1, data2);
+        Assertions.assertThat(this.dataRepository.findByIndex1OrIndex2(exceed, indexB)).containsExactlyInAnyOrder(data1);
+        Assertions.assertThat(this.dataRepository.findByIndex1OrIndex2(exceed, indexC)).containsExactlyInAnyOrder(data2);
+    }
+
+    @Test
+    public void ttl() throws InterruptedException {
+        String id1 = "Aery";
+        String id2 = "Rion";
+        long ttlMs = DataEntity.TTL.SECOND * 1000;
+
+        Consumer<Optional<DataEntity>> checkNotEmpty = (optional) -> Assertions.assertThat(optional).isNotEmpty();
+        Consumer<Optional<DataEntity>> checkIsEmpty = (optional) -> Assertions.assertThat(optional).isEmpty();
+
+        DataEntity data1 = new DataEntity(id1);
+        this.dataRepository.save(data1);
+        Thread.sleep(ttlMs + 100); // 等超過ttl, 測試redis資料是否移除
+        checkIsEmpty.accept(this.dataRepository.findById(id1));
+
+        DataEntity data2 = new DataEntity(id2);
+        this.dataRepository.save(data2);
+        long wait1Ms = ttlMs / 2; // 等一半的時間
+        Thread.sleep(wait1Ms);
+        this.dataRepository.save(data2); // 再更新一次, 測試ttl是否有重設
+        Thread.sleep(wait1Ms + (ttlMs / 4));
+        checkNotEmpty.accept(this.dataRepository.findById(id2));
+    }
+
+    @Test
+    public void name() {
+        String id1 = "Aery";
+        String id2 = "Rion";
+
+        DataEntity data1 = new DataEntity(id1);
+        data1.setIndex1("A");
+        data1.setIndex2("B");
+        this.dataRepository.save(data1);
+
+        DataEntity data2 = new DataEntity(id2);
+        data2.setIndex1("A");
+        data2.setIndex2("C");
+        this.dataRepository.save(data2);
+
+        System.out.println();
+
+
+//        this.dataRepository.
+//        PartialUpdate
+    }
 }
