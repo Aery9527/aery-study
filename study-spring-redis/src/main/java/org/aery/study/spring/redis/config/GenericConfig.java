@@ -54,6 +54,7 @@ public class GenericConfig {
         redisTemplate.setValueSerializer(jacksonSeial);
         redisTemplate.setHashKeySerializer(RedisSerializer.string());
         redisTemplate.setHashValueSerializer(jacksonSeial);
+//        redisTemplate.setDefaultSerializer(jacksonSeial);
 //        redisTemplate.setEnableTransactionSupport(true);
 
         return redisTemplate;

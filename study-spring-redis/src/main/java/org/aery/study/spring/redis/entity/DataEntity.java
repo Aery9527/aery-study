@@ -6,7 +6,7 @@ import org.springframework.data.redis.core.index.Indexed;
 
 import java.util.*;
 
-@RedisHash(value = "key1:key2", timeToLive = DataEntity.TTL.SECOND)
+@RedisHash(timeToLive = DataEntity.TTL.SECOND)
 public class DataEntity {
 
     public static class TTL {
