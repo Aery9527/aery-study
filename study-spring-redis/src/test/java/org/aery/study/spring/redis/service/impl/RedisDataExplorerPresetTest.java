@@ -12,6 +12,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.*;
+import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -49,19 +50,29 @@ public class RedisDataExplorerPresetTest {
         String keyOfHash = "keyOfHash";
 
         String dataOfValue = "kerker";
-        List<String> dataOfList = new ArrayList<>(testDatas); // 有序可重複集合
-        Set<String> dataOfSet = new HashSet<>(testDatas); // 無序不可重複集合
-        Set<String> dataOfZset = new LinkedHashSet<>(testDatas); // 有序不可重複集合
+        List<String> dataOfList = new ArrayList<>();
+        Set<String> dataOfSet = new LinkedHashSet<>();
+        Set<String> dataOfZset = new LinkedHashSet<>();
         Map<String, String> dataOfHash = new HashMap<>();
+
+        UnaryOperator<String> toJsonFormat = (s) -> "\"" + s + "\"";
 
         redisValueOps.set(keyOfValue, dataOfValue);
         for (int i = 0; i < testDatas.size(); i++) {
-            String data = testDatas.get(i);
+            String data = testDatas.get(i); // 因為透過jackson序列化, 會轉換成json格式
+
             redisListOps.rightPush(keyOfList, data);
+            dataOfList.add(toJsonFormat.apply(data));
+
             redisSetOps.add(keyOfSet, data);
-            redisZsetOps.add(keyOfZset, data, i);
+            dataOfSet.add(toJsonFormat.apply(data));
+
+            redisZsetOps.add(keyOfZset, data, i); // 因為LinkedHashSet的行為是優先加入的維持在前
+            dataOfZset.remove(toJsonFormat.apply(data)); // 但redis的zset的行為是後加入的會替換掉前面的位置
+            dataOfZset.add(toJsonFormat.apply(data)); // 所以這裡會先移除本來就有的data再加入, 以模擬redis zset最終的排序
+
             redisHashOps.put(keyOfHash, String.valueOf(i), data);
-            dataOfHash.put(String.valueOf(i), data);
+            dataOfHash.put(String.valueOf(i), toJsonFormat.apply(data));
         }
 
         RedisExploredResult result = this.redisDataExplorerPreset.explore();
@@ -75,7 +86,7 @@ public class RedisDataExplorerPresetTest {
         Set<String> zsetFromRedis = datas.get(keyOfZset).getDataToZset();
         Map<String, String> tupleOfHash = datas.get(keyOfHash).getDataToHash();
 
-        Assertions.assertThat(valueFromRedis).isEqualTo(dataOfValue);
+        Assertions.assertThat(valueFromRedis).isEqualTo(toJsonFormat.apply(dataOfValue));
         Assertions.assertThat(listFromRedis).containsExactlyElementsOf(dataOfList);
         Assertions.assertThat(setFromRedis).containsExactlyInAnyOrderElementsOf(dataOfSet);
         Assertions.assertThat(zsetFromRedis).containsExactlyElementsOf(dataOfZset);

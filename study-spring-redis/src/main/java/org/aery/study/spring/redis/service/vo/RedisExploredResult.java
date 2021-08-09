@@ -10,10 +10,24 @@ public class RedisExploredResult {
     public static class Tuple {
         private final DataType dataType;
         private final Object data;
+        private String msg;
 
         public Tuple(DataType dataType, Object data) {
             this.dataType = dataType;
             this.data = data;
+        }
+
+        @Override
+        public String toString() {
+            return toString(null);
+        }
+
+        public String toString(String key) {
+            if (this.msg == null) {
+                this.msg = String.format("%-5s", this.dataType) + ": ";
+                this.msg += (key == null ? "" : "<" + key + "> ") + this.data;
+            }
+            return this.msg;
         }
 
         public String getDataToString() {

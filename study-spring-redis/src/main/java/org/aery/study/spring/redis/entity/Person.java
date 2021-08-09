@@ -19,11 +19,17 @@ public class Person {
     @Reference // 需要額外save, 從PersonRepository.save, 不會主動儲存
     private Man father;
 
-    @Reference // 但查詢時會直接幫你查出來序列化好放進來
+    @Reference // 但查詢時若有該資料, 會直接幫你序列化好放進來
     private Woman mother;
 
+    @Reference // 預設這邊會用Person的keyspace去儲存, 不會用子類的keyspace, 所以這樣reference會無法找到明確的子類資料
+    private List<Person> favoriteArtists;
+
+    @Reference // 若要reference子類就要明確指定型別了...
+    private List<Man> favoriteMans;
+
     @Reference
-    private List<Person> favoriteArtist;
+    private List<Woman> favoriteWomans;
 
     public Person() {
     }
@@ -69,11 +75,27 @@ public class Person {
         this.mother = mother;
     }
 
-    public List<Person> getFavoriteArtist() {
-        return favoriteArtist;
+    public List<Person> getFavoriteArtists() {
+        return favoriteArtists;
     }
 
-    public void setFavoriteArtist(List<Person> favoriteArtist) {
-        this.favoriteArtist = favoriteArtist;
+    public void setFavoriteArtists(List<Person> favoriteArtists) {
+        this.favoriteArtists = favoriteArtists;
+    }
+
+    public List<Man> getFavoriteMans() {
+        return favoriteMans;
+    }
+
+    public void setFavoriteMans(List<Man> favoriteMans) {
+        this.favoriteMans = favoriteMans;
+    }
+
+    public List<Woman> getFavoriteWomans() {
+        return favoriteWomans;
+    }
+
+    public void setFavoriteWomans(List<Woman> favoriteWomans) {
+        this.favoriteWomans = favoriteWomans;
     }
 }

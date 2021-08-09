@@ -3,30 +3,28 @@ package org.aery.study.spring.redis.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.keyvalue.core.mapping.KeySpaceResolver;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.*;
+import org.springframework.data.redis.core.convert.KeyspaceConfiguration;
+import org.springframework.data.redis.core.convert.MappingConfiguration;
+import org.springframework.data.redis.core.index.IndexConfiguration;
+import org.springframework.data.redis.core.mapping.BasicRedisPersistentEntity;
+import org.springframework.data.redis.core.mapping.RedisMappingContext;
+import org.springframework.data.redis.core.mapping.RedisPersistentEntity;
+import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
+import org.springframework.data.util.TypeInformation;
 
-/**
- * 有夠清楚的解說 https://blog.csdn.net/m0_37355951/category_7062950.html
- */
+import java.lang.reflect.Field;
+
 @Configuration
-//@EnableRedisRepositories(enableKeyspaceEvents = RedisKeyValueAdapter.EnableKeyspaceEvents.ON_STARTUP)
+@EnableRedisRepositories(
+//        keyspaceConfiguration = CustomKeyspaceConfiguration.class // 也會是spring的bean, 因此可以使用autowrite
+)
 //@EnableTransactionManagement
 public class GenericConfig {
-
-    /* [static] field */
-
-    /* [static] */
-
-    /* [static] method */
-
-    /* [instance] field */
-
-    /* [instance] constructor */
-
-    /* [instance] method */
 
 //    @Bean
 //    public RedisConnectionFactory redisConnectionFactory() {
@@ -39,6 +37,50 @@ public class GenericConfig {
 //        RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("localhost", 6379);
 //        return new JedisConnectionFactory(config); // use Jedis
 //    }
+
+    public class CustomRedisMappingContext extends RedisMappingContext {
+
+        private final KeySpaceResolver fallbackKeySpaceResolver;
+
+        private final TimeToLiveAccessor timeToLiveAccessor;
+
+        public CustomRedisMappingContext(MappingConfiguration mappingConfiguration) throws NoSuchFieldException, IllegalAccessException {
+            super(mappingConfiguration);
+
+            Field resolverField = RedisMappingContext.class.getDeclaredField("fallbackKeySpaceResolver");
+            resolverField.setAccessible(true);
+            this.fallbackKeySpaceResolver = (KeySpaceResolver) resolverField.get(this);
+            resolverField.setAccessible(false);
+
+            Field timeToLiveAccessorField = RedisMappingContext.class.getDeclaredField("timeToLiveAccessor");
+            timeToLiveAccessorField.setAccessible(true);
+            this.timeToLiveAccessor = (TimeToLiveAccessor) timeToLiveAccessorField.get(this);
+            timeToLiveAccessorField.setAccessible(false);
+        }
+
+        @Override
+        protected <T> RedisPersistentEntity<T> createPersistentEntity(TypeInformation<T> typeInformation) {
+            return new BasicRedisPersistentEntity<T>(typeInformation, this.fallbackKeySpaceResolver, this.timeToLiveAccessor) {
+                @Override
+                public String getKeySpace() {
+                    return "kerker:" + super.getKeySpace();
+                }
+            };
+        }
+    }
+
+    /**
+     * 一定要這個bean name才會生效
+     *
+     * @return
+     */
+    @Bean
+    public RedisMappingContext keyValueMappingContext() throws NoSuchFieldException, IllegalAccessException { // 一定要這個bean name
+        IndexConfiguration indexConfiguration = new IndexConfiguration();
+        KeyspaceConfiguration keyspaceConfiguration = new CustomKeyspaceConfiguration();
+        MappingConfiguration mappingConfiguration = new MappingConfiguration(indexConfiguration, keyspaceConfiguration);
+        return new CustomRedisMappingContext(mappingConfiguration);
+    }
 
     @Bean
     public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory factory) {
@@ -84,7 +126,5 @@ public class GenericConfig {
     public ZSetOperations<String, Object> redisZsetOps(RedisTemplate<String, Object> redisTemplate) {
         return redisTemplate.opsForZSet();
     }
-
-    /* [instance] getter/setter */
 
 }
