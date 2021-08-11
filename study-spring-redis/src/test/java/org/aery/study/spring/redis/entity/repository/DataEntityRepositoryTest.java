@@ -2,6 +2,7 @@ package org.aery.study.spring.redis.entity.repository;
 
 import org.aery.study.spring.redis._test.RedisEmbeddedServerConfig;
 import org.aery.study.spring.redis.entity.DataEntity;
+import org.aery.study.spring.redis.service.api.RedisDataExplorer;
 import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,9 @@ public class DataEntityRepositoryTest {
 
     @Autowired
     private DataRepository dataRepository;
+
+    @Autowired
+    private RedisDataExplorer redisDataExplorer;
 
     @Test
     public void saveAndFindById() {
@@ -50,6 +54,7 @@ public class DataEntityRepositoryTest {
         set.add("y");
 
         this.dataRepository.save(data1);
+        this.redisDataExplorer.printExplored();
 
         Optional<DataEntity> optional = this.dataRepository.findById(id);
 
@@ -187,33 +192,17 @@ public class DataEntityRepositoryTest {
         checkIsEmpty.accept(this.dataRepository.findById(id1));
 
         DataEntity data2 = new DataEntity(id2);
+        data2.setIndex1("aaa");
+        data2.setIndex2("bbb");
         this.dataRepository.save(data2);
         long wait1Ms = ttlMs / 2; // 等一半的時間
         Thread.sleep(wait1Ms);
         this.dataRepository.save(data2); // 再更新一次, 測試ttl是否有重設
         Thread.sleep(wait1Ms + (ttlMs / 4));
         checkNotEmpty.accept(this.dataRepository.findById(id2));
-    }
 
-    @Test
-    public void name() {
-        String id1 = "Aery";
-        String id2 = "Rion";
-
-        DataEntity data1 = new DataEntity(id1);
-        data1.setIndex1("A");
-        data1.setIndex2("B");
-        this.dataRepository.save(data1);
-
-        DataEntity data2 = new DataEntity(id2);
-        data2.setIndex1("A");
-        data2.setIndex2("C");
-        this.dataRepository.save(data2);
-
+        this.dataRepository.deleteById(id2);
         System.out.println();
-
-
-//        this.dataRepository.
-//        PartialUpdate
     }
+
 }

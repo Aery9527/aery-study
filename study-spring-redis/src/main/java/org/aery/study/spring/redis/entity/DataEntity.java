@@ -63,7 +63,7 @@ public class DataEntity {
         this.id = id;
     }
 
-    @Id // 該數據唯一id, redis會建立索引
+    @Id // 該數據唯一id, spring會利用額外的key當作metadata建立索引
     private String id;
 
     @Indexed // 單純建立索引, 可以用來一次搜尋多個資料用的

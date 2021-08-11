@@ -24,8 +24,8 @@ public class RedisExploredResult {
 
         public String toString(String key) {
             if (this.msg == null) {
-                this.msg = String.format("%-5s", this.dataType) + ": ";
-                this.msg += (key == null ? "" : "<" + key + "> ") + this.data;
+                this.msg = "[" + String.format("%-5s", this.dataType) + "] ";
+                this.msg += (key == null ? "" : key) + " => " + this.data;
             }
             return this.msg;
         }
