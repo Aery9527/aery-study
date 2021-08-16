@@ -1,18 +1,28 @@
 
+plugins {
+    id 'java'
+    id "io.spring.dependency-management" version '1.0.11.RELEASE'
+    id 'org.springframework.boot' version '2.3.12.RELEASE'
+}
+
 dependencies {
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis', version: '2.3.12.RELEASE'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis'
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa'
+
+    implementation group: 'com.h2database', name: 'h2'
 
     // https://mvnrepository.com/artifact/org.apache.commons/commons-pool2
-    compile group: 'org.apache.commons', name: 'commons-pool2', version: '2.9.0'
+    implementation group: 'org.apache.commons', name: 'commons-pool2'
 
     // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
-    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.12.1'
+    implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind'
 
     // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.3.4.RELEASE'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
     // https://mvnrepository.com/artifact/it.ozimov/embedded-redis
-    testCompile group: 'it.ozimov', name: 'embedded-redis', version: '0.7.3'
+    testImplementation group: 'it.ozimov', name: 'embedded-redis', version: '0.7.3'
 
 }

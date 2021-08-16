@@ -19,18 +19,25 @@ import org.springframework.data.redis.repository.configuration.EnableRedisReposi
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.util.TypeInformation;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.sql.DataSource;
 import java.lang.reflect.Field;
+import java.sql.SQLException;
 
 @Configuration
 @EnableRedisRepositories(
 //        enableKeyspaceEvents = RedisKeyValueAdapter.EnableKeyspaceEvents.ON_STARTUP
 //        keyspaceConfiguration = CustomKeyspaceConfiguration.class // 也會是spring的bean, 因此可以使用autowrite
 )
-//@EnableTransactionManagement
+@EnableTransactionManagement
 public class GenericConfig {
 
-//    @Bean
+//    @Bean // spring預設的實作
 //    public RedisConnectionFactory redisConnectionFactory() {
 //        RedisStandaloneConfiguration config = new RedisStandaloneConfiguration("localhost", 6379);
 //        return new LettuceConnectionFactory(config); // use Lettuce
@@ -182,9 +189,26 @@ public class GenericConfig {
         redisTemplate.setHashKeySerializer(RedisSerializer.string());
         redisTemplate.setHashValueSerializer(jacksonSeial);
 //        redisTemplate.setDefaultSerializer(jacksonSeial);
-//        redisTemplate.setEnableTransactionSupport(true);
+        redisTemplate.setEnableTransactionSupport(true);
 
         return redisTemplate;
+    }
+
+    /**
+     * 若想要使用{@link org.springframework.transaction.annotation.Transactional}必須有這個,
+     * 但官方說操作時讀寫是分離的, 但實測起來並不是這樣...
+     */
+    @Bean
+    public PlatformTransactionManager transactionManager() throws SQLException {
+        return new DataSourceTransactionManager(dataSource());
+    }
+
+    @Bean
+    public DataSource dataSource() throws SQLException {
+        EmbeddedDatabaseBuilder databaseBuilder = new EmbeddedDatabaseBuilder();
+//        databaseBuilder.setName("transactionDatabase");
+        databaseBuilder.setType(EmbeddedDatabaseType.H2);
+        return databaseBuilder.build();
     }
 
     @Bean

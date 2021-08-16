@@ -44,6 +44,7 @@ public class PersonRepositoryTest {
         aery.setMother(tina);
         aery.setFavoriteArtists(new ArrayList<>());
         aery.getFavoriteArtists().add(andy);
+
         aery.getFavoriteArtists().add(rion);
         aery.setFavoriteMans(new ArrayList<>());
         aery.getFavoriteMans().add(andy);
