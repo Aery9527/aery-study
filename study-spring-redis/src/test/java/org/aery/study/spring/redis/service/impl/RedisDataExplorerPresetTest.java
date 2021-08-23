@@ -75,7 +75,9 @@ public class RedisDataExplorerPresetTest {
             dataOfHash.put(String.valueOf(i), toJsonFormat.apply(data));
         }
 
-        RedisExploredResult result = this.redisDataExplorerPreset.explore();
+        this.redisDataExplorerPreset.printExplored(true);
+
+        RedisExploredResult result = this.redisDataExplorerPreset.explore(true);
         Map<String, RedisExploredResult.Tuple> datas = result.getDatas();
 
         Assertions.assertThat(datas).containsOnlyKeys(keyOfValue, keyOfList, keyOfSet, keyOfZset, keyOfHash);

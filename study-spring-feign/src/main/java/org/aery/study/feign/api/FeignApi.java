@@ -20,7 +20,7 @@ public interface FeignApi {
     @PostMapping("/test4")
     FeignApiVo1 test4(@RequestBody FeignApiVo1 vo1);
 
-    @GetMapping(value = "/test5/{kerker}")
+    @PutMapping(value = "/test5/{kerker}/abc")
     String test5(@PathVariable("kerker") String kerker);
 
     @GetMapping(value = "/test6/{kerker}/aa/{haha}")

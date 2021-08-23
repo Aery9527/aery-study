@@ -40,7 +40,7 @@ public class RedisDataExplorerPreset implements RedisDataExplorer {
         Set<String> keys = this.redisTemplate.keys(pattern);
         keys.forEach(key -> {
             DataType dataType = this.redisTemplate.type(key);
-            Object data = this.redisDataFetcherMap.get(dataType).apply(key);
+            Object data = fetchAllData ? this.redisDataFetcherMap.get(dataType).apply(key) : null;
             result.put(key, dataType, data);
         });
 

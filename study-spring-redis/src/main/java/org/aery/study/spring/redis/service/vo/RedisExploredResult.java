@@ -24,10 +24,14 @@ public class RedisExploredResult {
 
         public String toString(String key) {
             if (this.msg == null) {
-                this.msg = "[" + String.format("%-5s", this.dataType) + "] ";
+                this.msg = "[" + String.format("%-6s", this.dataType) + "] ";
                 this.msg += (key == null ? "" : key) + " => " + this.data;
             }
             return this.msg;
+        }
+
+        public boolean hasData() {
+            return this.data != null;
         }
 
         public String getDataToString() {
