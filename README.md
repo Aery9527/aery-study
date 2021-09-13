@@ -1,10 +1,10 @@
-# study-java-native
+# java-native
 
 about java native function.
 
 ---
 
-# study-spring-*
+# spring-*
 
 about spring function.
 

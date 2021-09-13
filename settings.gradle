@@ -1,8 +1,10 @@
 include 'study-util'
-include 'study-java-native'
-include 'study-java-agent'
-include 'study-rocketmq'
 include 'study-spring-redis'
 include 'study-spring-feign'
 include 'study-spring-statemachine'
+include 'squirrel-foundation'
+include 'java-agent'
+include 'java-native'
+include 'rocketmq'
+include 'spring-feign'
 
