@@ -4,4 +4,5 @@ include 'study-java-agent'
 include 'study-rocketmq'
 include 'study-spring-redis'
 include 'study-spring-feign'
+include 'study-spring-statemachine'
 

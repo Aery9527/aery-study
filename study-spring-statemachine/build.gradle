@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+    id "io.spring.dependency-management" version '1.0.11.RELEASE'
+    id 'org.springframework.boot' version '2.3.12.RELEASE'
+}
+
+dependencies {
+    implementation('org.springframework.boot:spring-boot-starter')
+
+    implementation('org.springframework.statemachine:spring-statemachine-starter:3.0.1') {
+        exclude group: 'io.projectreactor', module: 'reactor-core'
+    }
+
+    implementation group: 'io.projectreactor', name: 'reactor-core', version: '3.4.9'
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}

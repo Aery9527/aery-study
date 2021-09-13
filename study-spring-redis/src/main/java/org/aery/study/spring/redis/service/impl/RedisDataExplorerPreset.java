@@ -1,8 +1,9 @@
 package org.aery.study.spring.redis.service.impl;
 
-import com.sun.istack.internal.logging.Logger;
 import org.aery.study.spring.redis.service.api.RedisDataExplorer;
 import org.aery.study.spring.redis.service.vo.RedisExploredResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.core.RedisCallback;
@@ -17,7 +18,7 @@ import java.util.stream.Collectors;
 @Component
 public class RedisDataExplorerPreset implements RedisDataExplorer {
 
-    private final Logger logger = Logger.getLogger(getClass());
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     private final Map<DataType, Function<String, Object>> redisDataFetcherMap = new HashMap<>();
 
