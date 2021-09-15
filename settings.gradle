@@ -6,4 +6,5 @@ include 'spring-redis'
 include 'spring-statemachine'
 include 'squirrel-foundation'
 include 'util'
+include 'graphviz'
 
