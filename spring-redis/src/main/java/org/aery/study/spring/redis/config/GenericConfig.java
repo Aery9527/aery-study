@@ -1,11 +1,14 @@
 package org.aery.study.spring.redis.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 import org.springframework.data.keyvalue.core.event.KeyValueEvent;
 import org.springframework.data.keyvalue.core.mapping.KeySpaceResolver;
+import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.core.convert.KeyspaceConfiguration;
@@ -14,6 +17,9 @@ import org.springframework.data.redis.core.index.IndexConfiguration;
 import org.springframework.data.redis.core.mapping.BasicRedisPersistentEntity;
 import org.springframework.data.redis.core.mapping.RedisMappingContext;
 import org.springframework.data.redis.core.mapping.RedisPersistentEntity;
+import org.springframework.data.redis.listener.PatternTopic;
+import org.springframework.data.redis.listener.RedisMessageListenerContainer;
+import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 import org.springframework.data.redis.listener.adapter.RedisListenerExecutionFailedException;
 import org.springframework.data.redis.repository.configuration.EnableRedisRepositories;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
@@ -36,6 +42,8 @@ import java.sql.SQLException;
 )
 @EnableTransactionManagement
 public class GenericConfig {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass()); // slf4j
 
 //    @Bean // spring預設的實作
 //    public RedisConnectionFactory redisConnectionFactory() {
@@ -209,6 +217,32 @@ public class GenericConfig {
 //        databaseBuilder.setName("transactionDatabase");
         databaseBuilder.setType(EmbeddedDatabaseType.H2);
         return databaseBuilder.build();
+    }
+
+    @Bean
+    public RedisMessageListenerContainer container(RedisConnectionFactory connectionFactory) {
+        RedisMessageListenerContainer container = new RedisMessageListenerContainer();
+        container.setConnectionFactory(connectionFactory);
+        container.addMessageListener(messageListenerAdapter(), new PatternTopic("kerker"));
+        container.addMessageListener(messageListener(), new PatternTopic("kerker"));
+        return container;
+    }
+
+    @Bean
+    public MessageListenerAdapter messageListenerAdapter() {
+        return new MessageListenerAdapter() {
+            public void handleMessage(String message, String convertedChannel) {
+                logger.info("message         : " + message);
+                logger.info("convertedChannel: " + convertedChannel);
+            }
+        };
+    }
+
+    @Bean
+    public MessageListener messageListener() {
+        return (message, pattern) -> {
+            logger.info("message         : " + message);
+        };
     }
 
     @Bean

@@ -21,14 +21,13 @@ public class RedisTemplateTest {
 
     @Test
     public void expire() {
-
         this.redisTemplate.opsForValue().set("kerker", "123");
-
         this.redisTemplate.expire("kerker", 10, TimeUnit.SECONDS);
-
     }
 
-
-
+    @Test
+    public void publish() {
+        this.redisTemplate.convertAndSend("kerker", "wtf");
+    }
 
 }
