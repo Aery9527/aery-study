@@ -3,6 +3,7 @@ package org.aery.study.spring.redis;
 import io.lettuce.core.RedisCommandExecutionException;
 import org.aery.study.spring.redis._test.RedisEmbeddedServerConfig;
 import org.assertj.core.api.Assertions;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,13 @@ public class ListOperationsTest {
                 .collect(Collectors.toList());
 
         Assertions.assertThat(result).containsExactly("2", "1");
+    }
+
+    @Test
+    public void rightPushIfPresent() {
+        System.out.println(this.redisListOps.rightPushIfPresent("kerker", "1"));
+        System.out.println(this.redisListOps.rightPush("kerker", "2"));
+        System.out.println(this.redisListOps.rightPushIfPresent("kerker", "3"));
     }
 
 }
