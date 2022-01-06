@@ -11,6 +11,7 @@ import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.SessionCallback;
 import org.springframework.data.redis.core.ValueOperations;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -22,6 +23,7 @@ import java.util.function.Consumer;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = RedisEmbeddedServerConfig.class)
 @ActiveProfiles("test")
+@DirtiesContext
 public class PipelineTest {
 
     @Autowired
