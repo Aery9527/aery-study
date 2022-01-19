@@ -23,7 +23,7 @@ public class PhantomReferenceStudy {
 
     public static void main(String[] args) throws Exception {
         LOGGER.info("虛引用, 無法獲取真實的object, 用於關注該物件是否即將被回收用的情境");
-        LOGGER.info(JvmInfo.getJVMArguments().toString()); // -Xms5M -Xmx10M
+        LOGGER.info(JvmInfo.getJvmArguments().toString()); // -Xms5M -Xmx10M
 
         pollingReferenceQueue();
 

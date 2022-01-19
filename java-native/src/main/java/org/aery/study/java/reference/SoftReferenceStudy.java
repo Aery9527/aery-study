@@ -16,7 +16,7 @@ public class SoftReferenceStudy {
 
     public static void main(String[] args) {
         LOGGER.info("軟引用, memory夠用時發生GC不會被回收, 當不夠用時的GC才會被回收");
-        LOGGER.info(JvmInfo.getJVMArguments().toString()); // -Xms5M -Xmx10M
+        LOGGER.info(JvmInfo.getJvmArguments().toString()); // -Xms5M -Xmx10M
 
         ReferenceTester<SoftReference<byte[]>> referenceTester = new ReferenceTester<>(
                 "soft",

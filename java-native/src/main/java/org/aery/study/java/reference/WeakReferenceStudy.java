@@ -16,7 +16,7 @@ public class WeakReferenceStudy {
 
     public static void main(String[] args) {
         LOGGER.info("弱引用, 任何時候GC發生時就會被回收");
-        LOGGER.info(JvmInfo.getJVMArguments().toString()); // -Xms5M -Xmx10M
+        LOGGER.info(JvmInfo.getJvmArguments().toString()); // -Xms5M -Xmx10M
 
         ReferenceTester<WeakReference<byte[]>> referenceTester = new ReferenceTester<>(
                 "weak",
