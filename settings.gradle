@@ -7,4 +7,5 @@ include 'spring-statemachine'
 include 'squirrel-foundation'
 include 'util'
 include 'graphviz'
+include 'spring-mongo'
 
