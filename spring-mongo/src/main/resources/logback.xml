@@ -20,4 +20,6 @@
         <appender-ref ref="console"/>
     </root>
 
+    <logger name="EmbeddedMongo" level="WARN"/>
+
 </configuration>

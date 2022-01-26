@@ -1,0 +1,7 @@
+spring:
+  output:
+    ansi:
+      enabled: ALWAYS
+  data:
+    mongodb:
+      port: 9527

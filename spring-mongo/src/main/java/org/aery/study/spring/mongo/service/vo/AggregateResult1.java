@@ -1,44 +1,50 @@
 package org.aery.study.spring.mongo.service.vo;
 
+import org.springframework.data.annotation.Id;
+
+import java.math.BigDecimal;
+import java.util.Map;
+
 public class AggregateResult1 {
 
-    private Object _id;
+    @Id
+    private Map<String, String> id;
 
-    private Long count;
+    private BigDecimal count;
 
-    private Long input;
+    private BigDecimal input;
 
-    private Long output;
+    private BigDecimal output;
 
-    public Object get_id() {
-        return _id;
+    public Map<String, String> getId() {
+        return id;
     }
 
-    public void set_id(Object _id) {
-        this._id = _id;
+    public void setId(Map<String, String> id) {
+        this.id = id;
     }
 
-    public Long getCount() {
+    public BigDecimal getCount() {
         return count;
     }
 
-    public void setCount(Long count) {
+    public void setCount(BigDecimal count) {
         this.count = count;
     }
 
-    public Long getInput() {
+    public BigDecimal getInput() {
         return input;
     }
 
-    public void setInput(Long input) {
+    public void setInput(BigDecimal input) {
         this.input = input;
     }
 
-    public Long getOutput() {
+    public BigDecimal getOutput() {
         return output;
     }
 
-    public void setOutput(Long output) {
+    public void setOutput(BigDecimal output) {
         this.output = output;
     }
 }
