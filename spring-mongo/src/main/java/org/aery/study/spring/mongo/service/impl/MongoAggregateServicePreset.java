@@ -55,15 +55,26 @@ public class MongoAggregateServicePreset implements MongoAggregateService {
         LocalDateTime startLDT = searchHours >= 0 ? offsetTime : offsetTime.plusHours(searchHours);
         LocalDateTime endLDT = searchHours >= 0 ? offsetTime.plusHours(searchHours) : offsetTime;
 
-        String collectionName = collectionPrefix + YearMonth.from(startLDT).toString().replace("-", "");
+        YearMonth startYM = YearMonth.from(startLDT);
+        YearMonth endYM = YearMonth.from(endLDT);
+
+        Set<YearMonth> collectionSuffixes = new HashSet<>();
+        YearMonth last = YearMonth.from(startYM);
+        do {
+            collectionSuffixes.add(last);
+            if (last.equals(endYM)) {
+                break;
+            } else {
+                last = last.plusMonths(1);
+            }
+        } while (true);
 
         long startTs = Timestamp.valueOf(startLDT).getTime();
-        long endTs = Timestamp.valueOf(endLDT).getTime() + 999;
-
+        long endTs = Timestamp.valueOf(endLDT).getTime();
         MatchOperation match = Aggregation.match(
                 Criteria.where("brand").is(brand)
                         .and("siteId").is(siteId)
-                        .and("startTime").gte(startTs).lte(endTs)
+                        .and("startTime").gte(startTs).lt(endTs)
         );
 
         ProjectionOperation project = Aggregation.project()
@@ -80,24 +91,19 @@ public class MongoAggregateServicePreset implements MongoAggregateService {
 
         Aggregation aggregation = Aggregation.newAggregation(match, project, group);
 
-        AggregationResults<AggregateResult1> aggResult = this.mongoTemplate.aggregate(aggregation, collectionName, AggregateResult1.class);
-        List<AggregateResult1> resultList = aggResult.getMappedResults();
+        AggregateResult1 result = collectionSuffixes.stream()
+                .map(yearMonth -> yearMonth.toString().replace("-", ""))
+                .map(collectionSuffix -> collectionPrefix + collectionSuffix)
+                .map(collectionName -> this.mongoTemplate.aggregate(aggregation, collectionName, AggregateResult1.class))
+                .map(AggregationResults::getMappedResults)
+                .map(resultList -> resultList.stream().findFirst().orElse(new AggregateResult1(brand, siteId)))
+                .reduce(new AggregateResult1(brand, siteId), (finalResult, dbResult) -> {
+                    finalResult.setCount(finalResult.getCount().add(dbResult.getCount()));
+                    finalResult.setInput(finalResult.getInput().add(dbResult.getInput()));
+                    finalResult.setOutput(finalResult.getOutput().add(dbResult.getOutput()));
+                    return finalResult;
+                }, (r1, r2) -> null);
 
-        if (resultList.isEmpty()) {
-            Map<String, String> id = new HashMap<>();
-            id.put("brand", brand);
-            id.put("siteId", siteId);
-
-            AggregateResult1 result = new AggregateResult1();
-            result.setId(id);
-            result.setCount(BigDecimal.ZERO);
-            result.setInput(BigDecimal.ZERO);
-            result.setOutput(BigDecimal.ZERO);
-
-            return result;
-        }
-
-        AggregateResult1 result = resultList.get(0);
         BigDecimal input = result.getInput();
         BigDecimal output = result.getOutput();
         BigDecimal oneHundred = BigDecimal.valueOf(100);

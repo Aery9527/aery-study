@@ -123,10 +123,10 @@ class MongoAggregateServiceTest {
         this.logger.info("initResult: " + JSON.toJSONString(initResult));
 
         // 條件
-        String brand = brands.get(0);
-        String siteId = sites.get(0);
-        LocalDateTime offsetTime = LocalDateTime.parse("2022-01-01 00:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        int searchHours = 4;
+        final String brand = brands.get(0);
+        final String siteId = sites.get(0);
+        final LocalDateTime offsetTime = LocalDateTime.parse("2022-01-01 01:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        final int searchHours = -4;
 
         AggregateResult1 aggrResult = this.mongoAggregateService.aggregate1(collectionPrefix, brand, siteId, offsetTime, searchHours);
         Map<String, String> id = aggrResult.getId();
@@ -134,13 +134,13 @@ class MongoAggregateServiceTest {
         BigDecimal aggrInput = aggrResult.getInput();
         BigDecimal aggrOutput = aggrResult.getOutput();
 
-        final String fieldCount = "count";
-        final String fieldInput = "input";
-        final String fieldOutput = "output";
+        String fieldCount = "count";
+        String fieldInput = "input";
+        String fieldOutput = "output";
         LocalDateTime startLDT = searchHours >= 0 ? offsetTime : offsetTime.plusHours(searchHours);
         LocalDateTime endLDT = searchHours >= 0 ? offsetTime.plusHours(searchHours) : offsetTime;
         long startTs = Timestamp.valueOf(startLDT).getTime();
-        long endTs = Timestamp.valueOf(endLDT).getTime() + 999;
+        long endTs = Timestamp.valueOf(endLDT).getTime();
 
         BigDecimal oneHundred = BigDecimal.valueOf(100);
         IntFunction<BigDecimal> mapToBigDecimal = (number) -> new BigDecimal(number).divide(oneHundred, 2, RoundingMode.HALF_UP);
@@ -148,7 +148,7 @@ class MongoAggregateServiceTest {
                 .filter((data) -> data.getBrand().equals(brand) && data.getSiteId().equals(siteId))
                 .filter((data) -> {
                     Long startTime = data.getStartTime();
-                    return startTime >= startTs && startTime <= endTs;
+                    return startTime >= startTs && startTime < endTs;
                 })
                 .map((data) -> {
                     Map<String, BigDecimal> map = new HashMap<>();
