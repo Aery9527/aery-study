@@ -45,14 +45,14 @@ public class PipelineTest {
         CountDownLatch latch3 = new CountDownLatch(1);
         CountDownLatch latch4 = new CountDownLatch(1);
 
-        AtomicReference<Long> checkPoint1 = new AtomicReference<>();
+        AtomicReference<String> checkPoint1 = new AtomicReference<>();
         AtomicReference<String> checkPoint2 = new AtomicReference<>();
 
         Thread watchThread = new Thread(() -> {
             ValueOperations<String, Object> valueOps = this.redisTemplate.opsForValue();
 
             latchAwait.accept(latch1);
-            checkPoint1.set(this.redisTemplate.countExistingKeys(Collections.singleton(key)));
+            checkPoint1.set((String) valueOps.get(key));
             latch2.countDown();
 
             latchAwait.accept(latch3);
@@ -79,7 +79,7 @@ public class PipelineTest {
         latch3.countDown();
         latchAwait.accept(latch4);
 
-        Assertions.assertThat(checkPoint1.get()).isEqualTo(1);
+        Assertions.assertThat(checkPoint1.get()).isNull();
         Assertions.assertThat(checkPoint2.get()).isEqualTo(value);
     }
 

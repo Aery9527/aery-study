@@ -1,9 +1,9 @@
 
-spring:
-  redis:
-    host: sit03-game.oz1f11.ng.0001.apse1.cache.amazonaws.com
-    port: 6379
-    database: 15
+#spring:
+#  redis:
+#    host: 127.0.0.1
+#    port: 6379
+#    database: 5
 #    lettuce:
 #      pool:
 #        max-active: 50

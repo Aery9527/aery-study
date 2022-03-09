@@ -131,7 +131,7 @@ public class DataEntityRepositoryTest {
 
         Assertions.assertThatThrownBy(() -> this.dataRepository.findByKerker(index1))
                 .isInstanceOf(PropertyReferenceException.class)
-                .hasMessageContaining("No property " + index1 + " found for type DataEntity!");
+                .hasMessageContaining("No property '" + index1 + "' found for type 'DataEntity'!");
     }
 
     @Test

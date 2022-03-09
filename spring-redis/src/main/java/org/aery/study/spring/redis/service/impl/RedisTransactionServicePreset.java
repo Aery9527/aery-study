@@ -1,6 +1,8 @@
 package org.aery.study.spring.redis.service.impl;
 
 import org.aery.study.spring.redis.service.api.RedisTransactionService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -9,6 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Component
 public class RedisTransactionServicePreset implements RedisTransactionService {
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
@@ -30,7 +34,11 @@ public class RedisTransactionServicePreset implements RedisTransactionService {
 
             this.redisTemplate.exec();
         } catch (RuntimeException e) {
-            this.redisTemplate.discard();
+            try {
+                this.redisTemplate.discard();
+            } catch (Exception ex) {
+                this.logger.error("", ex);
+            }
             throw e;
         }
     }
