@@ -4,20 +4,17 @@ import org.aery.study.feign.api.FeignApi;
 import org.aery.study.feign.api.FeignApiVo1;
 import org.aery.study.feign.api.FeignEnum;
 import org.aery.study.feign.server.FeignServerApplication;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT,
         classes = {
                 FeignServerApplication.class

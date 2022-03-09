@@ -2,8 +2,7 @@ package org.aery.study.spring.redis;
 
 import org.aery.study.spring.redis._test.RedisEmbeddedServerConfig;
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.Cursor;
@@ -11,13 +10,11 @@ import org.springframework.data.redis.core.ScanOptions;
 import org.springframework.data.redis.core.ZSetOperations;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 import java.util.Set;
 import java.util.UUID;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = RedisEmbeddedServerConfig.class)
 @ActiveProfiles("test")
 @DirtiesContext
@@ -123,7 +120,7 @@ public class ZSetOperationsTest {
 
         int count = 1;
 
-        ScanOptions.ScanOptionsBuilder builder = new ScanOptions.ScanOptionsBuilder();
+        ScanOptions.ScanOptionsBuilder builder = ScanOptions.scanOptions();
         builder.match("*");
         ScanOptions scanOptions = builder.build();
 

@@ -1,8 +1,7 @@
 package org.aery.study.spring.statmachine;
 
 import org.aery.study.spring._test.config.SingletonStateMachineConfig;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +10,8 @@ import org.springframework.messaging.Message;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.statemachine.StateMachine;
 import org.springframework.statemachine.StateMachineMessageHeaders;
-import org.springframework.test.context.junit4.SpringRunner;
 import reactor.core.publisher.Mono;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = {
         StateMachineApplication.class
         , SingletonStateMachineConfig.class

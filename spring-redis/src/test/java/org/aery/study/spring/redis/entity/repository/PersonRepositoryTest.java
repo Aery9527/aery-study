@@ -6,17 +6,14 @@ import org.aery.study.spring.redis.entity.Person;
 import org.aery.study.spring.redis.entity.Woman;
 import org.aery.study.spring.redis.service.api.RedisDataExplorer;
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest(classes = RedisEmbeddedServerConfig.class)
 @ActiveProfiles("test")
 @DirtiesContext

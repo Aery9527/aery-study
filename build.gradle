@@ -4,6 +4,8 @@ subprojects {
 
     ext {
         VERSION_JAVA = '1.8'
+        VERSION_IO_SPRING_DEPENDENCY_MANAGEMENT = '1.0.11.RELEASE' // io.spring.dependency-management
+        VERSION_ORG_SPRINGFRAMEWORK_BOOT = '2.6.4' // org.springframework.boot
     }
 
     sourceCompatibility = project.VERSION_JAVA
@@ -11,11 +13,9 @@ subprojects {
 
     repositories {
         mavenCentral()
-        jcenter()
     }
 
     dependencies {
-        // https://mvnrepository.com/artifact/ch.qos.logback/logback-classic
         implementation group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
     }
 

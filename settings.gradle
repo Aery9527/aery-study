@@ -8,4 +8,5 @@ include 'squirrel-foundation'
 include 'util'
 include 'graphviz'
 include 'spring-mongo'
+include 'spring-websocket'
 

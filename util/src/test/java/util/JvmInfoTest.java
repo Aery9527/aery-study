@@ -7,6 +7,11 @@ import java.util.Map;
 public class JvmInfoTest {
 
     @Test
+    public void name() {
+        System.out.println(1 - (0d / 0d));
+    }
+
+    @Test
     public void getJvmArguments() {
         JvmInfo.getJvmArguments().forEach(System.out::println);
     }
