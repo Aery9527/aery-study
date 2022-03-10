@@ -1,6 +1,13 @@
+ws:
+  use:
+    way: 1
+
 spring:
   application:
     name: spring-websocket
   output:
     ansi:
       enabled: ALWAYS
+  web:
+    resources:
+      static-locations: classpath:/public${ws.use.way}/

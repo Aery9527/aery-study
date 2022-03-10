@@ -38,6 +38,6 @@
         <appender-ref ref="flatfile"/>
     </root>
 
-    <logger name="org.aery.study.spring.ws" level="DEBUG"/>
+    <logger name="org.aery.study.spring.ws" level="INFO"/>
 
 </configuration>
