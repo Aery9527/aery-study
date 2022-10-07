@@ -50,7 +50,8 @@ class MongoCollectionsServicePresetTest {
     @Test
     void createCappedCollection() {
         String collectionName = "kerker";
-        this.mongoCollectionsService.createCappedCollection(collectionName, 2);
+        boolean created = this.mongoCollectionsService.createCappedCollection(collectionName, 2);
+        Assertions.assertThat(created).isTrue();
 
         this.mongoTemplate.insert(new TestData(1), collectionName);
         this.mongoTemplate.insert(new TestData(2), collectionName);
@@ -65,6 +66,9 @@ class MongoCollectionsServicePresetTest {
         Assertions.assertThat(checkResult2).hasSize(2);
         Assertions.assertThat(checkResult2.get(0).getA()).isEqualTo(2);
         Assertions.assertThat(checkResult2.get(1).getA()).isEqualTo(3);
+
+        created = this.mongoCollectionsService.createCappedCollection(collectionName, 3);
+        Assertions.assertThat(created).isFalse();
     }
 
 }

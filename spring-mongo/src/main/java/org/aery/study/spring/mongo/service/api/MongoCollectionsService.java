@@ -2,10 +2,10 @@ package org.aery.study.spring.mongo.service.api;
 
 public interface MongoCollectionsService {
 
-    default void createCappedCollection(String collectionName, long maxDocuments) {
-        createCappedCollection(collectionName, maxDocuments, 1024);
+    default boolean createCappedCollection(String collectionName, long maxDocuments) {
+        return createCappedCollection(collectionName, maxDocuments, 1024);
     }
 
-    void createCappedCollection(String collectionName, long maxDocuments, long eachSize);
+    boolean createCappedCollection(String collectionName, long maxDocuments, long eachSize);
 
 }
