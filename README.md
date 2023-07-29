@@ -12,3 +12,19 @@ about spring function.
 
 ---
 
+# graphviz
+
+about visualize, can generate .jpg/.png etc.
+
+---
+
+# squirrel-foundation
+
+state machine lib, like spring-statemachine
+
+---
+
+# rocketmq
+
+MQ lib, client of consumer and producer
+

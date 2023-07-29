@@ -2,4 +2,8 @@
 dependencies {
     // https://mvnrepository.com/artifact/guru.nidi/graphviz-java
     implementation group: 'guru.nidi', name: 'graphviz-java', version: '0.18.1'
+
+    // https://mvnrepository.com/artifact/org.graalvm.js/js
+    implementation group: 'org.graalvm.js', name: 'js', version: '23.0.1'
+
 }
