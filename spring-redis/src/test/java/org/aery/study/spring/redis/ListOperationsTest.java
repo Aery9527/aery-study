@@ -24,7 +24,7 @@ public class ListOperationsTest {
 
     @Test
     public void set() {
-        String key = "kerker";
+        String key = Long.toString(System.currentTimeMillis(), Character.MAX_RADIX);
 
         // 對一個空集合set會出錯
         Assertions.assertThatThrownBy(() -> this.redisListOps.set(key, 0, "123"))
@@ -41,11 +41,8 @@ public class ListOperationsTest {
                 .hasCauseInstanceOf(RedisCommandExecutionException.class)
                 .hasMessageContaining("ERR index out of range");
 
-        List<String> result = this.redisListOps.range(key, 0, -1).stream()
-                .map(Object::toString)
-                .collect(Collectors.toList());
-
-        Assertions.assertThat(result).containsExactly("2", "1");
+        List<String> all = getAll(key);
+        Assertions.assertThat(all).containsExactly("2", "1");
     }
 
     @Test
@@ -57,7 +54,7 @@ public class ListOperationsTest {
 
     @Test
     public void range() {
-        String key = "5566";
+        String key = Long.toString(System.currentTimeMillis(), Character.MAX_RADIX);
         String val = "Rion";
 
         Object a = this.redisListOps.index(key, 0);
@@ -66,6 +63,61 @@ public class ListOperationsTest {
         this.redisListOps.rightPush(key, val);
         Object b = this.redisListOps.index(key, 0);
         Assertions.assertThat(b).isEqualTo(val);
+    }
+
+    @Test
+    public void remove() {
+        String key = Long.toString(System.currentTimeMillis(), Character.MAX_RADIX);
+
+        this.redisListOps.rightPush(key, "A");
+        this.redisListOps.rightPush(key, "B");
+        this.redisListOps.rightPush(key, "C");
+        this.redisListOps.rightPush(key, "D");
+        this.redisListOps.rightPush(key, "A");
+        this.redisListOps.rightPush(key, "B");
+        this.redisListOps.rightPush(key, "C");
+        this.redisListOps.rightPush(key, "D");
+        this.redisListOps.rightPush(key, "A");
+        this.redisListOps.rightPush(key, "B");
+        this.redisListOps.rightPush(key, "C");
+        this.redisListOps.rightPush(key, "D");
+
+        List<String> all = getAll(key);
+        Assertions.assertThat(all).containsExactly(
+                "A", "B", "C", "D",
+                "A", "B", "C", "D",
+                "A", "B", "C", "D"
+        );
+
+        this.redisListOps.remove(key, 0, "A"); // count=0, 刪除所有相同內容
+        all = getAll(key);
+        Assertions.assertThat(all).containsExactly(
+                "B", "C", "D",
+                "B", "C", "D",
+                "B", "C", "D"
+        );
+
+        this.redisListOps.remove(key, 2, "B"); // count>0, 從左邊開始刪除相同內容, 刪除count個
+        all = getAll(key);
+        Assertions.assertThat(all).containsExactly(
+                /*"B",*/ "C", "D",
+                /*"B",*/ "C", "D",
+                "B", "C", "D"
+        );
+
+        this.redisListOps.remove(key, -1, "C"); // count<0, 從右邊開始刪除相同內容, 刪除|count|個
+        all = getAll(key);
+        Assertions.assertThat(all).containsExactly(
+                "C", "D",
+                "C", "D",
+                "B", /*"C",*/ "D"
+        );
+    }
+
+    public List<String> getAll(String key) {
+        return this.redisListOps.range(key, 0, -1).stream()
+                .map(Object::toString)
+                .collect(Collectors.toList());
     }
 }
 
