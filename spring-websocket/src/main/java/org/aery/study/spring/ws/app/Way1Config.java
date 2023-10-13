@@ -1,5 +1,6 @@
 package org.aery.study.spring.ws.app;
 
+import org.aery.study.spring.ws.util.SessionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -10,6 +11,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
+import javax.websocket.RemoteEndpoint;
+import javax.websocket.Session;
 import java.io.IOException;
 
 /**
@@ -44,6 +47,14 @@ public class Way1Config extends BaseConfig {
     @Bean
     public ServerEndpointExporter serverEndpointExporter() {
         return new ServerEndpointExporter();
+    }
+
+    @Bean
+    public SessionHandler<Session> sessionHandler() {
+        return new SessionHandler<>((session, message) -> {
+            RemoteEndpoint.Async async = session.getAsyncRemote();
+            async.sendText(message);
+        });
     }
 
 }

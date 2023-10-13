@@ -1,7 +1,9 @@
 package org.aery.study.spring.ws.way1;
 
+import org.aery.study.spring.ws.util.SessionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.event.EventListener;
@@ -42,6 +44,9 @@ public class Way1Controller {
 
     private UserVerifier userVerifier;
 
+    @Autowired
+    private SessionHandler<Session> sessionHandler;
+
     public Way1Controller() {
         StackTraceElement[] stes = Thread.currentThread().getStackTrace();
         StringBuilder stackInfo = new StringBuilder(Way1Controller.class.getSimpleName() + " construct!");
@@ -64,16 +69,16 @@ public class Way1Controller {
 
         String message = "[" + name + "] 加入聊天室!";
         this.logger.info(message);
-        Way1SessionHandler.add(name, session);
-        Way1SessionHandler.sendToAll(message);
+        this.sessionHandler.add(name, session);
+        this.sessionHandler.sendToAll(message);
     }
 
     @OnClose
     public void onClose(@PathParam(value = NAME) String name, Session session) {
         String message = "[" + name + "] 離開聊天室!";
         this.logger.info(message);
-        Way1SessionHandler.remove(name);
-        Way1SessionHandler.sendToAll(message);
+        this.sessionHandler.remove(name);
+        this.sessionHandler.sendToAll(message);
     }
 
     @OnMessage
@@ -81,7 +86,7 @@ public class Way1Controller {
         String user = null;
         String msg = null;
 
-        Matcher matcher = toSpecifiedPattern.matcher(message);
+        Matcher matcher = this.toSpecifiedPattern.matcher(message);
         if (matcher.find()) {
             user = matcher.group(this.toSpecifiedUserKey);
             msg = matcher.group(this.toSpecifiedUserMsg);
@@ -92,13 +97,13 @@ public class Way1Controller {
         String finalMsg;
         if (user == null) {
             finalMsg = "[" + name + "]：" + msg;
-            Way1SessionHandler.sendToAll(finalMsg);
+            this.sessionHandler.sendToAll(finalMsg);
         } else {
             finalMsg = "[" + name + "] to [" + user + "]：" + msg;
 
-            Way1SessionHandler.send(name, finalMsg); // to specify user
+            this.sessionHandler.send(name, finalMsg); // to specify user
             if (!name.equals(user)) {
-                Way1SessionHandler.send(user, finalMsg); // to specify user
+                this.sessionHandler.send(user, finalMsg); // to specify user
             }
         }
 
