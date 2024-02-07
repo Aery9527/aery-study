@@ -4,7 +4,10 @@ import org.aery.study.spring.redis.service.api.RedisTransactionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.core.RedisOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.SessionCallback;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,25 +25,21 @@ public class RedisTransactionServicePreset implements RedisTransactionService {
         ValueOperations<String, Object> ops = this.redisTemplate.opsForValue();
         ops.set(key, initValue);
 
-        try {
-            this.redisTemplate.multi();
-            Object v = ops.get(key); // 一定開啟
+        this.redisTemplate.execute(new SessionCallback<Object>() {
+            @Override
+            public Object execute(RedisOperations operations) throws DataAccessException {
+                operations.multi(); // open tx
 
-            ops.set(key, updatedValue);
+                Object v = operations.opsForValue().get(key);
+                ops.set(key, updatedValue);
 
-            if (thrownExceptionBeforeCommit) {
-                throw new RuntimeException();
+                if (thrownExceptionBeforeCommit) {
+                    throw new RuntimeException();
+                }
+
+                return operations.exec(); // commit tx
             }
-
-            this.redisTemplate.exec();
-        } catch (RuntimeException e) {
-            try {
-                this.redisTemplate.discard();
-            } catch (Exception ex) {
-                this.logger.error("", ex);
-            }
-            throw e;
-        }
+        });
     }
 
     @Transactional
