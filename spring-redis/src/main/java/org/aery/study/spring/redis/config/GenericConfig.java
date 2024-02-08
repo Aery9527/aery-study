@@ -66,6 +66,7 @@ public class GenericConfig {
         public CustomRedisMappingContext(MappingConfiguration mappingConfiguration) throws NoSuchFieldException, IllegalAccessException {
             super(mappingConfiguration);
 
+            // FIXME 已經沒有這個field了, 要重新研究spring redis data了
             Field resolverField = RedisMappingContext.class.getDeclaredField("fallbackKeySpaceResolver");
             resolverField.setAccessible(true);
             this.fallbackKeySpaceResolver = (KeySpaceResolver) resolverField.get(this);
