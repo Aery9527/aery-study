@@ -8,6 +8,6 @@ dependencies {
     implementation group: 'com.alibaba.fastjson2', name: 'fastjson2', version: '2.0.46'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation group: 'de.flapdoodle.embed', name: 'de.flapdoodle.embed.mongo', version: '4.12.2'
+    testImplementation group: 'de.flapdoodle.embed', name: 'de.flapdoodle.embed.mongo.spring30x', version: '4.11.0'
 
 }

@@ -33,7 +33,7 @@ import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.function.IntUnaryOperator;
 
-@DataMongoTest(properties = "spring.mongodb.embedded.version=3.5.5")
+@DataMongoTest(properties = "de.flapdoodle.mongodb.embedded.version=5.0.5")
 @ExtendWith(SpringExtension.class)
 @ComponentScan(basePackageClasses = SpringMongoStudyApplication.class)
 class MongoAggregateServiceTest {
