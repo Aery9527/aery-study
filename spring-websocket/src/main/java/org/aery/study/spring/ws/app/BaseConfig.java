@@ -2,13 +2,13 @@ package org.aery.study.spring.ws.app;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 
-import javax.annotation.PostConstruct;
 import java.io.IOException;
 
-public class BaseConfig {
+public class BaseConfig implements InitializingBean {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
@@ -21,8 +21,8 @@ public class BaseConfig {
         this.openUriWhenSpringReadied = openUriWhenSpringReadied;
     }
 
-    @PostConstruct
-    public void initial() {
+    @Override
+    public void afterPropertiesSet() throws Exception {
         this.logger.info("use websocket config : " + getClass().getSimpleName());
     }
 
