@@ -21,7 +21,7 @@ public class MongoCollectionsServicePreset implements MongoCollectionsService {
     public boolean createCappedCollection(String collectionName, long maxDocuments, long eachSize) {
         try {
             long cappedSize = maxDocuments * eachSize;
-            CollectionOptions options = new CollectionOptions(cappedSize, maxDocuments, true);
+            CollectionOptions options = CollectionOptions.empty().capped().size(cappedSize).maxDocuments(maxDocuments);
             this.mongoTemplate.createCollection(collectionName, options);
             return true;
         } catch (UncategorizedMongoDbException e) {

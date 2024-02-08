@@ -1,6 +1,6 @@
 package org.aery.study.spring.mongo.service;
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson2.JSON;
 import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.DBObject;
 import org.aery.study.spring.mongo.SpringMongoStudyApplication;
