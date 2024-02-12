@@ -5,10 +5,10 @@ plugins {
 
 dependencies {
     implementation('org.springframework.boot:spring-boot-starter')
-    implementation group: 'io.projectreactor', name: 'reactor-core', version: '3.4.9'
-    implementation('org.springframework.statemachine:spring-statemachine-starter:3.0.1') {
-        exclude group: 'io.projectreactor', module: 'reactor-core'
-    }
+//    implementation group: 'io.projectreactor', name: 'reactor-core', version: '3.6.2'
+//    implementation('org.springframework.statemachine:spring-statemachine-starter:4.0.0') {
+//        exclude group: 'io.projectreactor', module: 'reactor-core'
+//    }
+    implementation('org.springframework.statemachine:spring-statemachine-starter:4.0.0')
 
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
