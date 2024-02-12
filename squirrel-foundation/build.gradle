@@ -1,5 +1,5 @@
 
 dependencies {
     // https://mvnrepository.com/artifact/org.squirrelframework/squirrel-foundation
-    implementation group: 'org.squirrelframework', name: 'squirrel-foundation', version: '0.3.8'
+    implementation group: 'org.squirrelframework', name: 'squirrel-foundation', version: '0.3.10'
 }
