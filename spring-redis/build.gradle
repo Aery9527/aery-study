@@ -10,6 +10,5 @@ dependencies {
     implementation group: 'org.apache.commons', name: 'commons-pool2'
     implementation group: 'com.fasterxml.jackson.core', name: 'jackson-databind'
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation group: 'it.ozimov', name: 'embedded-redis', version: '0.7.3'
 }
