@@ -40,7 +40,7 @@ public class Application {
         String anchor = "graphviz";
         int cutIndex = classPathRoot.indexOf(anchor);
         String targetPath = classPathRoot.substring(5, cutIndex + anchor.length() + 1);
-        targetPath += "src" + File.separator + "main" + File.separator + "resources" + File.separator;
+//        targetPath += "src" + File.separator + "main" + File.separator + "resources" + File.separator;
         String fileName = "sample.png";
         File file = new File(targetPath + fileName);
 
