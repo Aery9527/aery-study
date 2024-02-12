@@ -20,12 +20,9 @@ public class Consumer {
         consumer.subscribe(Common.TOPIC_ASYNC, "*"); // subExpression用來過濾tag
         consumer.subscribe(Common.TOPIC_ONEWAY, "*"); // subExpression用來過濾tag
 
-        consumer.registerMessageListener(new MessageListenerConcurrently() {
-            @Override
-            public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs, ConsumeConcurrentlyContext context) {
-                System.out.printf("%s Receive New Messages: %s %n", Thread.currentThread().getName(), msgs);
-                return ConsumeConcurrentlyStatus.CONSUME_SUCCESS; // 對broker標記該消息成功消費
-            }
+        consumer.registerMessageListener((MessageListenerConcurrently) (msgs, context) -> {
+            System.out.printf("%s Receive New Messages: %s %n", Thread.currentThread().getName(), msgs);
+            return ConsumeConcurrentlyStatus.CONSUME_SUCCESS; // 對broker標記該消息成功消費
         });
 
         consumer.start();
