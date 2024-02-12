@@ -6,9 +6,9 @@
 
     <property name="LOG_FILE" value="${BUILD_FOLDER:-logs}/${springAppName:-spring-websocket}.log"/>
     <property name="CONSOLE_PATTERN"
-              value="%clr(%d{HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([%thread]){faint} %clr(%logger{0}.%M\\(%F:%L\\)){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+              value="%clr(%d{HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr([%thread]){faint} %clr(%logger{0}.%M\(%F:%L\)){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
     <property name="FILE_PATTERN"
-              value="%d{HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} [%thread] %logger{0}.%M\\(%F:%L\\) : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
+              value="%d{HH:mm:ss.SSS} ${LOG_LEVEL_PATTERN:-%5p} [%thread] %logger{0}.%M\(%F:%L\) : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"/>
 
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
