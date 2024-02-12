@@ -6,6 +6,4 @@ plugins {
 dependencies {
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web'
     implementation group: 'org.springframework.cloud', name: 'spring-cloud-starter-openfeign', version: '4.1.0'
-
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
