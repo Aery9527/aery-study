@@ -1,0 +1,6 @@
+
+dependencies {
+    implementation project(':java-module-api')
+    implementation project(':java-module-x')
+    implementation project(':java-module-z')
+}
