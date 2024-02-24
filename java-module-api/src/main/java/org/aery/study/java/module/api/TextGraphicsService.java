@@ -11,7 +11,7 @@ public interface TextGraphicsService {
 
     int DEFAULT_LENGTH = 11;
 
-    static Iterable<TextGraphicsService> load() {
+    static ServiceLoader<TextGraphicsService> load() {
         return ServiceLoader.load(TextGraphicsService.class);
     }
 
