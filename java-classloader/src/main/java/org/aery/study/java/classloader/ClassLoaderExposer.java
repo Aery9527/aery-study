@@ -5,14 +5,15 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.Function;
 
 public class ClassLoaderExposer {
 
-    public static void showSystemClassLoaderParent() {
-        showParent("SystemClassLoader", ClassLoader.getSystemClassLoader());
+    public static void showSystemClassLoaderStructure() {
+        showStructure("SystemClassLoader", ClassLoader.getSystemClassLoader());
     }
 
-    public static void showParent(String title, ClassLoader targetClassLoader) {
+    public static void showStructure(String title, ClassLoader targetClassLoader) {
         printlnWithJavaVersion("show ClassLoader structure start with \"" + title + "\"");
 
         Map<ClassLoader, List<Class<?>>> classLoaderMap = new LinkedHashMap<>();
@@ -56,7 +57,6 @@ public class ClassLoaderExposer {
                 Class<?> extendClass = extendClasses.get(i);
 
                 boolean finalExtendClass = i == extendClasses.size() - 1;
-//                String arrow = finalParentClassLoader ? "!" : (finalExtendClass ? "V" : "|");
                 String arrow = finalExtendClass ? "V" : (finalParentClassLoader ? "!" : "|");
                 String msg = String.format(format1, arrow);
                 msg += String.format(format2, "") + "   └>   " + extendClass.getName();
@@ -69,9 +69,52 @@ public class ClassLoaderExposer {
         println(String.format("%" + (bootstrapNameHalfLength + parentMaxLengthHalf1) + "s", bootstrapName));
     }
 
+    public static void showSystemClassLoaderBaseInfo() {
+        ClassLoader cl = ClassLoader.getSystemClassLoader();
+        do {
+            showBaseInfo(cl);
+            println();
+            cl = cl.getParent();
+        } while (cl != null);
+    }
+
+    public static void showBaseInfo(ClassLoader cl) {
+        printlnWithJavaVersion("show ClassLoader base info with \"" + cl + "\"");
+
+        Map<String, Object> info = new LinkedHashMap<>();
+        info.put("getName()", cl.getName());
+
+        String getDefinedPackages = "getDefinedPackages()";
+        Package[] definedPackages = cl.getDefinedPackages();
+        info.put(getDefinedPackages + ".length", definedPackages.length);
+        for (int i = 0; i < definedPackages.length; i++) {
+            Package definedPackage = definedPackages[i];
+            info.put(getDefinedPackages + "[" + i + "]", definedPackage);
+        }
+
+        String getUnnamedModule = "getUnnamedModule()";
+        Module unnamedModule = cl.getUnnamedModule();
+        info.put(getUnnamedModule, unnamedModule);
+        info.put(getUnnamedModule + ".getName()", unnamedModule.getName());
+        info.put(getUnnamedModule + ".getLayer()", unnamedModule.getLayer());
+        info.put(getUnnamedModule + ".Descriptor()", unnamedModule.getDescriptor());
+
+        int keyMaxLength = info.keySet().stream()
+                .mapToInt(String::length)
+                .max()
+                .getAsInt();
+
+        Function<Object, String> format = msg -> String.format("%-" + keyMaxLength + "s ", msg);
+        info.forEach((key, value) -> println(format.apply(key) + value));
+    }
+
     private static void printlnWithJavaVersion(Object msg) {
         String javaVersion = System.getProperties().getProperty("java.version");
         println("[v" + javaVersion + "] " + msg);
+    }
+
+    private static void println() {
+        println("");
     }
 
     private static void println(Object msg) {
