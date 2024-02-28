@@ -56,12 +56,17 @@ public class ClassLoaderExposer {
                 Class<?> extendClass = extendClasses.get(i);
 
                 boolean finalExtendClass = i == extendClasses.size() - 1;
-                String arrow = finalParentClassLoader ? " " : (finalExtendClass ? "V" : "|");
+//                String arrow = finalParentClassLoader ? "!" : (finalExtendClass ? "V" : "|");
+                String arrow = finalExtendClass ? "V" : (finalParentClassLoader ? "!" : "|");
                 String msg = String.format(format1, arrow);
                 msg += String.format(format2, "") + "   └>   " + extendClass.getName();
                 println(msg);
             }
         });
+
+        String bootstrapName = "BootstrapClassLoader";
+        int bootstrapNameHalfLength = bootstrapName.length() / 2;
+        println(String.format("%" + (bootstrapNameHalfLength + parentMaxLengthHalf1) + "s", bootstrapName));
     }
 
     private static void printlnWithJavaVersion(Object msg) {
