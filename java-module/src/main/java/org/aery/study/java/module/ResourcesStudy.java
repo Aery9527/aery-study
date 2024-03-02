@@ -11,7 +11,7 @@ import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.stream.Collectors;
 
-public class ResourcesEntry {
+public class ResourcesStudy {
 
     public static void main(String[] args) {
         BiFunction<Class<?>, String, InputStream> clazzResourceFetcher = Class::getResourceAsStream;
@@ -36,7 +36,7 @@ public class ResourcesEntry {
         };
 
         String innerFileName = "inner_resource.txt";
-        String rootFileName = "root_resource.txt";
+        String rootFileName = "root_resource.txt"; // always can read other module root resource
 
         TextGraphicsService.load().forEach(service -> {
             Class<? extends TextGraphicsService> clazz = service.getClass();

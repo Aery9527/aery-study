@@ -6,7 +6,7 @@ import org.aery.study.java.module.utils.vo.TextGraphics;
 
 import java.util.ServiceLoader;
 
-public class TextGraphicsServiceEntry {
+public class ServiceStudy {
 
     public static void main(String[] args) {
         ConsolePrinter printer = ConsolePrinter.withFrame();

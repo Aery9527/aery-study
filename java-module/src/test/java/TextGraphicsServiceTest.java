@@ -1,4 +1,4 @@
-import org.aery.study.java.module.TextGraphicsServiceEntry;
+import org.aery.study.java.module.ServiceStudy;
 import org.aery.study.java.module.api.TextGraphicsService;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ public class TextGraphicsServiceTest {
      */
     @Test
     void findService() {
-        TextGraphicsServiceEntry.main(new String[0]);
+        ServiceStudy.main(new String[0]);
     }
 
 }
