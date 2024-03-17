@@ -5,4 +5,6 @@ module aery.study.java.module {
     requires transitive aery.study.java.module.api;
     requires org.slf4j; // pass the required to the module that requires this module
 
+    uses org.aery.study.java.module.api.TextGraphicsService;
+
 }

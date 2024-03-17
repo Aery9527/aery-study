@@ -10,7 +10,6 @@ public class ServiceStudy {
 
     public static void main(String[] args) {
         ConsolePrinter printer = ConsolePrinter.withFrame();
-//        ConsolePrinter printer = ConsolePrinter.withoutFrame();
 
         ServiceLoader<TextGraphicsService> serviceLoader = TextGraphicsService.load();
         serviceLoader
@@ -22,7 +21,7 @@ public class ServiceStudy {
                     System.out.println(service.name());
 
                     TextGraphics graphics = service.draw();
-//                    TextGraphics graphics = service.draw(new TextFrame(5, 5));
+//                    TextGraphics graphics = service.draw(new TextFrame(21, 12));
 
                     printer.print(graphics);
                 });

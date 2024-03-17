@@ -24,4 +24,6 @@ include 'java-module-api'
 include 'java-module-utils'
 include 'java-module-x'
 include 'java-module-z'
+include 'java-module-phantom'
+include 'java-module-y'
 
