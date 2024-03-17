@@ -4,6 +4,7 @@ import org.aery.study.java.module.api.TextGraphicsService;
 import org.aery.study.java.module.utils.printer.ConsolePrinter;
 
 import java.lang.module.ModuleDescriptor;
+import java.util.Objects;
 
 public class ModuleStudy {
 
@@ -12,13 +13,10 @@ public class ModuleStudy {
         Module currentModule = ModuleStudy.class.getModule();
         ModuleLayer currentModuleLayer = currentModule.getLayer();
         ModuleDescriptor currentModuleDescriptor = currentModule.getDescriptor();
+
         println("ModuleStudy-Module.getDescriptor()  : " + currentModuleDescriptor);
         println("ModuleStudy-Module.getLayer()       : " + currentModuleLayer);
         println("ModuleStudy-Module.getName()        : " + currentModule.getName());
-        println();
-
-        println("ModuleLayer.boot()                  : " + ModuleLayer.boot());
-        println("ModuleLayer.empty()                 : " + ModuleLayer.empty());
         println();
 
         Module apiModule = TextGraphicsService.class.getModule();
@@ -31,6 +29,13 @@ public class ModuleStudy {
         showModuleDescriptor(utilsModule.getDescriptor());
         showModuleDescriptor(xModule.getDescriptor());
         showModuleDescriptor(zModule.getDescriptor());
+
+        showModuleLayer("ModuleLayer.boot()", ModuleLayer.boot());
+        showModuleLayer("currentModuleLayer", currentModuleLayer);
+        showModuleLayer("apiModule", apiModule.getLayer());
+        showModuleLayer("utilsModule", utilsModule.getLayer());
+        showModuleLayer("xModule", xModule.getLayer());
+        showModuleLayer("zModule", zModule.getLayer());
 
         currentModule.addExports("org.aery.study.java.module", xModule); // export exported package
         currentModule.addExports("org.aery.study.java.module.other", zModule); // export not exported modules
@@ -57,6 +62,17 @@ public class ModuleStudy {
         println("moduleDescriptor.isAutomatic()      : " + moduleDescriptor.isAutomatic());
         println("moduleDescriptor.modifiers()        : " + moduleDescriptor.modifiers());
         println("-------------------------------------");
+        println();
+    }
+
+    private static void showModuleLayer(String from, ModuleLayer moduleLayer) {
+        println("----------------------------------");
+        println("moduleLayer from            : " + from + " (" + Objects.toIdentityString(moduleLayer) + ")");
+        println("moduleLayer.toString()      : " + moduleLayer);
+        println("moduleLayer.modules()       : " + moduleLayer.modules());
+        println("moduleLayer.configuration() : " + moduleLayer.configuration());
+        println("moduleLayer.parents()       : " + moduleLayer.parents());
+        println("----------------------------------");
         println();
     }
 
