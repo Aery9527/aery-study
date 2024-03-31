@@ -1,5 +1,6 @@
-package org.aery.study.java.module;
+package org.aery.study.java.module.test;
 
+import org.aery.study.java.module.RefractionStudy;
 import org.junit.jupiter.api.Test;
 
 class RefractionStudyTest {
