@@ -1,0 +1,16 @@
+aery:
+  study:
+    vf:
+
+      target: JDK21
+
+      source:
+        official-website:
+          url: "https://openjdk.org/projects/jdk/21"
+
+      destination:
+        md-file:
+          name: "jdk21-features.md"
+
+      http-retriever:
+#        .print-all-line: true

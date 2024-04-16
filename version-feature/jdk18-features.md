@@ -1,0 +1,11 @@
+## [form OpenJDK - JDK18](https://openjdk.org/projects/jdk/18)
+
+- [400 : UTF-8 by Default](https://openjdk.org/jeps/400)
+- [408 : Simple Web Server](https://openjdk.org/jeps/408)
+- [413 : Code Snippets in Java API Documentation](https://openjdk.org/jeps/413)
+- [416 : Reimplement Core Reflection with Method Handles](https://openjdk.org/jeps/416)
+- [417 : Vector API (Third Incubator)](https://openjdk.org/jeps/417)
+- [418 : Internet-Address Resolution SPI](https://openjdk.org/jeps/418)
+- [419 : Foreign Function &amp; Memory API (Second Incubator)](https://openjdk.org/jeps/419)
+- [420 : Pattern Matching for switch (Second Preview)](https://openjdk.org/jeps/420)
+- [421 : Deprecate Finalization for Removal](https://openjdk.org/jeps/421)

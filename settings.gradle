@@ -26,4 +26,5 @@ include 'java-module-x'
 include 'java-module-z'
 include 'java-module-phantom'
 include 'java-module-y'
+include 'version-feature'
 

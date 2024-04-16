@@ -1,0 +1,10 @@
+## [form OpenJDK - JDK12](https://openjdk.org/projects/jdk/12)
+
+- [189 : Shenandoah: A Low-Pause-Time Garbage Collector (Experimental)](https://openjdk.org/jeps/189)
+- [230 : Microbenchmark Suite](https://openjdk.org/jeps/230)
+- [325 : Switch Expressions (Preview)](https://openjdk.org/jeps/325)
+- [334 : JVM Constants API](https://openjdk.org/jeps/334)
+- [340 : One AArch64 Port, Not Two](https://openjdk.org/jeps/340)
+- [341 : Default CDS Archives](https://openjdk.org/jeps/341)
+- [344 : Abortable Mixed Collections for G1](https://openjdk.org/jeps/344)
+- [346 : Promptly Return Unused Committed Memory from G1](https://openjdk.org/jeps/346)
