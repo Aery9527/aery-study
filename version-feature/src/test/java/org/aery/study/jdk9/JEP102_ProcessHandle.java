@@ -1,4 +1,4 @@
-package org.aery.study.vf._9;
+package org.aery.study.jdk9;
 
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -9,9 +9,9 @@ import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-class ProcessHandleTest {
+class JEP102_ProcessHandle {
 
-    private final static Logger LOGGER = LoggerFactory.getLogger(ProcessHandleTest.class);
+    private final static Logger LOGGER = LoggerFactory.getLogger(JEP102_ProcessHandle.class);
 
     public static void print(String term, ProcessHandle processHandle) {
         String prefix = "[" + term + "] ";

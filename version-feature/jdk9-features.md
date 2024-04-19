@@ -1,6 +1,6 @@
-## [form OpenJDK - JDK9](https://openjdk.org/projects/jdk9/) [[study code](./src/test/java/org/aery/study/vf/_9)]
+## [form OpenJDK - JDK9](https://openjdk.org/projects/jdk9/) [[study code](./src/test/java/org/aery/study/jdk9)]
 
-- [102 : Process API Updates](https://openjdk.org/jeps/102)
+- [102 : Process API Updates](https://openjdk.org/jeps/102) #功能
     - 增強`Process`的支援, 主要是透過`ProcessHandle`來操作新的功能, 而`Process`身上新增的一些方法, 主要也都是從`ProcessHandle`來的
     - `ProcessHandle`可透過`Process.toHandler()`取得
 - [110 : HTTP 2 Client](https://openjdk.org/jeps/110)

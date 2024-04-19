@@ -1,4 +1,4 @@
-package org.aery.study.vf._9;
+package org.aery.study.jdk9;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -8,12 +8,12 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.util.Optional;
 
-class ProcessBuilderTest {
+class JEP102_ProcessBuilder {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     @Test
-    void ProcessBuilder() throws IOException, InterruptedException {
+    void test() throws IOException, InterruptedException {
         ProcessBuilder processBuilder = new ProcessBuilder("java", "-version");
         Process subProcess = processBuilder.start();
         ProcessHandle subProcessHandle = subProcess.toHandle();
@@ -30,7 +30,7 @@ class ProcessBuilderTest {
             this.logger.info("sub process exitValue = " + process.exitValue());
         });
 
-        ProcessHandleTest.print("sub1", subProcessHandle);
+        JEP102_ProcessHandle.print("sub1", subProcessHandle);
 
         this.logger.info("before waiting...");
         Thread.sleep(100); // wait for subProcess to finish
@@ -45,8 +45,8 @@ class ProcessBuilderTest {
         subProcess.getInputStream().transferTo(System.out);
         subProcess.getErrorStream().transferTo(System.out);
 
-        ProcessHandleTest.print("this", parentBeforeSubProcessDead.get());
-        ProcessHandleTest.print("sub2", subProcessHandle);
+        JEP102_ProcessHandle.print("this", parentBeforeSubProcessDead.get());
+        JEP102_ProcessHandle.print("sub2", subProcessHandle);
     }
 
 
