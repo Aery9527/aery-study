@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class InstantStudy {
@@ -19,9 +18,6 @@ public class InstantStudy {
         Instant instant4 = Instant.ofEpochMilli(testEpochSecond * 1000L); // 2021-01-01T00:00:00Z
         Instant instant5 = Instant.ofEpochSecond(testEpochSecond, (long) Math.pow(10, 6));
         Instant instant6 = Instant.ofEpochSecond(testEpochSecond, 1);
-
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
-        String formattedString = formatter.format(instant6);
 
         System.out.println(instant1);
         System.out.println(instant2);
