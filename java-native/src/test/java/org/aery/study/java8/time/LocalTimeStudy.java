@@ -1,7 +1,7 @@
 package org.aery.study.java8.time;
 
 import org.assertj.core.api.Assertions;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.time.*;
 import java.time.chrono.Chronology;
