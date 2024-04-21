@@ -5,7 +5,11 @@
 - [315 : Improve Aarch64 Intrinsics](https://openjdk.org/jeps/315)
 - [318 : Epsilon: A No-Op Garbage Collector](https://openjdk.org/jeps/318)
 - [320 : Remove the Java EE and CORBA Modules](https://openjdk.org/jeps/320)
-- [321 : HTTP Client (Standard)](https://openjdk.org/jeps/321)
+- [321 : HTTP Client (Standard)](https://openjdk.org/jeps/321) [[study code](./src/test/java/org/aery/study/jdk11)]
+  - 定義新的http API, 並實作HTTP/2和websocket, 用以取代舊的`HttpURLConnection` API
+  - 支援HTTP/2, HTTPS/LTS, websocket
+  - 支援非同步操作
+  - 有標準和通用的身分驗證機制
 - [323 : Local-Variable Syntax for Lambda Parameters](https://openjdk.org/jeps/323)
 - [324 : Key Agreement with Curve25519 and Curve448](https://openjdk.org/jeps/324)
 - [327 : Unicode 10](https://openjdk.org/jeps/327)
