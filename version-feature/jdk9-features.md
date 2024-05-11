@@ -1,11 +1,19 @@
 ## [form OpenJDK - JDK9](https://openjdk.org/projects/jdk9/) [[study code](./src/test/java/org/aery/study/jdk9)]
 
-- [102 : Process API Updates](https://openjdk.org/jeps/102) *#feature*
+- [102 : Process API Updates](https://openjdk.org/jeps/102) #feature
   - 增強`Process`的支援, 主要是透過`ProcessHandle`來操作新的功能, 而`Process`身上新增的一些方法, 主要也都是從`ProcessHandle`來的
   - `ProcessHandle`可透過`Process.toHandler()`取得
-- [110 : HTTP 2 Client](https://openjdk.org/jeps/110) *#feature* *#incubator*
+- [110 : HTTP 2 Client](https://openjdk.org/jeps/110) #feature #incubator
+  - 增加原生的HTTP/2 client API, 正式推出在 jdk11 
 - [143 : Improve Contended Locking](https://openjdk.org/jeps/143)
+  - 改善鎖的性能, 透過一系列測試基準確保效能的提升, 且無競爭的鎖不能有效能下降的狀況
 - [158 : Unified JVM Logging](https://openjdk.org/jeps/158)
+  - 為JVM所有元件引入一個通用的log系統
+  - 可以方便觀測class loading, thread, GC, Module System, 等相關JVM原生的基礎資訊
+  - 使用 `-Xlog` JVM參數來設置, 可以控制不同組件, 不同等級
+  - 透過 JMX的MBean 或 `jcmd {PID} VM.log` 可以動態修改log設置
+  - 例如jdk9之前要打開GC的log會使用 `-XX:+PrintGCDetails` `-XX:+UseGCLogFileRotation` `-XX:NumberOfGCLogFiles=5` 等參數,
+    而jdk開始可以改用 `-Xlog:gc*=debug:file=/tmp/gc.log:uptime,tid:filecount=5,filesize=2m` 來設置
 - [165 : Compiler Control](https://openjdk.org/jeps/165)
 - [193 : Variable Handles](https://openjdk.org/jeps/193)
 - [197 : Segmented Code Cache](https://openjdk.org/jeps/197)
