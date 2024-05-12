@@ -19,6 +19,12 @@
   - 可以透過jvm參數, 環境變數, 或annotation進行設置, 從而為開發人員提供的更靈活的控制能力
   - 例如開發人員可以透過這些選向來調整方法內聯、循環展開、數組邊界檢查等優化行為, 還可以設置不同優化級別來平衡性能和代碼大小之間的權衡
 - [193 : Variable Handles](https://openjdk.org/jeps/193)
+  - 之前對於field的原子或有序操作都有部分問題存在, 在jdk9之前只有以下幾種方法:
+    1. `Atomic*` : 這種方式導致額外的記憶體開銷且會有額外的併發問題 (AtomicInteger, AtomicLong, ...)
+    2. `Atomic*FieldUpdater` : 通常會遇到操作本身更大的開銷 (AtomicIntegerFieldUpdater, AtomicLongFieldUpdater, ...)
+    3. `Unsafe` : 這方式雖然快速但不安全且不易使用也有移植性問題 (可直接跟OS申請記憶體, 而繞過jvm記憶體管理模型)
+  - 所以 `VarHandle` 基本上就是等效 `java.util.concurrent.atomic` 、 `sun.misc.Unsafe` 的功能, 提供更安全便捷的操作
+  - `VarHandle` 與 reflection 機制不同在於, 前者只有創建時會做檢查, 而後者每次操作都會做檢查 
 - [197 : Segmented Code Cache](https://openjdk.org/jeps/197)
 - [199 : Smart Java Compilation, Phase Two](https://openjdk.org/jeps/199)
 - [200 : The Modular JDK](https://openjdk.org/jeps/200)
