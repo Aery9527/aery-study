@@ -4,7 +4,7 @@
   - 增強`Process`的支援, 主要是透過`ProcessHandle`來操作新的功能, 而`Process`身上新增的一些方法, 主要也都是從`ProcessHandle`來的
   - `ProcessHandle`可透過`Process.toHandler()`取得
 - [110 : HTTP 2 Client](https://openjdk.org/jeps/110) #feature #incubator
-  - 增加原生的HTTP/2 client API, 正式推出在 jdk11 
+  - 增加原生的HTTP/2 client API, 在 jdk11 正式推出 
 - [143 : Improve Contended Locking](https://openjdk.org/jeps/143)
   - 改善鎖的性能, 透過一系列測試基準確保效能的提升, 且無競爭的鎖不能有效能下降的狀況
 - [158 : Unified JVM Logging](https://openjdk.org/jeps/158)
@@ -15,6 +15,9 @@
   - 例如jdk9之前要打開GC的log會使用 `-XX:+PrintGCDetails` `-XX:+UseGCLogFileRotation` `-XX:NumberOfGCLogFiles=5` 等參數,
     而jdk開始可以改用 `-Xlog:gc*=debug:file=/tmp/gc.log:uptime,tid:filecount=5,filesize=2m` 來設置
 - [165 : Compiler Control](https://openjdk.org/jeps/165)
+  - 提供一種可精細控制編譯器行為的方法, 因為有時候某些優化策略會意外導致性能下降, 因此透過此功能可以調整優化策略
+  - 可以透過jvm參數, 環境變數, 或annotation進行設置, 從而為開發人員提供的更靈活的控制能力
+  - 例如開發人員可以透過這些選向來調整方法內聯、循環展開、數組邊界檢查等優化行為, 還可以設置不同優化級別來平衡性能和代碼大小之間的權衡
 - [193 : Variable Handles](https://openjdk.org/jeps/193)
 - [197 : Segmented Code Cache](https://openjdk.org/jeps/197)
 - [199 : Smart Java Compilation, Phase Two](https://openjdk.org/jeps/199)
