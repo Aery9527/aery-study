@@ -47,9 +47,13 @@ public class ListOperationsTest {
 
     @Test
     public void rightPushIfPresent() {
-        System.out.println(this.redisListOps.rightPushIfPresent("kerker", "1"));
-        System.out.println(this.redisListOps.rightPush("kerker", "2"));
-        System.out.println(this.redisListOps.rightPushIfPresent("kerker", "3"));
+        String key = "kerker";
+        Assertions.assertThat(this.redisListOps.rightPushIfPresent(key, "1")).isEqualTo(0);
+        Assertions.assertThat(this.redisListOps.rightPush(key, "2")).isEqualTo(1);
+        Assertions.assertThat(this.redisListOps.rightPushIfPresent(key, "3")).isEqualTo(2);
+
+        List<String> all = getAll(key);
+        Assertions.assertThat(all).containsExactly("2", "3");
     }
 
     @Test
