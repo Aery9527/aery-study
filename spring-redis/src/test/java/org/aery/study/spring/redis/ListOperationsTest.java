@@ -11,7 +11,11 @@ import org.springframework.data.redis.core.ListOperations;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 
+import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.function.Consumer;
+import java.util.function.ToLongFunction;
 import java.util.stream.Collectors;
 
 @SpringBootTest(classes = RedisEmbeddedServerConfig.class)
@@ -54,6 +58,65 @@ public class ListOperationsTest {
 
         List<String> all = getAll(key);
         Assertions.assertThat(all).containsExactly("2", "3");
+    }
+
+    @Test
+    void pop() {
+        String sourceKey = "source";
+        String destinationKey = "destination";
+        long timeout = 100;
+        TimeUnit unit = TimeUnit.MILLISECONDS;
+        Duration duration = Duration.ofMillis(timeout);
+        ToLongFunction<Runnable> testTimeout = runnable -> {
+            long start = System.currentTimeMillis();
+            runnable.run();
+            return System.currentTimeMillis() - start;
+        };
+        Consumer<Runnable> testOverTimeout = runnable -> Assertions.assertThat(testTimeout.applyAsLong(runnable)).isGreaterThanOrEqualTo(timeout);
+        Consumer<Runnable> testLessTimeout = runnable -> Assertions.assertThat(testTimeout.applyAsLong(runnable)).isLessThan(timeout);
+
+        Assertions.assertThat(this.redisListOps.leftPop(sourceKey)).isNull(); // 從左邊立即取出1個元素
+//        Assertions.assertThat(this.redisListOps.leftPop(sourceKey, 1)).isNull(); // 從左邊立即取出3個元素 unsupport
+        Assertions.assertThat(this.redisListOps.rightPop(sourceKey)).isNull(); // 從右邊立即取出1個元素
+//        Assertions.assertThat(this.redisListOps.rightPop(sourceKey, 1)).isNull(); // 從右邊立即取出3個元素 unsupport
+
+        testOverTimeout.accept(() -> Assertions.assertThat(this.redisListOps.leftPop(sourceKey, timeout, unit)).isNull()); // 從左邊取出1個元素, 或等到timeout
+        testOverTimeout.accept(() -> Assertions.assertThat(this.redisListOps.leftPop(sourceKey, duration)).isNull()); // 從左邊取出1個元素, 或等到timeout
+        testOverTimeout.accept(() -> Assertions.assertThat(this.redisListOps.rightPop(sourceKey, timeout, unit)).isNull()); // 從右邊取出1個元素, 或等到timeout
+        testOverTimeout.accept(() -> Assertions.assertThat(this.redisListOps.rightPop(sourceKey, duration)).isNull()); // 從右邊取出1個元素, 或等到timeout
+
+        Assertions.assertThat(this.redisListOps.rightPopAndLeftPush(sourceKey, destinationKey)).isNull(); // 從sourceKey右邊取出1個元素, 塞到destinationKey左邊
+
+        this.redisListOps.rightPush(sourceKey, "A");
+        this.redisListOps.rightPush(sourceKey, "B");
+        this.redisListOps.rightPush(sourceKey, "C");
+        this.redisListOps.rightPush(sourceKey, "D");
+        this.redisListOps.rightPush(sourceKey, "E");
+        this.redisListOps.rightPush(sourceKey, "F");
+        this.redisListOps.rightPush(sourceKey, "G");
+        this.redisListOps.rightPush(sourceKey, "H");
+        Assertions.assertThat(getAll(sourceKey)).containsExactly("A", "B", "C", "D", "E", "F", "G", "H");
+
+        Assertions.assertThat(this.redisListOps.leftPop(sourceKey)).isEqualTo("A");
+//        Assertions.assertThat(this.redisListOps.leftPop(sourceKey, 1)).isEqualTo(); // unsupport
+        Assertions.assertThat(this.redisListOps.rightPop(sourceKey)).isEqualTo("H");
+//        Assertions.assertThat(this.redisListOps.rightPop(sourceKey, 1)).isEqualTo(); // unsupport
+
+        Assertions.assertThat(getAll(sourceKey)).containsExactly("B", "C", "D", "E", "F", "G");
+
+        testLessTimeout.accept(() -> Assertions.assertThat(this.redisListOps.leftPop(sourceKey, timeout, unit)).isEqualTo("B"));
+        testLessTimeout.accept(() -> Assertions.assertThat(this.redisListOps.leftPop(sourceKey, duration)).isEqualTo("C"));
+        testLessTimeout.accept(() -> Assertions.assertThat(this.redisListOps.rightPop(sourceKey, timeout, unit)).isEqualTo("G"));
+        testLessTimeout.accept(() -> Assertions.assertThat(this.redisListOps.rightPop(sourceKey, duration)).isEqualTo("F"));
+
+        Assertions.assertThat(getAll(sourceKey)).containsExactly("D", "E");
+        Assertions.assertThat(getAll(destinationKey)).isEmpty();
+
+        Assertions.assertThat(this.redisListOps.rightPopAndLeftPush(sourceKey, destinationKey)).isEqualTo("E");
+
+        Assertions.assertThat(getAll(sourceKey)).containsExactly("D");
+        Assertions.assertThat(getAll(destinationKey)).containsExactly("E");
+
     }
 
     @Test
