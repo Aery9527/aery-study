@@ -6,15 +6,13 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.lang.invoke.MethodHandles;
-import java.lang.invoke.MethodType;
-import java.lang.invoke.VarHandle;
-import java.lang.invoke.WrongMethodTypeException;
+import java.lang.invoke.*;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.function.BiConsumer;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * <pre>
@@ -41,6 +39,8 @@ public class JEP193_Variable_Handles {
         private static byte INSTANCE_BYTE = 0b0110;
     }
 
+    private static final VarHandle STATIC_INTEGER_VH;
+
     private static final VarHandle STATIC_INT_VH;
 
     private static final VarHandle STATIC_STRING_VH;
@@ -53,6 +53,8 @@ public class JEP193_Variable_Handles {
 
     private static final VarHandle INSTANCE_BYTE_VH;
 
+    private static Integer STATIC_INTEGER;
+
     private static int STATIC_INT;
 
     private static String STATIC_STRING;
@@ -63,6 +65,7 @@ public class JEP193_Variable_Handles {
         try {
             Class<?> clazz = JEP193_Variable_Handles.class;
             MethodHandles.Lookup lookup = MethodHandles.lookup();
+            STATIC_INTEGER_VH = lookup.findStaticVarHandle(clazz, "STATIC_INTEGER", Integer.class);
             STATIC_INT_VH = lookup.findStaticVarHandle(clazz, "STATIC_INT", int.class);
             STATIC_STRING_VH = lookup.findStaticVarHandle(clazz, "STATIC_STRING", String.class);
             STATIC_BYTE_VH = lookup.findStaticVarHandle(clazz, "STATIC_BYTE", byte.class);
@@ -109,6 +112,20 @@ public class JEP193_Variable_Handles {
                 .isInstanceOf(WrongMethodTypeException.class);
         Assertions.assertThatThrownBy(() -> INSTANCE_BYTE_VH.get())
                 .isInstanceOf(WrongMethodTypeException.class);
+    }
+
+    /**
+     * 取得 handle field 的 type
+     */
+    @Test
+    void varType() {
+        this.logger.info("STATIC_INTEGER_VH : {}", STATIC_INTEGER_VH.varType());
+        this.logger.info("STATIC_INT_VH     : {}", STATIC_INT_VH.varType());
+        this.logger.info("STATIC_STRING_VH  : {}", STATIC_STRING_VH.varType());
+        this.logger.info("STATIC_BYTE_VH    : {}", STATIC_BYTE_VH.varType());
+        this.logger.info("INSTANCE_INT_VH   : {}", INSTANCE_INT_VH.varType());
+        this.logger.info("INSTANCE_STRING_VH: {}", INSTANCE_STRING_VH.varType());
+        this.logger.info("INSTANCE_BYTE_VH  : {}", INSTANCE_BYTE_VH.varType());
     }
 
     /**
@@ -347,16 +364,41 @@ public class JEP193_Variable_Handles {
 
         VarHandle.AccessMode[] accessModes = {
                 VarHandle.AccessMode.GET,
-                VarHandle.AccessMode.SET
+                VarHandle.AccessMode.SET,
+                VarHandle.AccessMode.GET_AND_BITWISE_OR
         };
+        int maxLength = Stream.of(accessModes).map(Enum::name).mapToInt(String::length).max().getAsInt();
+        String accessModeFormat = "%" + maxLength + "s";
 
         for (VarHandle.AccessMode accessMode : accessModes) {
             targets.forEach((target, varHandle) -> {
-                // MethodType 是描述關於指定訪問模式的內容物件
-                MethodType methodType = varHandle.accessModeType(accessMode);
-                this.logger.info("{} methodType({}) = {}", target, accessMode, methodType); // (args) return
+                MethodType methodType = varHandle.accessModeType(accessMode); // MethodType 是描述關於指定訪問模式的內容物件
+                boolean supported = varHandle.isAccessModeSupported(accessMode);
+                String accessModeName = String.format(accessModeFormat, accessMode.name());
+                this.logger.info("{} methodType            : {} = {}", target, accessModeName, methodType); // (args) return
+                this.logger.info("{} isAccessModeSupported : {} = {}", target, accessModeName, supported);
             });
         }
+    }
+
+    @Test
+    void toMethodHandle() throws Throwable {
+        MethodHandle intGetter = STATIC_INT_VH.toMethodHandle(VarHandle.AccessMode.GET);
+        MethodHandle intSetter = STATIC_INT_VH.toMethodHandle(VarHandle.AccessMode.SET);
+        Assertions.assertThat(intGetter.invoke()).isEqualTo(Initial.STATIC_INT);
+        intSetter.invoke(Initial.STATIC_INT - 1);
+        Assertions.assertThat(intGetter.invoke()).isEqualTo(Initial.STATIC_INT - 1);
+
+        MethodHandle getAndBitwiseOr = STATIC_STRING_VH.toMethodHandle(VarHandle.AccessMode.GET_AND_BITWISE_OR);
+        Assertions.assertThatThrownBy(() -> getAndBitwiseOr.invoke(""))
+                .isInstanceOf(UnsupportedOperationException.class)
+                .hasMessage(null);
+        Assertions.assertThatThrownBy(() -> getAndBitwiseOr.invoke(1))
+                .isInstanceOf(WrongMethodTypeException.class)
+                .hasMessage("cannot convert MethodHandle(String)String to (int)Object");
+        Assertions.assertThatThrownBy(getAndBitwiseOr::invoke)
+                .isInstanceOf(WrongMethodTypeException.class)
+                .hasMessage("cannot convert MethodHandle(String)String to ()void");
     }
 
     /**
@@ -399,14 +441,46 @@ public class JEP193_Variable_Handles {
         print.accept("String[]", MethodHandles.arrayElementVarHandle(String[].class));
     }
 
+    /**
+     * 用來判斷與執行是否精確調用, 主要可以避免隱式的轉換或調用.
+     * 例如 自動拆裝箱(int 與 Integer 之間的自動轉換),
+     * 可以避免不必要的效能開銷.
+     */
     @Test
-    void other() {
-//        STATIC_INT_VH.hasInvokeExactBehavior();
-//        STATIC_INT_VH.isAccessModeSupported();
-//        STATIC_INT_VH.toMethodHandle();
-//        STATIC_INT_VH.varType();
-//        STATIC_INT_VH.withInvokeBehavior();
-//        STATIC_INT_VH.withInvokeExactBehavior();
+    void hasInvokeExactBehavior() {
+        Assertions.assertThat(STATIC_INTEGER_VH.hasInvokeExactBehavior()).isFalse(); // ???
+        Assertions.assertThat(STATIC_INT_VH.hasInvokeExactBehavior()).isFalse(); // ???
+
+        this.logger.info("STATIC_INTEGER_VH                           : {}", STATIC_INTEGER_VH.getClass());
+        this.logger.info("STATIC_INTEGER_VH.withInvokeBehavior()      : {}", STATIC_INTEGER_VH.withInvokeBehavior().getClass());
+        this.logger.info("STATIC_INTEGER_VH.withInvokeExactBehavior() : {}", STATIC_INTEGER_VH.withInvokeExactBehavior().getClass());
+        this.logger.info("STATIC_INT_VH                               : {}", STATIC_INT_VH.getClass());
+        this.logger.info("STATIC_INT_VH.withInvokeBehavior()          : {}", STATIC_INT_VH.withInvokeBehavior().getClass());
+        this.logger.info("STATIC_INT_VH.withInvokeExactBehavior()     : {}", STATIC_INT_VH.withInvokeExactBehavior().getClass());
+
+        int intValue1 = 900;
+        int intValue2 = 901;
+        int intValue3 = 902;
+        STATIC_INTEGER_VH.set(intValue1);
+        Assertions.assertThat(STATIC_INTEGER_VH.get()).isEqualTo(intValue1);
+        STATIC_INTEGER_VH.withInvokeBehavior().set(intValue2);
+        Assertions.assertThat(STATIC_INTEGER_VH.get()).isEqualTo(intValue2);
+        Assertions.assertThatThrownBy(() -> STATIC_INTEGER_VH.withInvokeExactBehavior().set(intValue3))
+                .isInstanceOf(WrongMethodTypeException.class)
+                .hasMessage("handle's method type (Integer)void but found (int)void");
+        Assertions.assertThat(STATIC_INTEGER_VH.get()).isEqualTo(intValue2);
+
+        Integer integerValue1 = 910;
+        Integer integerValue2 = 911;
+        Integer integerValue3 = 912;
+        STATIC_INT_VH.set(integerValue1);
+        Assertions.assertThat(STATIC_INT_VH.get()).isEqualTo(integerValue1);
+        STATIC_INT_VH.withInvokeBehavior().set(integerValue2);
+        Assertions.assertThat(STATIC_INT_VH.get()).isEqualTo(integerValue2);
+        Assertions.assertThatThrownBy(() -> STATIC_INT_VH.withInvokeExactBehavior().set(integerValue3))
+                .isInstanceOf(WrongMethodTypeException.class)
+                .hasMessage("handle's method type (int)void but found (Integer)void");
+        Assertions.assertThat(STATIC_INT_VH.get()).isEqualTo(integerValue2);
     }
 
 }
