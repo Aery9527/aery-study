@@ -1,9 +1,9 @@
 ## [form OpenJDK - JDK9](https://openjdk.org/projects/jdk9/) [[study code](./src/test/java/org/aery/study/jdk9)]
 
-- [102 : Process API Updates](https://openjdk.org/jeps/102) #feature
+- [102 : Process API Updates](https://openjdk.org/jeps/102)
   - 增強`Process`的支援, 主要是透過`ProcessHandle`來操作新的功能, 而`Process`身上新增的一些方法, 主要也都是從`ProcessHandle`來的
   - `ProcessHandle`可透過`Process.toHandler()`取得
-- [110 : HTTP 2 Client](https://openjdk.org/jeps/110) #feature #incubator
+- [110 : HTTP 2 Client](https://openjdk.org/jeps/110)
   - 增加原生的HTTP/2 client API, 在 jdk11 正式推出 
 - [143 : Improve Contended Locking](https://openjdk.org/jeps/143)
   - 改善鎖的性能, 透過一系列測試基準確保效能的提升, 且無競爭的鎖不能有效能下降的狀況
@@ -26,8 +26,11 @@
   - 所以 `VarHandle` 基本上就是等效 `java.util.concurrent.atomic` 、 `sun.misc.Unsafe` 的功能, 提供更安全便捷的操作
   - `VarHandle` 與 reflection 機制不同在於, 前者只有創建時會做檢查, 而後者每次操作都會做檢查 
 - [197 : Segmented Code Cache](https://openjdk.org/jeps/197)
+  - 通過引入分段代碼緩存結構，顯著提升了Java虛擬機的性能和可維護性。這一改進使得代碼緩存更加高效，內存利用率更高，並且便於管理和診斷性能問題。
 - [199 : Smart Java Compilation, Phase Two](https://openjdk.org/jeps/199)
+  -  通過引入增量編譯和並行編譯技術，顯著提升了Java編譯器的性能和效率。這一增強建議使得Java編譯過程更加高效，特別是對於大型項目，可以大幅減少編譯時間，提升開發生產力。
 - [200 : The Modular JDK](https://openjdk.org/jeps/200)
+  - see [jdk9-features-JPMS.md](./jdk9-features-JPMS.md)
 - [201 : Modular Source Code](https://openjdk.org/jeps/201)
 - [211 : Elide Deprecation Warnings on Import Statements](https://openjdk.org/jeps/211)
 - [212 : Resolve Lint and Doclint Warnings](https://openjdk.org/jeps/212)

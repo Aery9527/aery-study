@@ -36,7 +36,7 @@ public class PluginStudy {
     }
 
     public static ModuleLayer loadPluginLayer() {
-        String moduleYPath = PathUtil.mixRootPath("java-module-y", "out", "production", "classes");
+        String moduleYPath = PathUtil.mixRootPath("java-module-z", "out", "production", "classes");
         ModuleFinder moduleFinder = ModuleFinder.of(Paths.get(moduleYPath));
 
         Set<ModuleReference> moduleReferences = moduleFinder.findAll();

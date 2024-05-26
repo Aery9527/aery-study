@@ -8,7 +8,6 @@ import java.util.Objects;
 
 public class ModuleStudy {
 
-    @Deprecated
     public static void main(String[] args) {
         Module currentModule = ModuleStudy.class.getModule();
         ModuleLayer currentModuleLayer = currentModule.getLayer();
@@ -22,26 +21,25 @@ public class ModuleStudy {
         Module apiModule = TextGraphicsService.class.getModule();
         Module utilsModule = ConsolePrinter.class.getModule();
         Module xModule = ModuleLayer.boot().findModule("aery.study.java.module.x").get();
-        Module zModule = ModuleLayer.boot().findModule("aery.study.java.module.z").get();
+        Module yModule = ModuleLayer.boot().findModule("aery.study.java.module.y").get();
 
         showModuleDescriptor(currentModuleDescriptor);
         showModuleDescriptor(apiModule.getDescriptor());
         showModuleDescriptor(utilsModule.getDescriptor());
         showModuleDescriptor(xModule.getDescriptor());
-        showModuleDescriptor(zModule.getDescriptor());
+        showModuleDescriptor(yModule.getDescriptor());
 
         showModuleLayer("ModuleLayer.boot()", ModuleLayer.boot());
         showModuleLayer("currentModuleLayer", currentModuleLayer);
         showModuleLayer("apiModule", apiModule.getLayer());
         showModuleLayer("utilsModule", utilsModule.getLayer());
         showModuleLayer("xModule", xModule.getLayer());
-        showModuleLayer("zModule", zModule.getLayer());
+        showModuleLayer("yModule", yModule.getLayer());
 
         currentModule.addExports("org.aery.study.java.module", xModule); // export exported package
-        currentModule.addExports("org.aery.study.java.module.other", zModule); // export not exported modules
 
+        wrapException(() -> currentModule.addExports("org.aery.study.java.module.other", yModule)); // can't export non-exist package, even package not exist
         wrapException(() -> xModule.addExports("org.aery.study.java.module.x", currentModule)); // can't operate other module
-        wrapException(() -> zModule.addExports("org.aery.study.java.module.non", currentModule)); // can't export non-exist package, even package not exist
     }
 
     private static void showModuleDescriptor(ModuleDescriptor moduleDescriptor) {
