@@ -1,11 +1,12 @@
 ## [form OpenJDK - JDK11](https://openjdk.org/projects/jdk/11)
+[[study code](./src/test/java/org/aery/study/jdk11)]
 
 - [181 : Nest-Based Access Control](https://openjdk.org/jeps/181)
 - [309 : Dynamic Class-File Constants](https://openjdk.org/jeps/309)
 - [315 : Improve Aarch64 Intrinsics](https://openjdk.org/jeps/315)
 - [318 : Epsilon: A No-Op Garbage Collector](https://openjdk.org/jeps/318)
 - [320 : Remove the Java EE and CORBA Modules](https://openjdk.org/jeps/320)
-- [321 : HTTP Client (Standard)](https://openjdk.org/jeps/321) [[study code](./src/test/java/org/aery/study/jdk11)]
+- [321 : HTTP Client (Standard)](https://openjdk.org/jeps/321)
   - 定義新的http API, 並實作HTTP/2和websocket, 用以取代舊的`HttpURLConnection` API
   - 支援HTTP/2, HTTPS/LTS, websocket
   - 支援非同步操作

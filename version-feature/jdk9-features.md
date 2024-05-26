@@ -1,4 +1,5 @@
-## [form OpenJDK - JDK9](https://openjdk.org/projects/jdk9/) [[study code](./src/test/java/org/aery/study/jdk9)]
+## [form OpenJDK - JDK9](https://openjdk.org/projects/jdk9/)
+[[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-features-JPMS.md)]
 
 - [102 : Process API Updates](https://openjdk.org/jeps/102)
   - 增強`Process`的支援, 主要是透過`ProcessHandle`來操作新的功能, 而`Process`身上新增的一些方法, 主要也都是從`ProcessHandle`來的
@@ -30,11 +31,30 @@
 - [199 : Smart Java Compilation, Phase Two](https://openjdk.org/jeps/199)
   -  通過引入增量編譯和並行編譯技術，顯著提升了Java編譯器的性能和效率。這一增強建議使得Java編譯過程更加高效，特別是對於大型項目，可以大幅減少編譯時間，提升開發生產力。
 - [200 : The Modular JDK](https://openjdk.org/jeps/200)
-  - see [jdk9-features-JPMS.md](./jdk9-features-JPMS.md)
+  - 透過 JEP201 將jdk模組化  
 - [201 : Modular Source Code](https://openjdk.org/jeps/201)
+  - see [jdk9-features-JPMS.md](./jdk9-features-JPMS.md)
 - [211 : Elide Deprecation Warnings on Import Statements](https://openjdk.org/jeps/211)
+  - 降低 `@Deprecated` 的警告訊息, 僅在導入該 package 或 調用該 method 時才會出現警告, 減少干擾  
 - [212 : Resolve Lint and Doclint Warnings](https://openjdk.org/jeps/212)
+  - 旨在解決 Lint 和 Doclint 的警告, 意味著在coding時會看到更少的警告信息. 這不僅減少大量警告信息帶來的的困惑, 更能幫助開發者更快地找到問題所在.
+  - Lint : 用於分析源碼以找出潛在的錯誤、違反編碼規範的地方以及低效的代碼結構. 這名稱來源於一個早期的 UNIX 中用於檢查 C 語言代碼中問題的程序, 如今 Lint 已廣泛應用於各種編程語言.
+  - Doclint : 專門用於檢查 Javadoc 註釋的工具, 這個工具可以檢查 Javadoc 註釋是否符合規範, 並且可以檢查 Javadoc 註釋中的拼寫錯誤等問題.
 - [213 : Milling Project Coin](https://openjdk.org/jeps/213)
+  - 旨在對之前的 Project Coin 中的一些功能進行微調, 主要是一些語法糖
+  - `@SafeVarargs` 用於指出帶有可變參數 (varargs) 方法或構造函數是安全的(不會有編譯警告), 不會引發潛在的 heap pollution 警告 (heap pollution 是指在編譯期使用泛型導致運行時類型不匹配的問題)
+  - `@SafeVarargs` 從 java7 中引入, 並且只能用於static/final/constructor method (因為這些方法不會被override, 可以確保不會改變)
+  - `@SafeVarargs` 從 java9 可以用於 private method 上了
+  - 禁止使用 `_` 一個底線當作變數名稱, 主要是預留 `_` 在未來版本中的特定用途
+  - java7引入的 `try-with-resources` 語句不再限制只能在try()裡面實例化 `Closeable` 物件
+  - interface 可以寫 private method
+  - 泛型的型態推斷支援匿名類
+  - 新增 `java.util.concurrent.Flow` 響應式流介面 (Reactive Streams API), 標準化生產者和消費者之間的異步流框架
+    1. 這部分如同 jpa 僅是一個規範定義, 而目前主流的實作有 **Project Reactor**<sub>(by Spring)</sub>, **RxJava**<sub>(by ReactiveX)</sub>, **Akka Streams**<sub>(by Akka)</sub>
+    1. 支援 **背壓 (back-pressure)** 機制, 也就是允許 **消費者** 控制 **生產者** 數據發送速率, 避免 **消費者** 消化不來
+    1. `Flow` 僅作為命名空間, 定義了 `Publisher`, `Subscriber`, `Subscription`, `Processor`<sub>(Publisher + Subscriber)</sub> 四個介面
+    1. `SubmissionPublisher`<sub>(Publisher)</sub> 是 jdk 內唯一的實作, 也是一個簡單的實作, 使用 `ForkJoinPool` 作為預設的非同步機制.
+    1. `SubmissionPublisher` 基本上是作為基礎類別拿來繼承擴充使用, 當然也可以在簡單的場合直接拿來使用.
 - [214 : Remove GC Combinations Deprecated in JDK 8](https://openjdk.org/jeps/214)
 - [215 : Tiered Attribution for javac](https://openjdk.org/jeps/215)
 - [216 : Process Import Statements Correctly](https://openjdk.org/jeps/216)
