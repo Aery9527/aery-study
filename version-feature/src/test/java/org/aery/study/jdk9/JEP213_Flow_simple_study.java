@@ -11,7 +11,7 @@ import java.util.concurrent.Flow;
 /**
  * {@link Flow}
  */
-public class JEP213_Flow {
+public class JEP213_Flow_simple_study {
 
     public class QuizPublisher implements Flow.Publisher<Integer> {
 
