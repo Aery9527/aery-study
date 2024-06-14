@@ -84,13 +84,29 @@
     - *Doclet API* : 用於創建自定義的文檔生成器. 它允許開發者擴展和自定義 javadoc 工具的輸出格式. 通過 Doclet API, 可以訪問和處理 Java 源碼中的注釋,
       從而生成特定格式的文檔, 例如 HTML、PDF 或其他格式.
 - [222 : jshell: The Java Shell (Read-Eval-Print Loop)](https://openjdk.org/jeps/222)
-  - 這是一個交互式的 Java shell 工具, 用於快速編寫和測試 Java 代碼, 並且可以在不需要編譯和打包的情況下直接運行 Java 代碼
-  - 學習程式語言及其 API 時, 即時回饋非常重要, 學校放棄將 Java 作為教學語言的首要原因是其他語言有 *REPL* (讀取-評估-列印-循環)
+    - 這是一個交互式的 Java shell 工具, 用於快速編寫和測試 Java 代碼, 並且可以在不需要編譯和打包的情況下直接運行 Java 代碼
+    - 學習程式語言及其 API 時, 即時回饋非常重要, 學校放棄將 Java 作為教學語言的首要原因是其他語言有 *REPL* (讀取-評估-列印-循環)
 - [223 : New Version-String Scheme](https://openjdk.org/jeps/223)
+    - jdk 定義了新的 *版本號* 規則, 來解決究版本號難以理解和比較的問題
+    - 新的版本號規則為 **{major}.{minor}.{security}[OTHER]**, 例如: 9.1.2
+    - major : 重大新功能
+    - minor : 兼容的改進或修復
+    - security : 安全性修復
 - [224 : HTML5 Javadoc](https://openjdk.org/jeps/224)
+    - 支援將 javadoc 生成為 HTML5 格式
 - [225 : Javadoc Search](https://openjdk.org/jeps/225)
+    - 為 Javadoc 工具新增了搜尋功能, 這個功能在由標準 doclet 生成的 API 文檔頁面中加入了一個搜尋框
+    - 搜尋功能完全在客戶端實現, 不依賴伺服器資源, 這使得導航和查找特定 API 更加方便和快捷
 - [226 : UTF-8 Property Files](https://openjdk.org/jeps/226)
+    - 允許應用程式指定以 UTF-8 編碼的屬性文件, 並擴展 ResourceBundle API 以載入這些文件 (ResourceBundle:用於國際化（i18n）應用程式的屬性管理)
+    - 這一變更將 ResourceBundle 類的默認文件編碼從 ISO-8859-1 變為 UTF-8, 若在讀取 UTF-8 文件時發生異常, 系統將嘗試重新以 ISO-8859-1 編碼讀取文件
 - [227 : Unicode 7.0](https://openjdk.org/jeps/227)
+    - 支援 Unicode 7.0 標準, 新增了約三千個字符和二十多種書寫系統
+    - 變動 `java.lang` 中的 `Character`, `String`
+    - 變動 `java.text` 中的 `Bidi`, `BreakIterator`, `Normalizer`
+      1. `Bidi` : 用於處理文字的雙向性, 例如阿拉伯文, 希伯來文等
+      2. `BreakIterator` : 用於文本邊界分析, 確定單詞/句子/段落的邊界, 支持多語言, 對國際化文本處理尤為重要
+      3. `Normalizer` : 將不同的 Unicode 字符表示形式轉換為標準形式, 支持四種正規化形式，確保文本的一致性和可比性
 - [228 : Add More Diagnostic Commands](https://openjdk.org/jeps/228)
 - [229 : Create PKCS12 Keystores by Default](https://openjdk.org/jeps/229)
 - [231 : Remove Launch-Time JRE Version Selection](https://openjdk.org/jeps/231)
