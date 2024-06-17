@@ -4,7 +4,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
 
 ---
 
-### 不知道會死的版本特性
+### 不知道會鄙視的版本特性
 
 - [200 : The Modular JDK](https://openjdk.org/jeps/200)
     - 透過 JEP201 將 jdk 模組化
@@ -27,6 +27,10 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
         1. `Flow` 僅作為命名空間, 定義了 `Publisher`, `Subscriber`, `Subscription`, `Processor`<sub>(Publisher + Subscriber)</sub> 四個介面
         1. `SubmissionPublisher`<sub>(Publisher)</sub> 是 jdk 內唯一的實作, 也是一個簡單的實作, 使用 `ForkJoinPool` 作為預設的非同步機制.
         1. `SubmissionPublisher` 基本上是作為基礎類別拿來繼承擴充使用, 當然也可以在簡單的場合直接拿來使用.
+- [259 : Stack-Walking API](https://openjdk.org/jeps/259)
+  - 引入一個新的堆疊遍歷 API, 簡化和改進 Java 程式中對堆疊訊息的訪問和操作
+  - 它提供一個高效的機制來訪問和操作堆疊資訊, 並且可以過濾跟篩選堆疊幀
+  - 新 API 通過 `java.lang.StackWalker 類來實現`
 
 ### 不知道沒差但知道了會變強的版本特性
 
@@ -211,12 +215,15 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
     - 主要目的是更新 JDK 中包含的 Xerces XML 解析器, 以改進數據類型、DOM L3 序列化器、XPointer、目錄解析器和 XML 架構驗證等方面
     - *Xerces* : 是一個開源的 XML 解析器庫, 主要用於解析、驗證和操作 XML 文檔, 它支持多種 XML 規範(DOM、SAX、StAX)
     - *JAXP (Java API for XML Processing)* : 是解析、生成和轉換 XML 的標準 API, Xerces 通常用作 JAXP 的底層實現
+- [257 : Update JavaFX/Media to Newer Version of GStreamer](https://openjdk.org/jeps/257)
+  - 將 JavaFX 的媒體模組升級到 GStreamer 的新版本, 以提高 JavaFX 媒體功能的安全性、穩定性和性能, 不包含任何新功能
+  - JavaFX/Media : 是 JavaFX 專門處理多媒體內容, 例如音頻和視頻播放, 它提供了一套豐富的API來控制媒體播放，包括播放、暫停、停止、調整音量和跟踪播放進度等功能
+  - GStreamer 則是一個開源的多媒體框架, 支援各種媒體處理操作, 包括音頻和視頻的播放、錄製、轉碼等
+- [258 : HarfBuzz Font-Layout Engine](https://openjdk.org/jeps/258)
+  - 更新其字體排版引擎, 是將原本使用的 ICU OpenType 字體排版引擎替換為 HarfBuzz, 可以改善複雜文字（如阿拉伯文和印度文等）的渲染效果
 
 --- 
 
-- [257 : Update JavaFX/Media to Newer Version of GStreamer](https://openjdk.org/jeps/257)
-- [258 : HarfBuzz Font-Layout Engine](https://openjdk.org/jeps/258)
-- [259 : Stack-Walking API](https://openjdk.org/jeps/259)
 - [260 : Encapsulate Most Internal APIs](https://openjdk.org/jeps/260)
 - [261 : Module System](https://openjdk.org/jeps/261)
 - [262 : TIFF Image I/O](https://openjdk.org/jeps/262)
