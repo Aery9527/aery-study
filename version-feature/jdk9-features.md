@@ -4,7 +4,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
 
 ---
 
-### 不知道會鄙視的版本特性
+### 不知道會唾棄的版本特性
 
 - [200 : The Modular JDK](https://openjdk.org/jeps/200)
     - 透過 JEP201 將 jdk 模組化
@@ -31,6 +31,17 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
   - 引入一個新的堆疊遍歷 API, 簡化和改進 Java 程式中對堆疊訊息的訪問和操作
   - 它提供一個高效的機制來訪問和操作堆疊資訊, 並且可以過濾跟篩選堆疊幀
   - 新 API 通過 `java.lang.StackWalker 類來實現`
+- [261 : Module System](https://openjdk.org/jeps/261)
+  - see [jdk9-features-JPMS.md](./jdk9-features-JPMS.md)
+- [264 : Platform Logging API and Service](https://openjdk.org/jeps/264)
+  - 定義了一個最小的日誌記錄 API 和服務介面, 供 jdk 記錄訊息
+  - 而我們可以提供一個實作(透過 `ServiceLoader`), 接走 jdk 的日誌記錄
+  - 若無外部實現, 則使用基於 `java.util.logging` 的預設實現, 減少 jdk 內部模組對 `java.logging` 模組的依賴
+  - 此設計初衷只是為了統一 jdk 內部的日誌介面, 並不是設計來取代目前常用的日誌框架, 如 log4j, slf4j 等
+- [266 : More Concurrency Updates](https://openjdk.org/jeps/266)
+  - 支援 Reactive Streams 發布-訂閱框架的新介面, 封裝在新的 `java.util.concurrent.Flow` 類中 (其實就是 JEP 213 的內容)
+  - `CompletableFuture` API 增強, 包括基於時間的完成方法(如 `orTimeout` 和 `completeTimeout`), 以及支持時間延遲執行的 `Executor`
+  - 累積自 JDK 8 以來的多項實作改進
 
 ### 不知道沒差但知道了會變強的版本特性
 
@@ -121,6 +132,12 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
     - 這是關於 java beans 的規範的優化, 使用 annotation(`@JavaBean` `@BeanProperty` `SwingContainer`) 取代 @beaninfo Javadoc 標籤
     - 這些新增的 annotation 將於 runtime 自動生成 `BeanInfo` 類, 這樣開發者就不需要再手動編寫 `BeanInfo` 類了
     - 通過 `BeanInfo` 類, 開發者可以定義 bean 的屬性、事件、方法等, 並且可以對這些元素進行描述, 以便 IDE 和其他工具能夠更好地支持 bean 的使用
+- [262 : TIFF Image I/O](https://openjdk.org/jeps/262)
+  - 增加了對 TIFF 圖像格式的支持, 這是一個 Java SE 的標準 Image I/O 插件 (`javax.imageio.plugins.tiff`)
+  - 這一功能對 OS X 的開發者非常重要, 因為 TIFF 是 OS X 的標準圖像格式
+- [263 : HiDPI Graphics on Windows and Linux](https://openjdk.org/jeps/263)
+  - 增加了 Windows 和 Linux 系統上的高解析度顯示 (HiDPI) 支援
+  - Java 應用程式在 HiDPI 顯示器上能夠建議適當地調整窗口和 GUI 元素的大小, 並保持文字和圖像的清晰度
 
 ### 不知道沒差但知道了也沒差的版本特性
 
@@ -221,16 +238,16 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
   - GStreamer 則是一個開源的多媒體框架, 支援各種媒體處理操作, 包括音頻和視頻的播放、錄製、轉碼等
 - [258 : HarfBuzz Font-Layout Engine](https://openjdk.org/jeps/258)
   - 更新其字體排版引擎, 是將原本使用的 ICU OpenType 字體排版引擎替換為 HarfBuzz, 可以改善複雜文字（如阿拉伯文和印度文等）的渲染效果
-
---- 
-
 - [260 : Encapsulate Most Internal APIs](https://openjdk.org/jeps/260)
-- [261 : Module System](https://openjdk.org/jeps/261)
-- [262 : TIFF Image I/O](https://openjdk.org/jeps/262)
-- [263 : HiDPI Graphics on Windows and Linux](https://openjdk.org/jeps/263)
-- [264 : Platform Logging API and Service](https://openjdk.org/jeps/264)
+  - 透過 JPMS 封裝 jdk 內部大部分 API, 以提高安全性和可維護性
+  - 一些流行的程式庫使用非標準、不穩定且不受支援的 API, 這些 API 是 JDK 的內部實作細節, 本來就不提供外部使用
+  - 但一些被廣泛使用的關鍵內部 API（如 `sun.misc.Unsafe` 和 `sun.reflect.ReflectionFactory` 等）並沒有被封裝, 因為在 JDK 8 中沒有適當的替代方法
+  - 這些 API 在所謂的 `jdk.unsupported` 模塊中被定義和導出, 因此在類路徑上的代碼預設可以訪問這些 API
 - [265 : Marlin Graphics Renderer](https://openjdk.org/jeps/265)
-- [266 : More Concurrency Updates](https://openjdk.org/jeps/266)
+  - 將 Java 2D 的預設光柵化器更新為 Marlin 渲染器, 代原有的 Pisces 渲染器
+  - Marlin 渲染器的性能在大多數基準測試中顯著優於 Pisces，並具備更好的多執行緒擴展性
+
+---  
 - [267 : Unicode 8.0](https://openjdk.org/jeps/267)
 - [268 : XML Catalogs](https://openjdk.org/jeps/268)
 - [269 : Convenience Factory Methods for Collections](https://openjdk.org/jeps/269)
