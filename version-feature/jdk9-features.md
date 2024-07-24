@@ -42,6 +42,9 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
   - 支援 Reactive Streams 發布-訂閱框架的新介面, 封裝在新的 `java.util.concurrent.Flow` 類中 (其實就是 JEP 213 的內容)
   - `CompletableFuture` API 增強, 包括基於時間的完成方法(如 `orTimeout` 和 `completeTimeout`), 以及支持時間延遲執行的 `Executor`
   - 累積自 JDK 8 以來的多項實作改進
+- [269 : Convenience Factory Methods for Collections](https://openjdk.org/jeps/269)
+  - 在 `Collection` 介面中新增了一些靜態工廠方法, 用於創建不可變的集合實例
+  - 這些方法包括 `List.of()`, `Set.of()`, `Map.of()`, 能夠簡化 Java 編碼中繁瑣的集合初始化操作
 
 ### 不知道沒差但知道了會變強的版本特性
 
@@ -138,6 +141,21 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
 - [263 : HiDPI Graphics on Windows and Linux](https://openjdk.org/jeps/263)
   - 增加了 Windows 和 Linux 系統上的高解析度顯示 (HiDPI) 支援
   - Java 應用程式在 HiDPI 顯示器上能夠建議適當地調整窗口和 GUI 元素的大小, 並保持文字和圖像的清晰度
+- [268 : XML Catalogs](https://openjdk.org/jeps/268)
+  - 開發支援 *OASIS XML 目錄標準 v1.1* 標準的 XML 目錄 API
+  - *OASIS XML 目錄標準 v1.1* : 是由 OASIS 組織制定的標準, 用於解決 XML 文件中外部資源的解析問題
+- [274 : Enhanced Method Handles](https://openjdk.org/jeps/274)
+  - 對 `java.lang.invoke` 內的幾個類別進行的改進, 主要目的是增強這些類別的功能, 以簡化常見的使用情境並改進編譯器的優化能力
+  - 其類別包括 `MethodHandle`, `MethodHandles`, `MethodHandles.Lookup`
+  - 新增多種方法句柄組合器, 以支持循環和 `try...finally` 區塊, 這樣可以在處理複雜操作時更加靈活和高效
+  - 改進了方法句柄的查找功能, 使其在不同的訪問上下文中更為簡便和安全
+  - 增強了方法句柄在處理參數時的能力,  特別是在處理可變參數和高效地傳遞參數方面
+- [277 : Enhanced Deprecation](https://openjdk.org/jeps/277)
+  - 加強的 `@Deprecated`, 改進 API 生命週期管理
+  - 增加了 `forRemoval()`, 表示該 API 在未來是否計劃移除
+  - 增加了 `since()`, 表示該 API 從哪個版本開始會移除
+- [292 : Implement Selected ECMAScript 6 Features in Nashorn](https://openjdk.org/jeps/292)
+  - 在 Nashorn 中實現 ECMAScript 6 (ES6) 的一些新特性, 將分階段在 JDK 9 及其更新版本中實現這些功能，以提高 Nashorn 的兼容性和功能性
 
 ### 不知道沒差但知道了也沒差的版本特性
 
@@ -246,35 +264,74 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
 - [265 : Marlin Graphics Renderer](https://openjdk.org/jeps/265)
   - 將 Java 2D 的預設光柵化器更新為 Marlin 渲染器, 代原有的 Pisces 渲染器
   - Marlin 渲染器的性能在大多數基準測試中顯著優於 Pisces，並具備更好的多執行緒擴展性
-
----  
 - [267 : Unicode 8.0](https://openjdk.org/jeps/267)
-- [268 : XML Catalogs](https://openjdk.org/jeps/268)
-- [269 : Convenience Factory Methods for Collections](https://openjdk.org/jeps/269)
+  - 這是 JEP 227 後續版本, 支援最新的 Unicode 8.0
 - [270 : Reserved Stack Areas for Critical Sections](https://openjdk.org/jeps/270)
+  - 加入一種在關鍵區域保留額外堆疊空間的方法, 以確保在堆疊溢出時關鍵區域的操作仍能完成, 從而避免數據結構損壞或死鎖.
+  - 例如當 `ReentrantLock` 的關鍵區域拋出 `StackOverflowError` 時, 鎖的狀態可能會變得不一致導致潛在的死鎖.
+  - 該機制主要通過 JVM 實現，不需修改現有的 Java 程式碼或演算法
 - [271 : Unified GC Logging](https://openjdk.org/jeps/271)
+  - 使用在 JEP 158 中引入的統一 JVM 日誌框架重新實現 GC 日誌記錄
 - [272 : Platform-Specific Desktop Features](https://openjdk.org/jeps/272)
+  - 提供了新的公開 API 來存取特定平台的桌面功能, 如與任務欄或 Dock 互動, 或監聽系統或應用事件
+  - 適用於 Mac OS X, Windows, Linux 平台
 - [273 : DRBG-Based SecureRandom Implementations](https://openjdk.org/jeps/273)
-- [274 : Enhanced Method Handles](https://openjdk.org/jeps/274)
+  - 引入基於 **決定性隨機位元生成器(DRBG)** 的 `SecureRandom` 實現
+  - 其目的是使用 *NIST 800-90Ar1* 中描述的三種 DRBG 機制(Hash_DRBG/HMAC_DRBG/CTR_DRBG) 來加強隨機數生成的安全性
 - [275 : Modular Java Application Packaging](https://openjdk.org/jeps/275)
+  - 將 Project Jigsaw 的模組化功能整合到 Java Packager 中, 目的是透過 `jlink` 工具來創建只包含必要模組的運行時映像, 從而減少包裝的運行時映像的大小
 - [276 : Dynamic Linking of Language-Defined Object Models](https://openjdk.org/jeps/276)
-- [277 : Enhanced Deprecation](https://openjdk.org/jeps/277)
+  - 提供動態鏈接語言定義對象模型的機制, 使得不同語言能夠在同一 JVM 進程中運行, 並實現互操作性.
 - [278 : Additional Tests for Humongous Objects in G1](https://openjdk.org/jeps/278)
+  - 為 G1 垃圾收集器的巨大物件（Humongous Objects）功能開發額外的白箱測試
+  - 由於 G1 是並發(多執行緒) GC, 這使得黑盒測試變得非常困難, 幾乎不可能弄清楚 G1 的內部狀態, 因此開發 WhiteBox API 檢查 G1 內部狀態
 - [279 : Improve Test-Failure Troubleshooting](https://openjdk.org/jeps/279)
+  - 改進 Java 軟體質量的自動化測試失敗時的故障排除, 其目標是自動收集診斷信息.
+  - 這些測試通過 jtreg 測試框架執行, 並且在測試失敗時會自動收集診斷信息, 以幫助開發者快速定位問題
 - [280 : Indify String Concatenation](https://openjdk.org/jeps/280)
+  - 提議將 Java 字符串拼接的字節碼改為使用 invokedynamic 調用 JDK 庫函數, 這樣可以優化字符串拼接而不需要修改 javac 發出的字節碼
+  - 解決了之前字串拼接的時候使用 `StringBuilder` 造成的記憶體消耗與效能的問題
 - [281 : HotSpot C++ Unit-Test Framework](https://openjdk.org/jeps/281)
+  - 為 HotSpot 開發 C++ 單元測試框架, 支援對方法/類別/子系統的單元測試
+  - 使用 Google Test (GTest) 作為基礎, GTest 提供完善的 API / IDE 整合和豐富的執行模型
+  - 此框架將提升 HotSpot 測試的覆蓋率和質量, 使開發和維護更為便捷
 - [282 : jlink: The Java Linker](https://openjdk.org/jeps/282)
+  - 建立一個工具, 可以將模組及其相依性組裝和最佳化為 JEP 220 中定義(`jlink`)的自訂運行時映像
 - [283 : Enable GTK 3 on Linux](https://openjdk.org/jeps/283)
+  - 在 Linux 上支持 Java 圖形應用程序使用 GTK 2 或 GTK 3
+  - 在保持對 GTK 2 的默認支持的同時，允許應用程序根據系統屬性選擇使用 GTK 3, 並在需要時自動切換到 GTK 3, 這將解決當前混用不同 GTK 版本的問題
 - [284 : New HotSpot Build System](https://openjdk.org/jeps/284)
+  - 重寫 HotSpot 構建系統, 使用 build-infra 框架來簡化並維護代碼基礎
+  - 該改進旨在減少代碼重複，提升構建系統的可維護性，並降低進行修復和添加新功能的難度
 - [285 : Spin-Wait Hints](https://openjdk.org/jeps/285)
+  - 定義了一個 API 使 Java 程式碼可以提示正在執行的 spin loop ()
+  - 允許 Java 程式碼提示運行時系統正在進行 spin loop, 這樣 JVM 可以在某些硬體平台上受益, 例如 x86 平台上的 `PAUSE` 指令
+  - spin loop (自旋) : thread 反覆執行一段簡單的、非阻塞的指令而不是進行阻塞式等待, 這樣可以避免執行緒切換的開銷, 但也可能會浪費 CPU 資源
 - [287 : SHA-3 Hash Algorithms](https://openjdk.org/jeps/287)
+  - 支持 SHA-3 算法, 添加到 `java.security.MessageDigest` API 中
 - [288 : Disable SHA-1 Certificates](https://openjdk.org/jeps/288)
+  - 供更靈活的機制來禁用基於 SHA-1 簽名的 X.509 證書鏈, 在提高安全性同時保留一定的向後兼容性以避免應用程序中斷
+  - 由於碰撞攻擊的風險, 基於 SHA-1 的數位簽章演算法的使用日益成為安全性問題, NIST 在 SP 800-57 第 1 部分建議不應再使用 SHA-1 對資料套用數位簽章
 - [289 : Deprecate the Applet API](https://openjdk.org/jeps/289)
+  - 將 Applet API 標記為不建議使用, 因為現代瀏覽器基本上都不支援 Applet API 了
 - [290 : Filter Incoming Serialization Data](https://openjdk.org/jeps/290)
+  - 提供了一種過濾器機制來過濾反序列化的資料, 以提高安全性和穩定性
+  - 過濾器根據類別名稱/數據圖的深度/引用數量/資料流長度等條件進行檢查(過濾器可由系統屬性或配置文件全局設置), 並在反序列化過程中動態應用, 這樣能有效防止惡意序列化資料的攻擊
 - [291 : Deprecate the Concurrent Mark Sweep (CMS) Garbage Collector](https://openjdk.org/jeps/291)
-- [292 : Implement Selected ECMAScript 6 Features in Nashorn](https://openjdk.org/jeps/292)
+  - 將 CMS 垃圾收集器標記為不建議使用, 預計在未來的主要版本中停止支持
+  - 這一決定是為了減少維護 GC 代碼庫的負擔，並加速其他垃圾收集器的開發
 - [294 : Linux/s390x Port](https://openjdk.org/jeps/294)
+  - 將 JDK 9 移植到 Linux/s390x 平台上
+  - *s390x* : 是 IBM 的大型主機架構, 許多 Linux 發行版如 Ubuntu, RHE, SuSE 都支持這個平台
 - [295 : Ahead-of-Time Compilation](https://openjdk.org/jeps/295)
+  - 在啟動虛擬機器之前將 Java 類別編譯為本機程式碼, 改善啟動時間
+  - 採用 **jaotc** 工具實現 Ahead-of-Time (AOT) 編譯功能
+  - 這個功能在 JDK 9 中是實驗性的, 主要支持 Linux/x64 平台, 並使用 Graal 作為後端代碼生成器
 - [297 : Unified arm32/arm64 Port](https://openjdk.org/jeps/297)
+  - 將 Oracle 提供的 ARM32 和 ARM64 支持整合到 JDK 中, 提升 ARM 平台上 Java 應用的性能和穩定性
 - [298 : Remove Demos and Samples](https://openjdk.org/jeps/298)
+  - 移除 JDK 中的示例和範例代碼, 這些範例大多已經過時且不再需要, 且相應修改構建文件並確保生成的 JDK 圖像不再包含示例或範例目錄
+  - 部分仍有用的示例將移至測試層次結構中的適當位置, 以便保留測試目的
 - [299 : Reorganize Documentation](https://openjdk.org/jeps/299)
+  - 重新組織 JDK 文件的結構, 其目標包括：統一生成的API規範/"man"頁面/其他 JDK 規範, 並將這些文件整合到單一集合中
+  - 旨在簡化文件生成過程, 提高搜索效率, 並將規範文件與源代碼一起更新, 這包括引入新的源代碼目錄和生成 HTML 及 Markdown 格式的文件
