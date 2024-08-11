@@ -11,6 +11,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
 - [201 : Modular Source Code](https://openjdk.org/jeps/201)
     - see [jdk9-features-JPMS.md](./jdk9-features-JPMS.md)
 - [213 : Milling Project Coin](https://openjdk.org/jeps/213) <sub>(主要重點在 `java.util.concurrent.Flow`)</sub>
+    - [study-code:Flow](./src/test/java/org/aery/study/jdk9/JEP213_Flow_simple_study.java) and [study-code:SubmissionPublisher](./src/test/java/org/aery/study/jdk9/JEP213_Flow_SubmissionPublisher.java) and [study-code:Milling_Project_Coin](./src/test/java/org/aery/study/jdk9/JEP213_Milling_Project_Coin.java)
     - 旨在對之前的 Project Coin 中的一些功能進行微調, 主要是一些語法糖
     - `@SafeVarargs` 用於指出帶有可變參數 (varargs) 方法或構造函數是安全的(不會有編譯警告), 不會引發潛在的 heap pollution 警告 (heap pollution
       是指在編譯期使用泛型導致運行時類型不匹配的問題)
@@ -28,32 +29,38 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
         1. `SubmissionPublisher`<sub>(Publisher)</sub> 是 jdk 內唯一的實作, 也是一個簡單的實作, 使用 `ForkJoinPool` 作為預設的非同步機制.
         1. `SubmissionPublisher` 基本上是作為基礎類別拿來繼承擴充使用, 當然也可以在簡單的場合直接拿來使用.
 - [259 : Stack-Walking API](https://openjdk.org/jeps/259)
+    - [study-code](./src/test/java/org/aery/study/jdk9/JEP259_StackWalking.java)
     - 引入一個新的堆疊遍歷 API, 簡化和改進 Java 程式中對堆疊訊息的訪問和操作
     - 它提供一個高效的機制來訪問和操作堆疊資訊, 並且可以過濾跟篩選堆疊幀
     - 新 API 通過 `java.lang.StackWalker 類來實現`
 - [261 : Module System](https://openjdk.org/jeps/261)
     - see [jdk9-features-JPMS.md](./jdk9-features-JPMS.md)
 - [264 : Platform Logging API and Service](https://openjdk.org/jeps/264)
+    - [study-code](./src/test/java/org/aery/study/jdk9/JEP264_Platform_Logging_API_and_Service.java)
     - 定義了一個最小的日誌記錄 API 和服務介面, 供 jdk 記錄訊息
     - 而我們可以提供一個實作(透過 `ServiceLoader`), 接走 jdk 的日誌記錄
     - 若無外部實現, 則使用基於 `java.util.logging` 的預設實現, 減少 jdk 內部模組對 `java.logging` 模組的依賴
     - 此設計初衷只是為了統一 jdk 內部的日誌介面, 並不是設計來取代目前常用的日誌框架, 如 log4j, slf4j 等
 - [266 : More Concurrency Updates](https://openjdk.org/jeps/266)
+    - [study-code](./src/test/java/org/aery/study/jdk9/JEP_266_More_Concurrency_Updates.java)
     - 支援 Reactive Streams 發布-訂閱框架的新介面, 封裝在新的 `java.util.concurrent.Flow` 類中 (其實就是 JEP 213 的內容)
     - `CompletableFuture` API 增強, 包括基於時間的完成方法(如 `orTimeout` 和 `completeTimeout`), 以及支持時間延遲執行的 `Executor`
     - 累積自 JDK 8 以來的多項實作改進
 - [269 : Convenience Factory Methods for Collections](https://openjdk.org/jeps/269)
+    - [study-code](./src/test/java/org/aery/study/jdk9/JEP269_ConvenienceFactoryMethodsforCollections.java)
     - 在 `Collection` 介面中新增了一些靜態工廠方法, 用於創建不可變的集合實例
     - 這些方法包括 `List.of()`, `Set.of()`, `Map.of()`, 能夠簡化 Java 編碼中繁瑣的集合初始化操作
 
 ### 不知道沒差但知道了會變強的版本特性
 
 - [102 : Process API Updates](https://openjdk.org/jeps/102)
+    - [study-code:ProcessBuilder](./src/test/java/org/aery/study/jdk9/JEP102_ProcessBuilder.java) and [study-code:ProcessHandle](./src/test/java/org/aery/study/jdk9/JEP102_ProcessHandle.java)
     - 增強`Process`的支援, 主要是透過`ProcessHandle`來操作新的功能, 而`Process`身上新增的一些方法, 主要也都是從`ProcessHandle`來的
     - `ProcessHandle`可透過`Process.toHandler()`取得
 - [110 : HTTP 2 Client](https://openjdk.org/jeps/110)
     - 增加原生的HTTP/2 client API, 在 jdk11 正式推出
 - [158 : Unified JVM Logging](https://openjdk.org/jeps/158)
+    - [study-code](./src/test/java/org/aery/study/jdk9/JEP158_Unified_JVM_Logging.java)
     - 為JVM所有元件引入一個通用的log系統
     - 可以方便觀測class loading, thread, GC, Module System, 等相關JVM原生的基礎資訊
     - 使用 `-Xlog` JVM參數來設置, 可以控制不同組件, 不同等級
@@ -61,10 +68,12 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
     - 例如jdk9之前要打開GC的log會使用 `-XX:+PrintGCDetails` `-XX:+UseGCLogFileRotation` `-XX:NumberOfGCLogFiles=5` 等參數,
       而jdk開始可以改用 `-Xlog:gc*=debug:file=/tmp/gc.log:uptime,tid:filecount=5,filesize=2m` 來設置
 - [165 : Compiler Control](https://openjdk.org/jeps/165)
+  - [study-code](./src/test/java/org/aery/study/jdk9/JEP165_Compiler_Control.java)
     - 提供一種可精細控制編譯器行為的方法, 因為有時候某些優化策略會意外導致性能下降, 因此透過此功能可以調整優化策略
     - 可以透過jvm參數, 環境變數, 或annotation進行設置, 從而為開發人員提供的更靈活的控制能力
     - 例如開發人員可以透過這些選向來調整方法內聯、循環展開、數組邊界檢查等優化行為, 還可以設置不同優化級別來平衡性能和代碼大小之間的權衡
 - [193 : Variable Handles](https://openjdk.org/jeps/193)
+    - [study-code](./src/test/java/org/aery/study/jdk9/JEP193_Variable_Handles.java)
     - 之前對於field的原子或有序操作都有部分問題存在, 在jdk9之前只有以下幾種方法:
         1. `Atomic*` : 這種方式導致額外的記憶體開銷且會有額外的併發問題 (AtomicInteger, AtomicLong, ...)
         2. `Atomic*FieldUpdater` : 通常會遇到操作本身更大的開銷 (AtomicIntegerFieldUpdater, AtomicLongFieldUpdater, ...)
@@ -132,6 +141,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
 - [253 : Prepare JavaFX UI Controls &amp; CSS APIs for Modularization](https://openjdk.org/jeps/253)
     - 目標是對 JavaFX 的 UI 控件和 CSS API 進行模塊化改造, 以便它們更易於維護和擴展
 - [256 : BeanInfo Annotations](https://openjdk.org/jeps/256)
+    - [study-code](./src/test/java/org/aery/study/jdk9/JEP256_BeanInfo_Annotations.java)
     - 這是關於 java beans 的規範的優化, 使用 annotation(`@JavaBean` `@BeanProperty` `SwingContainer`) 取代 @beaninfo Javadoc 標籤
     - 這些新增的 annotation 將於 runtime 自動生成 `BeanInfo` 類, 這樣開發者就不需要再手動編寫 `BeanInfo` 類了
     - 通過 `BeanInfo` 類, 開發者可以定義 bean 的屬性、事件、方法等, 並且可以對這些元素進行描述, 以便 IDE 和其他工具能夠更好地支持 bean 的使用

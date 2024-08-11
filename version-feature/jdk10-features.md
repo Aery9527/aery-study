@@ -7,6 +7,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk10)]
 ### 不知道會唾棄的版本特性
 
 - [286 : Local-Variable Type Inference](https://openjdk.org/jeps/286)
+    - [study-code](./src/test/java/org/aery/study/jdk10/JEP286_Local_Variable_Type_Inference.java)
     - 引用 `var` 關鍵字, 用於宣告變數時, 讓編譯器自動推斷型別
     - 只能用在區域變數宣告, 不能用在方法參數, 回傳型別, 全域變數宣告
 
@@ -24,6 +25,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk10)]
     - 最初實作將支援 x64 和 SPARC 平台, 並設有 -XX:ThreadLocalHandshakes 選項來選擇使用傳統安全點, 這能減少全域安全點數量, 從而降低整體 VM 延遲
     - *安全點(safepoint)*: 是指當前執行緒能夠安全地暫停執行的時刻, 以便進行 GC 等操作, 傳統上安全點需要所有執行緒都停下來, 這會導致整體延遲
 - [314 : Additional Unicode Language-Tag Extensions](https://openjdk.org/jeps/314)
+    - [study-code](./src/test/java/org/aery/study/jdk10/JEP314_Additional_Unicode_Language_Tag_Extensions.java)
     - 增強了 `java.util.Locale` 和相關 API 以支持 **BCP 47 語言標籤** 的額外 Unicode 擴展
     - 新增的擴展包括
         - cu (貨幣類型)
