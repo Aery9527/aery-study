@@ -4,7 +4,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk11)]
 
 ---
 
-### 不知道會唾棄的版本特性
+### 不能不知道的版本特性
 
 - [321 : HTTP Client (Standard)](https://openjdk.org/jeps/321)
     - [study-code](./src/test/java/org/aery/study/jdk11/JEP321_Http2.java)
@@ -33,7 +33,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk11)]
         - 自定義事件 : 應用程式中特定業務邏輯的事件
     - intellij 內建就有 jfr 的分析工具, 可以直接開啟 .jfr 檔案
 
-### 不知道沒差但知道了會變強的版本特性
+### 不知道沒差但知道了會變厲害的版本特性
 
 - [309 : Dynamic Class-File Constants](https://openjdk.org/jeps/309)
     - [study-code](./src/test/java/org/aery/study/jdk11/JEP309_Dynamic_Class_File_Constants.java)

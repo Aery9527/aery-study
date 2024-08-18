@@ -9,6 +9,10 @@ public class JEP264_Platform_Logging_API_and_Service {
         logger.log(System.Logger.Level.INFO, "Hello, World!");
     }
 
+    /**
+     * 由 META-INF/services/java.lang.System$LoggerFinder 指定此 LoggerFinder,
+     * 由於 jvm 啟動即會被載入, 為避免影響其他測試的code, 因此內部先mark起來, 需要研究再打開即可
+     */
     public static class QuizLoggerFinder extends System.LoggerFinder {
         @Override
         public System.Logger getLogger(String name, Module module) {

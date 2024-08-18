@@ -4,7 +4,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
 
 ---
 
-### 不知道會唾棄的版本特性
+### 不能不知道的版本特性
 
 - [200 : The Modular JDK](https://openjdk.org/jeps/200)
     - 透過 JEP201 將 jdk 模組化
@@ -51,7 +51,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
     - 在 `Collection` 介面中新增了一些靜態工廠方法, 用於創建不可變的集合實例
     - 這些方法包括 `List.of()`, `Set.of()`, `Map.of()`, 能夠簡化 Java 編碼中繁瑣的集合初始化操作
 
-### 不知道沒差但知道了會變強的版本特性
+### 不知道沒差但知道了會變厲害的版本特性
 
 - [102 : Process API Updates](https://openjdk.org/jeps/102)
     - [study-code:ProcessBuilder](./src/test/java/org/aery/study/jdk9/JEP102_ProcessBuilder.java) and [study-code:ProcessHandle](./src/test/java/org/aery/study/jdk9/JEP102_ProcessHandle.java)

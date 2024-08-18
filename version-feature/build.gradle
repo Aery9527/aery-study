@@ -3,4 +3,7 @@ dependencies {
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter', version: '3.2.4'
 
     testImplementation group: 'org.springframework', name: 'spring-test', version: '6.1.6'
+
+    testImplementation group: 'org.openjdk.jmh', name: 'jmh-core', version: '1.37'
+    testImplementation group: 'org.openjdk.jmh', name: 'jmh-generator-annprocess', version: '1.37'
 }

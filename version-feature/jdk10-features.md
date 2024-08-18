@@ -4,14 +4,14 @@ here is [[study code](./src/test/java/org/aery/study/jdk10)]
 
 ---
 
-### 不知道會唾棄的版本特性
+### 不能不知道的版本特性
 
 - [286 : Local-Variable Type Inference](https://openjdk.org/jeps/286)
     - [study-code](./src/test/java/org/aery/study/jdk10/JEP286_Local_Variable_Type_Inference.java)
     - 引用 `var` 關鍵字, 用於宣告變數時, 讓編譯器自動推斷型別
     - 只能用在區域變數宣告, 不能用在方法參數, 回傳型別, 全域變數宣告
 
-### 不知道沒差但知道了會變強的版本特性
+### 不知道沒差但知道了會變厲害的版本特性
 
 - [307 : Parallel Full GC for G1](https://openjdk.org/jeps/307)
     - 改進 G1 將 Full GC 並行化, 並通過 -XX:ParallelGCThreads 選項控制線程數
