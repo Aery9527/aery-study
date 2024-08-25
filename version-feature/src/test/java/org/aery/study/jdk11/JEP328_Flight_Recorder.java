@@ -10,10 +10,21 @@ public class JEP328_Flight_Recorder extends Event {
         String message;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+        Thread.sleep(1000);
+
         MyEvent event = new MyEvent();
         event.message = "kerker";
         event.commit();
+
+        for (int i = 1; i <= 5; i++) {
+            Thread.sleep(1000);
+            System.out.println(i + " second...");
+        }
+
+        event.end();
+
+        System.out.println("finish");
     }
 
 }
