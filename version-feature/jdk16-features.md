@@ -68,7 +68,6 @@ here is [[study code](./src/test/java/org/aery/study/jdk16)]
       避免使用反射等方法存取內部元素
     - 使用 `--illegal-access` 命令選項可控制封裝行為, 但在未來將逐步移除該選項, 最終達到完全封裝內部 API 的目標
 - [397 : Sealed Classes (Second Preview)](https://openjdk.org/jeps/397)
-  - [study-code](./src/test/java/org/aery/study/jdk16/JEP397_Sealed_Classes.java)
   - 引入了 **封閉類別**(Sealed Classes)功能, 允許開發者限制哪些類別或介面可以繼承或實作指定的父類別或介面
   - 這種設計可以讓 API 的作者更嚴密地控制繼承層次, 確保系統的穩定性, 並提高編譯時的安全性
 

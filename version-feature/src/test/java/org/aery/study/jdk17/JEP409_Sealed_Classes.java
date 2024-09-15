@@ -1,6 +1,6 @@
-package org.aery.study.jdk16;
+package org.aery.study.jdk17;
 
-public class JEP397_Sealed_Classes {
+public class JEP409_Sealed_Classes {
 
     public abstract sealed class Shape implements Cloneable permits Circle, Square, Triangle {
     }
