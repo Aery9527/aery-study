@@ -1,6 +1,6 @@
-package org.aery.study.jdk15;
+package org.aery.study.jdk16;
 
-public class JEP375_Pattern_Matching_for_instanceof {
+public class JEP394_Pattern_Matching_for_instanceof {
 
     public static void main(String[] args) {
         Object obj = "Hello, World!";

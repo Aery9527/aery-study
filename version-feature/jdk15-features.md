@@ -40,8 +40,8 @@ here is [[study code](./src/test/java/org/aery/study/jdk15)]
     - 移除 Nashorn JavaScript 引擎及相關 API 和工具 jjs
     - Nashorn 最早在 JDK 8 中引入, 取代 Rhino 引擎, 但由於 ECMAScript 的快速演變維護 Nashorn 變得困難, 因此移除將使 JDK 能更專注於其他功能
 - [375 : Pattern Matching for instanceof (Second Preview)](https://openjdk.org/jeps/375)
-    - [study-code](./src/test/java/org/aery/study/jdk15/JEP375_Pattern_Matching_for_instanceof.java)
     - 提供了一個有關 instanceof 操作符的模式匹配功能的第二次預覽, 此功能讓程式能夠更簡潔/安全地進行類型檢測與轉換
+    - 例如, 原本需要 if (obj instanceof String) 及後續轉型的代碼, 現在可以簡化為 if (obj instanceof String s)
 - [383 : Foreign-Memory Access API (Second Incubator)](https://openjdk.org/jeps/383)
     - 引入了第二次試驗性的 **Foreign-Memory Access** API, 這個 API 讓 Java 程式可以安全且高效地訪問 JVM 堆外的外部記憶體
     - 此 API 的主要目標包括通用性/安全性/決定性, 以及替代過去不安全的 `sun.misc.Unsafe` 介面, 此版本包含對記憶體佈局及並行處理的改進,
@@ -69,7 +69,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk15)]
     - 由於 Solaris 和 SPARC 平台的使用日益減少, 這樣的移除將有助於簡化 OpenJDK 的開發, 並讓資源集中於更具前景的平台
     - 此提案的目的是促進新功能如 Valhalla/Loom/Panama 的開發, 加速 Java 平台的演進
 - [385 : Deprecate RMI Activation for Removal](https://openjdk.org/jeps/385)
-  - 棄用 RMI Activation, 並在未來移除它, RMI Activation 是 RMI 的一部分, 自 Java 8 起已成為可選功能, 使用率極低, 且分佈式系統現今多依賴網絡技術,
-    移除這一功能將減少維護成本, 並簡化 Java 平台的開發, 無需對其他 RMI 部分進行改變
-  - **RMI Activation** :  是 Java RMI(Remote Method Invocation)的一部分, 用來啟動和管理遠端物件, 它允許在需要時將不活躍的遠端物件啟動, 並將它們的狀態恢復到
-    JVM 中, 這樣的機制使得遠端物件能夠在不活躍時節省資源, 僅在需要時才會重新載入或啟動
+    - 棄用 RMI Activation, 並在未來移除它, RMI Activation 是 RMI 的一部分, 自 Java 8 起已成為可選功能, 使用率極低, 且分佈式系統現今多依賴網絡技術,
+      移除這一功能將減少維護成本, 並簡化 Java 平台的開發, 無需對其他 RMI 部分進行改變
+    - **RMI Activation** :  是 Java RMI(Remote Method Invocation)的一部分, 用來啟動和管理遠端物件, 它允許在需要時將不活躍的遠端物件啟動, 並將它們的狀態恢復到
+      JVM 中, 這樣的機制使得遠端物件能夠在不活躍時節省資源, 僅在需要時才會重新載入或啟動
