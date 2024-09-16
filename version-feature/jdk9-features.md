@@ -4,6 +4,10 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
 
 ---
 
+### openJDK 官網沒有提到的東西
+
+- [Cleaner](./src/test/java/org/aery/study/jdk9/JEPxxx_Cleaner.java) : 用於替代 `finalize` 的機制
+
 ### 不能不知道的版本特性
 
 - [200 : The Modular JDK](https://openjdk.org/jeps/200)

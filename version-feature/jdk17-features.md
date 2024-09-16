@@ -33,7 +33,6 @@ here is [[study code](./src/test/java/org/aery/study/jdk17)]
     - 此為 jdk 16 的 JEP 396 後續, 強化了 JDK 的內部封裝, 除了少數關鍵的內部 API（如 sun.misc.Unsafe）外, 所有內部元素都將被嚴格封裝, 鼓勵開發者轉向使用標準
       API
 - [406 : Pattern Matching for switch (Preview)](https://openjdk.org/jeps/406)
-    - [study-code](./src/test/java/org/aery/study/jdk17/JEP406_Pattern_Matching_for_switch.java)
     - 引入了針對 switch 表達式與語句的模式匹配, 允許在 case 標籤中使用模式, 並引入了守護模式(guarded patterns)和括號模式(parenthesized patterns)
     - 這項功能旨在簡化處理多種條件的邏輯, 使程式碼更具表達性和可讀性, 並改善 null 值處理方式
 - [412 : Foreign Function &amp; Memory API (Incubator)](https://openjdk.org/jeps/412)

@@ -1,6 +1,6 @@
-package org.aery.study.jdk17;
+package org.aery.study.jdk18;
 
-public class JEP406_Pattern_Matching_for_switch {
+public class JEP420_Pattern_Matching_for_switch {
 
     static String formatShape(Object shape) {
         return switch (shape) {
