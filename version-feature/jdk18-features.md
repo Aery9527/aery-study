@@ -35,7 +35,6 @@ here is [[study code](./src/test/java/org/aery/study/jdk18)]
   - 這個 API 旨在取代 JNI 提供更易用/效能更佳且通用的替代方案, 特別針對外部函式調用和訪問非 JVM 管理的記憶體
   - 本次更新加入了新的記憶體和方法處理機制, 並改善了對外部資源的控制
 - [420 : Pattern Matching for switch (Second Preview)](https://openjdk.org/jeps/420)
-  - [study-code](./src/test/java/org/aery/study/jdk18/JEP420_Pattern_Matching_for_switch.java)
   - 對 switch 語句進行模式匹配的增強的第二次預覽, 此功能允許在 switch 語句中使用模式來測試變數, 並對每個模式執行特定操作, 從而提升表達能力
   - 這次增加了如支援封閉類型的精確匹配及更好的可讀性等改進, 此功能允許更靈活的控制流, 並保持對現有 switch 語句的相容性
 - [421 : Deprecate Finalization for Removal](https://openjdk.org/jeps/421)

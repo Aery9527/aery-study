@@ -6,7 +6,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk17)]
 
 ### 不能不知道的版本特性
 
-- [356 : Enhanced Pseudo-Random Number Generators](https://openjdk.org/jeps/356)
+- [356 : Enhanced Pseudo- Number Generators](https://openjdk.org/jeps/356)
     - [study-code](./src/test/java/org/aery/study/jdk17/JEP356_Enhanced_PseudoRandom_Number_Generators.java)
     - 提供了增強的偽隨機數生成器(PRNG)介面和實現, 包括可跳躍和可分割的 PRNG 演算法
     - **PRNG** (Pseudo-Random Number Generator, 偽隨機數生成器) : 是一種使用演算法來生成一系列看似隨機的數字, 但實際上是根據初始種子值進行計算,

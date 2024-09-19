@@ -1,7 +1,5 @@
 ## [form OpenJDK - JDK20](https://openjdk.org/projects/jdk/20)
 
-here is [[study code](./src/test/java/org/aery/study/jdk20)]
-
 ---
 
 ### 不能不知道的版本特性
