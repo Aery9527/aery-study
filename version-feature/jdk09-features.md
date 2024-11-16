@@ -2,8 +2,6 @@
 
 ## [form OpenJDK - JDK9](https://openjdk.org/projects/jdk9/)
 
-here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-features-JPMS.md)] big feature description
-
 ###### <a id="head0"></a> [官網沒有提到的東西](#官網沒有提到的東西)
 
 1. [Cleaner](#Cleaner)
@@ -126,7 +124,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
 
 ###### [201 : Modular Source Code](https://openjdk.org/jeps/201)
 
-- see [jdk9-features-JPMS.md](./jdk9-features-JPMS.md)
+- see [jdk09-features-JPMS.md](./jdk09-features-JPMS)
 
 ###### [213 : Milling Project Coin](https://openjdk.org/jeps/213)
 
@@ -160,7 +158,7 @@ here is [[study code](./src/test/java/org/aery/study/jdk9)] and [[JPMS](./jdk9-f
 
 ###### [261 : Module System](https://openjdk.org/jeps/261)
 
-- see [jdk9-features-JPMS.md](./jdk9-features-JPMS.md)
+- see [jdk09-features-JPMS.md](./jdk09-features-JPMS)
 
 ###### [264 : Platform Logging API and Service](https://openjdk.org/jeps/264)
 

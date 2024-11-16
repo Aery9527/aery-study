@@ -12,17 +12,20 @@ study all java version featiures.
 
 ### important features and syntax changes/enhancements
 
-- [java 9](./version-feature/jdk9-features.md)
-  - [`List.of()` `Set.of()` `Map.of()` 新增方便建立 Collection 的 API](./version-feature/jdk9-features.md#269--convenience-factory-methods-for-collections)
-  - [`StackWalker` 新的 Stack 遍歷 API ](./version-feature/jdk9-features.md#259--stack-walking-api)
-  - [`Cleaner` 替代 `finalize` 的新方法](./version-feature/jdk9-features.md#cleaner)
-  - [`VarHandle` 類似 reflection 的新機制](./version-feature/jdk9-features.md#193--variable-handles)
-  - [`Process` 增強](./version-feature/jdk9-features.md#102--process-api-updates)
-  - [java beans 規範優化, 開發者不再需要手動編寫 `BeanInfo` 類](./version-feature/jdk9-features.md#256--beaninfo-annotations)
-  - [模組系統 (Module System)](./version-feature/jdk9-features.md#261--module-system)
-  - [JVM通用log系統](./version-feature/jdk9-features.md#158--unified-jvm-logging)
-  - [支援單個 JAR 檔案中包含針對不同 Java 平台版本的多個類文件版本](./version-feature/jdk9-features.md#238--multi-release-jar-files)
-  - [G1 設為預設垃圾回收器](./version-feature/jdk9-features.md#248--make-g1-the-default-garbage-collector)
+- [java 9](./version-feature/jdk09-features.md)
+  - [`List.of()` `Set.of()` `Map.of()` 新增方便建立 Collection 的 API](./version-feature/jdk09-features.md#269--convenience-factory-methods-for-collections)
+  - [`StackWalker` 新的 Stack 遍歷 API ](./version-feature/jdk09-features.md#259--stack-walking-api)
+  - [`Cleaner` 替代 `finalize` 的新方法](./version-feature/jdk09-features.md#cleaner)
+  - [`VarHandle` 類似 reflection 的新機制](./version-feature/jdk09-features.md#193--variable-handles)
+  - [`Process` 增強](./version-feature/jdk09-features.md#102--process-api-updates)
+  - [java beans 規範優化, 開發者不再需要手動編寫 `BeanInfo` 類](./version-feature/jdk09-features.md#256--beaninfo-annotations)
+  - [模組系統 (Module System)](./version-feature/jdk09-features.md#261--module-system)
+  - [JVM通用log系統](./version-feature/jdk09-features.md#158--unified-jvm-logging)
+  - [支援單個 JAR 檔案中包含針對不同 Java 平台版本的多個類文件版本](./version-feature/jdk09-features.md#238--multi-release-jar-files)
+  - [G1 設為預設垃圾回收器](./version-feature/jdk09-features.md#248--make-g1-the-default-garbage-collector)
+- [java 10](./version-feature/jdk10-features.md)
+  - [可區域變數使用`var`宣告變數, 降低複雜度與提高閱讀性, 關注在邏輯](./version-feature/jdk10-features.md#286--local-variable-type-inference)
+  - [G1 將 Full GC 並行化, 並通過 `-XX:ParallelGCThreads` 選項控制線程數](./version-feature/jdk10-features.md#307--parallel-full-gc-for-g1)
 
 ---
 
