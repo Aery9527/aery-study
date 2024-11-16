@@ -7,16 +7,16 @@
 #### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
 1. [189 : Shenandoah: A Low-Pause-Time Garbage Collector (Experimental)](#189--shenandoah--a-low-pause-time-garbage-collector--experimental-)
-2. [230 : Microbenchmark Suite](#230--microbenchmark-suite)
-3. [325 : Switch Expressions (Preview)](#325--switch-expressions--preview-)
-4. [344 : Abortable Mixed Collections for G1](#344--abortable-mixed-collections-for-g1)
-5. [346 : Promptly Return Unused Committed Memory from G1](#346--promptly-return-unused-committed-memory-from-g1)
+1. [230 : Microbenchmark Suite](#230--microbenchmark-suite)
+1. [325 : Switch Expressions (Preview)](#325--switch-expressions--preview-)
+1. [344 : Abortable Mixed Collections for G1](#344--abortable-mixed-collections-for-g1)
+1. [346 : Promptly Return Unused Committed Memory from G1](#346--promptly-return-unused-committed-memory-from-g1)
 
 #### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 
 1. [334 : JVM Constants API](#334--jvm-constants-api)
-2. [340 : One AArch64 Port, Not Two](#340--one-aarch64-port-not-two)
-3. [341 : Default CDS Archives](#341--default-cds-archives)
+1. [340 : One AArch64 Port, Not Two](#340--one-aarch64-port-not-two)
+1. [341 : Default CDS Archives](#341--default-cds-archives)
 
 ---
 
