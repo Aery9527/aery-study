@@ -26,7 +26,7 @@
 1. [347 : Enable C++14 Language Features](#347--enable-c14-language-features)
 1. [357 : Migrate from Mercurial to Git](#357--migrate-from-mercurial-to-git)
 1. [369 : Migrate to GitHub](#369--migrate-to-github)
-1. [388 : Windows/AArch64 Port](#388--windows--aarch64-port)
+1. [388 : Windows & AArch64 Port](#388--windows--aarch64-port)
 
 ---
 
@@ -137,7 +137,7 @@
 - 目標是提升效能、加強工具整合/減少克隆和拉取的時間, 並利用 GitHub 的 API 提供更多自動化功能
 - 此提案還允許開發者使用多種工作流程來互動, 包括命令行工具/網頁瀏覽器/IDE 插件支援
 
-###### [388 : Windows/AArch64 Port](https://openjdk.org/jeps/388)
+###### [388 : Windows & AArch64 Port](https://openjdk.org/jeps/388)
 
 - 將 JDK 移植到 Windows/AArch64 平台, 以支援新興的消費級和伺服器級 ARM64 硬體, 滿足用戶需求
 - 該移植工作包含了模板解釋器/C1 和 C2 JIT 編譯器, 以及多種垃圾回收器(如 G1、ZGC 等)

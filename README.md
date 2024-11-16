@@ -56,6 +56,11 @@ study all java version featiures.
   - [提議為 `instanceof` 操作符引入模式匹配, 簡化類型檢查與轉型的代碼, EX: `if (obj instanceof String str) { System.out.println(str.toUpperCase()) }`](./version-feature/jdk16-features.md#394--pattern-matching-for-instanceof)
   - [引入 `Record` 類別, 用來簡單表示不可變數據的透明載體, 會自動生成如 equals/hashCode/toString 等基本方法](./version-feature/jdk16-features.md#395--records)
   - [改進 **ZGC** 的線程堆疊處理從 safepoint 遷移到並行階段的方案](./version-feature/jdk16-features.md#376--zgc--concurrent-thread-stack-processing)
+- [java 17 (LTS)](./version-feature/jdk17-features.md)
+  - [新增 `RandomGeneratorFactory`, 可用於取代 `Random`](./version-feature/jdk17-features.md#356--enhanced-pseudo-number-generators)
+  - [新增 `sealed` 修飾符來指定類別為 **密封類(Sealed Classes)**, 允許類別或介面限制其可擴展或實作的子類或子介面](./version-feature/jdk17-features.md#409--sealed-classes)
+  - [引入了針對 macOS 的新 Java 2D 渲染管道, 替代過時的 OpenGL API](./version-feature/jdk17-features.md#382--new-macos-rendering-pipeline)
+  - [引入了上下文特定的反序列化過濾器, 允許根據應用程序的具體情況設置特定的過濾規則, 防止反序列化攻擊](./version-feature/jdk17-features.md#415--context-specific-deserialization-filters)
 
 ---
 
