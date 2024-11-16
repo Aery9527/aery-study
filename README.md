@@ -67,6 +67,8 @@ study all java version featiures.
   - [將 **UTF-8** 設為預設字元集, 在這之前的版本中是基於作業系統的區域設置(Windows 上是 MS950, Linux 上是 UTF-8)](./version-feature/jdk18-features.md#400--utf-8-by-default)
   - [定義了一個用於網路位址解析的 SPI, 使得 `java.net.InetAddress` 可以使用平台內建解析器以外的其他解析器, 對虛擬線程的應用有幫助](./version-feature/jdk18-features.md#418--internet-address-resolution-spi)
   - [標記 **finalization** 機制即將移除, 建議使用 `try-with-resources` 或 Java 9 引入的 `Cleaner` 來管理資源](./version-feature/jdk18-features.md#421--deprecate-finalization-for-removal)
+- [java 19](./version-feature/jdk19-features.md)
+  - none
 
 ---
 
