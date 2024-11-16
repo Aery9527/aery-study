@@ -33,6 +33,10 @@ study all java version featiures.
   - [新增 **Epsilon GC**, 一種無操作的垃圾收集器, 它處理記憶體分配但不進行回收, 一旦堆內存耗盡, JVM 會關閉](./version-feature/jdk11-features.md#318--epsilon--a-no-op-garbage-collector)
   - [新增允許直接執行 `.java` 檔案而不需先編譯的功能, 例如: `java HelloWorld.java` 直接執行](./version-feature/jdk11-features.md#330--launch-single-file-source-code-programs)
   - [提供低開銷的堆積(stack)剖析方法, 對性能影響小, 適合持續啟用](./version-feature/jdk11-features.md#331--low-overhead-heap-profiling)
+- [java 12](./version-feature/jdk12-features.md)
+  - [新增基於 Java 微基準測試架構(JMH), JMH 專注於性能測試, 與 Junit 專注於業務邏輯的正確性測試不同](./version-feature/jdk12-features.md#230--microbenchmark-suite)
+  - [改進 G1 垃圾收集器, 避免超過預設的暫停時間](./version-feature/jdk12-features.md#344--abortable-mixed-collections-for-g1)
+  - [改進 G1 垃圾收集器, 使其能夠在應用程式閒置時, 自動將未使用的 Java 堆記憶體返還給作業系統](./version-feature/jdk12-features.md#346--promptly-return-unused-committed-memory-from-g1)
 
 ---
 
