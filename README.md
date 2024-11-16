@@ -26,6 +26,13 @@ study all java version featiures.
 - [java 10](./version-feature/jdk10-features.md)
   - [可區域變數使用`var`宣告變數, 降低複雜度與提高閱讀性, 關注在邏輯](./version-feature/jdk10-features.md#286--local-variable-type-inference)
   - [G1 將 Full GC 並行化, 並通過 `-XX:ParallelGCThreads` 選項控制線程數](./version-feature/jdk10-features.md#307--parallel-full-gc-for-g1)
+- [java 11](./version-feature/jdk11-features.md)
+  - [新的HTTP API, 支援 HTTP/2和websocket](./version-feature/jdk11-features.md#321--http-client--standard-)
+  - [允許在 lambda 裡使用 `var`](./version-feature/jdk11-features.md#323--local-variable-syntax-for-lambda-parameters)
+  - [新的數據收集框架 **JFR**, 用於故障排除、監控和分析 Java 應用程序和 HotSpot JVM](./version-feature/jdk11-features.md#328--flight-recorder)
+  - [新增 **Epsilon GC**, 一種無操作的垃圾收集器, 它處理記憶體分配但不進行回收, 一旦堆內存耗盡, JVM 會關閉](./version-feature/jdk11-features.md#318--epsilon--a-no-op-garbage-collector)
+  - [新增允許直接執行 `.java` 檔案而不需先編譯的功能, 例如: `java HelloWorld.java` 直接執行](./version-feature/jdk11-features.md#330--launch-single-file-source-code-programs)
+  - [提供低開銷的堆積(stack)剖析方法, 對性能影響小, 適合持續啟用](./version-feature/jdk11-features.md#331--low-overhead-heap-profiling)
 
 ---
 

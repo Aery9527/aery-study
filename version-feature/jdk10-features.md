@@ -17,11 +17,11 @@
 ###### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 
 1. [296 : Consolidate the JDK Forest into a Single Repository](#296--consolidate-the-jdk-forest-into-a-single-repository)
-2. [304 : Garbage-Collector Interface](#304--garbage-collector-interface)
-3. [313 : Remove the Native-Header Generation Tool (javah)](#313--remove-the-native-header-generation-tool--javah-)
-4. [317 : Experimental Java-Based JIT Compiler](#317--experimental-java-based-jit-compiler)
-5. [319 : Root Certificates](#319--root-certificates)
-6. [322 : Time-Based Release Versioning](#322--time-based-release-versioning)
+1. [304 : Garbage-Collector Interface](#304--garbage-collector-interface)
+1. [313 : Remove the Native-Header Generation Tool (javah)](#313--remove-the-native-header-generation-tool--javah-)
+1. [317 : Experimental Java-Based JIT Compiler](#317--experimental-java-based-jit-compiler)
+1. [319 : Root Certificates](#319--root-certificates)
+1. [322 : Time-Based Release Versioning](#322--time-based-release-versioning)
 
 ---
 
@@ -111,4 +111,5 @@
 - $FEATURE : 功能發布計數器, 無論發佈內容為何都會針對每個功能發布而增加(以前 $MAJOR)
 - $INTERIM : 臨時版本計數器, 對於包含相容的錯誤修復和增強功能但沒有不相容的變更、沒有功能刪除以及沒有對標準 API 進行更改的非功能版本遞增(以前$MINOR)
 - $UPDATE : 更新版本計數器, 針對修復新功能中的安全性問題、迴歸和錯誤的兼容更新版本而遞增(以前是$SECURITY, 但具有重要的增量規則)
-- $PATCH : 緊急修補程式發布計數器, 僅在需要產生緊急版本來解決關鍵問題時才會增加(為此目的使用附加元素可以最大限度地減少對正在進行的更新版本的開發人員和用戶的干擾)
+- $PATCH : 緊急修補程式發布計數器, 僅在需要產生緊急版本來解決關鍵問題時才會增加(
+  為此目的使用附加元素可以最大限度地減少對正在進行的更新版本的開發人員和用戶的干擾)

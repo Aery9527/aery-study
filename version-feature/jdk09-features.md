@@ -158,7 +158,7 @@
 
 ###### [261 : Module System](https://openjdk.org/jeps/261)
 
-- see [jdk09-features-JPMS.md](./jdk09-features-JPMS)
+- see [jdk09-features-JPMS.md](./jdk09-features-JPMS.md)
 
 ###### [264 : Platform Logging API and Service](https://openjdk.org/jeps/264)
 
