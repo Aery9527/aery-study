@@ -5,27 +5,27 @@
 #### <a id="head1"></a> [不能不知道的版本特性](#不能不知道的版本特性)
 
 1. [349 : JFR Event Streaming](#349--jfr-event-streaming)
-2. [361 : Switch Expressions (Standard)](#361--switch-expressions--standard-)
+1. [361 : Switch Expressions (Standard)](#361--switch-expressions--standard-)
  
 #### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
 1. [305 : Pattern Matching for instanceof (Preview)](#305--pattern-matching-for-instanceof--preview-)
-2. [343 : Packaging Tool (Incubator)](#343--packaging-tool--incubator-)
-3. [352 : Non-Volatile Mapped Byte Buffers](#352--non-volatile-mapped-byte-buffers)
-4. [358 : Helpful NullPointerExceptions](#358--helpful-nullpointerexceptions)
-5. [359 : Records (Preview)](#359--records--preview-)
-6. [363 : Remove the Concurrent Mark Sweep (CMS) Garbage Collector](#363--remove-the-concurrent-mark-sweep--cms--garbage-collector)
-7. [364 : ZGC on macOS (Experimental)](#364--zgc-on-macos--Experimental-)
-8. [365 : ZGC on Windows (Experimental)](#365--zgc-on-windows--Experimental-)
-9. [366 : Deprecate the ParallelScavenge + SerialOld GC Combination](#366--deprecate-the-parallelscavenge--serialold-gc-combination)
-10. [368 : Text Blocks (Second Preview)](#368--text-blocks--second-preview-)
-11. [370 : Foreign-Memory Access API (Incubator)](#370--foreign-memory-access-api--incubator-)
+1. [343 : Packaging Tool (Incubator)](#343--packaging-tool--incubator-)
+1. [352 : Non-Volatile Mapped Byte Buffers](#352--non-volatile-mapped-byte-buffers)
+1. [358 : Helpful NullPointerExceptions](#358--helpful-nullpointerexceptions)
+1. [359 : Records (Preview)](#359--records--preview-)
+1. [363 : Remove the Concurrent Mark Sweep (CMS) Garbage Collector](#363--remove-the-concurrent-mark-sweep--cms--garbage-collector)
+1. [364 : ZGC on macOS (Experimental)](#364--zgc-on-macos--Experimental-)
+1. [365 : ZGC on Windows (Experimental)](#365--zgc-on-windows--Experimental-)
+1. [366 : Deprecate the ParallelScavenge + SerialOld GC Combination](#366--deprecate-the-parallelscavenge--serialold-gc-combination)
+1. [368 : Text Blocks (Second Preview)](#368--text-blocks--second-preview-)
+1. [370 : Foreign-Memory Access API (Incubator)](#370--foreign-memory-access-api--incubator-)
 
 #### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 
 1. [345 : NUMA-Aware Memory Allocation for G1](#345--numa-aware-memory-allocation-for-g1)
-2. [362 : Deprecate the Solaris and SPARC Ports](#362--deprecate-the-solaris-and-sparc-ports)
-3. [367 : Remove the Pack200 Tools and API](#367--remove-the-pack200-tools-and-api)
+1. [362 : Deprecate the Solaris and SPARC Ports](#362--deprecate-the-solaris-and-sparc-ports)
+1. [367 : Remove the Pack200 Tools and API](#367--remove-the-pack200-tools-and-api)
 
 ---
 

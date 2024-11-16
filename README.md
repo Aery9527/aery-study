@@ -26,7 +26,7 @@ study all java version featiures.
 - [java 10](./version-feature/jdk10-features.md)
   - [可區域變數使用`var`宣告變數, 降低複雜度與提高閱讀性, 關注在邏輯](./version-feature/jdk10-features.md#286--local-variable-type-inference)
   - [G1 將 Full GC 並行化, 並通過 `-XX:ParallelGCThreads` 選項控制線程數](./version-feature/jdk10-features.md#307--parallel-full-gc-for-g1)
-- [java 11](./version-feature/jdk11-features.md)
+- [java 11 (LTS)](./version-feature/jdk11-features.md)
   - [新的HTTP API, 支援 HTTP/2和websocket](./version-feature/jdk11-features.md#321--http-client--standard-)
   - [允許在 lambda 裡使用 `var`](./version-feature/jdk11-features.md#323--local-variable-syntax-for-lambda-parameters)
   - [新的數據收集框架 **JFR**, 用於故障排除、監控和分析 Java 應用程序和 HotSpot JVM](./version-feature/jdk11-features.md#328--flight-recorder)
@@ -45,6 +45,11 @@ study all java version featiures.
   - [改進 `NullPointerException` 的訊息, 能精確地描述哪個變數為 null](./version-feature/jdk14-features.md#358--helpful-nullpointerexceptions)
   - [移除 **CMS** 垃圾回收器](./version-feature/jdk14-features.md#363--remove-the-concurrent-mark-sweep--cms--garbage-collector)
   - [棄用 **Parallel Scavenge** + **Serial Old** 垃圾回收器組合](./version-feature/jdk14-features.md#366--deprecate-the-parallelscavenge--serialold-gc-combination)
+- [java 15](./version-feature/jdk15-features.md)
+  - [正式推出 **ZGC**, 這是一個可擴展的低延遲垃圾回收器, 適合大規模應用場景](./version-feature/jdk15-features.md#377--zgc--a-scalable-low-latency-garbage-collector)
+  - [正式推出 **Shenandoah GC**, 是一個低延遲的垃圾回收器, 旨在最大限度地減少 GC 暫停時間](./version-feature/jdk15-features.md#377--zgc--a-scalable-low-latency-garbage-collector)
+  - [引入了 **Text Blocks**, 允許多行字串文字表示法, 減少不必要的跳脫字元並改善程式碼的可讀性](./version-feature/jdk15-features.md#378--text-blocks)
+  - [引入了隱藏類(Hidden Classes), 這些類僅能通過反射訪問而無法被其他類直接使用](./version-feature/jdk15-features.md#371--hidden-classes)
 
 ---
 
