@@ -61,6 +61,12 @@ study all java version featiures.
   - [新增 `sealed` 修飾符來指定類別為 **密封類(Sealed Classes)**, 允許類別或介面限制其可擴展或實作的子類或子介面](./version-feature/jdk17-features.md#409--sealed-classes)
   - [引入了針對 macOS 的新 Java 2D 渲染管道, 替代過時的 OpenGL API](./version-feature/jdk17-features.md#382--new-macos-rendering-pipeline)
   - [引入了上下文特定的反序列化過濾器, 允許根據應用程序的具體情況設置特定的過濾規則, 防止反序列化攻擊](./version-feature/jdk17-features.md#415--context-specific-deserialization-filters)
+- [java 18](./version-feature/jdk18-features.md)
+  - [新增一個簡單的 Web 伺服器工具, 僅支持基本的 HTTP(僅處理 HEAD 和 GET) 功能, 旨在快速啟動一個用於測試和開發的靜態文件伺服器](./version-feature/jdk18-features.md#408--simple-web-server)
+  - [新增 `@snippet` javadoc 標籤, 簡化代碼片段的展示, 改善使用 `<pre>{@code ...}</pre>` 的方式](./version-feature/jdk18-features.md#413--code-snippets-in-java-api-documentation)
+  - [將 **UTF-8** 設為預設字元集, 在這之前的版本中是基於作業系統的區域設置(Windows 上是 MS950, Linux 上是 UTF-8)](./version-feature/jdk18-features.md#400--utf-8-by-default)
+  - [定義了一個用於網路位址解析的 SPI, 使得 `java.net.InetAddress` 可以使用平台內建解析器以外的其他解析器, 對虛擬線程的應用有幫助](./version-feature/jdk18-features.md#418--internet-address-resolution-spi)
+  - [標記 **finalization** 機制即將移除, 建議使用 `try-with-resources` 或 Java 9 引入的 `Cleaner` 來管理資源](./version-feature/jdk18-features.md#421--deprecate-finalization-for-removal)
 
 ---
 
