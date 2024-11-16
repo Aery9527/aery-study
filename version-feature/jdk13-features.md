@@ -7,7 +7,7 @@
 #### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
 1. [350 : Dynamic CDS Archives](#350--dynamic-cds-archives)
-1. [351 : ZGC: Uncommit Unused Memory](#351--zgc--uncommit-unused-memory)
+1. [351 : ZGC: Uncommit Unused Memory (Experimental)](#351--zgc--uncommit-unused-memory--Experimental-)
 1. [353 : Reimplement the Legacy Socket API](#353--reimplement-the-legacy-socket-api)
 1. [354 : Switch Expressions (Preview)](#354--switch-expressions--preview-)
 1. [355 : Text Blocks (Preview)](#355--text-blocks--preview-)
@@ -29,7 +29,7 @@
 - 該功能旨在簡化和優化應用程序的 CDS 使用體驗，特別是在多進程環境下能夠節省內存
 - *Class Data Sharing (CDS) 在 jdk12 的 JEP341 有被擴展*
 
-###### [351 : ZGC: Uncommit Unused Memory](https://openjdk.org/jeps/351)
+###### [351 : ZGC: Uncommit Unused Memory (Experimental)](https://openjdk.org/jeps/351)
 
 - 提出了增強 ZGC（Z Garbage Collector）的功能, 使其能夠將未使用的堆內存返還給作業系統
 - 這對於記憶體使用受限的環境（如容器）特別有用, 因為它可以減少應用程序的記憶體佔用, 從而優化資源利用

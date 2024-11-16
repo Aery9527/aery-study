@@ -38,7 +38,13 @@ study all java version featiures.
   - [改進 G1 垃圾收集器, 避免超過預設的暫停時間](./version-feature/jdk12-features.md#344--abortable-mixed-collections-for-g1)
   - [改進 G1 垃圾收集器, 使其能夠在應用程式閒置時, 自動將未使用的 Java 堆記憶體返還給作業系統](./version-feature/jdk12-features.md#346--promptly-return-unused-committed-memory-from-g1)
 - [java 13](./version-feature/jdk13-features.md)
-  - [改進 ZGC 垃圾收集器, 避免超過預設的暫停時間](./version-feature/jdk13-features.md#351--zgc--uncommit-unused-memory)
+  - none
+- [java 14](./version-feature/jdk14-features.md)
+  - [增加(JFR) 事件流功能, 方便從 jfr 檔案讀取事件處理](./version-feature/jdk14-features.md#349--jfr-event-streaming)
+  - [將 `switch` 語句轉變為一種語句和表達式, 引入了新的語法結構](./version-feature/jdk14-features.md#361--switch-expressions--standard-)
+  - [改進 `NullPointerException` 的訊息, 能精確地描述哪個變數為 null](./version-feature/jdk14-features.md#358--helpful-nullpointerexceptions)
+  - [移除 **CMS** 垃圾回收器](./version-feature/jdk14-features.md#363--remove-the-concurrent-mark-sweep--cms--garbage-collector)
+  - [棄用 **Parallel Scavenge** + **Serial Old** 垃圾回收器組合](./version-feature/jdk14-features.md#366--deprecate-the-parallelscavenge--serialold-gc-combination)
 
 ---
 
