@@ -71,6 +71,13 @@ study all java version featiures.
   - none
 - [java 20](./version-feature/jdk20-features.md)
   - none
+- [java 21 (LTS)](./version-feature/jdk21-features.md)
+  - [引入了 **有序集合** 的新介面, 以支援具明確順序的集合(`SequencedCollection`, `SequencedSet`, `SequencedMap`)](./version-feature/jdk21-features.md#431--sequenced-collections)
+  - [提案了 **Record Patterns** 功能, 使 `record` 結合 `instanceof` 跟 `switch` 操作時有更好的語法體驗](./version-feature/jdk21-features.md#440--record-patterns)
+  - [提供 `switch` 表達式與語句的模式匹配功能, 能夠在 case 標籤中使用模式進行匹配, 讓程式更具表達力與安全性](./version-feature/jdk21-features.md#441--pattern-matching-for-switch)
+  - [推出 **虛擬執行緒(Virtual Threads)**, 適用於大量 I/O 操作情境](./version-feature/jdk21-features.md#444--virtual-threads)
+  - [推出 **Generational ZGC**, 是一種增強型 Z 垃圾收集器, 旨在減少記憶體分配阻塞/降低堆內記憶體使用率和 CPU 開銷](./version-feature/jdk21-features.md#439--generational-zgc)
+  - [引入了 **Key Encapsulation Mechanism (KEM)** API, 這是一種加密技術, 為未來的量子抗攻擊標準提供基礎](./version-feature/jdk21-features.md#452--key-encapsulation-mechanism-api)
 
 ---
 
