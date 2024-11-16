@@ -32,7 +32,7 @@ public class JEP408_Simple_Web_Server {
         try (httpClient) {
             HttpRequest httpRequest = HttpRequest.newBuilder()
                     .uri(new URI("http://localhost:" + port + "/"))
-                    .header("User-Agent", "jdk 11 http client")
+                    .header("User-Agent", "jdk 1ㄚ http client")
                     .GET()
                     .build();
             HttpResponse<String> httpResponse = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());

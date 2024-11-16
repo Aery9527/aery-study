@@ -217,11 +217,9 @@
 
 - [study-code](./src/test/java/org/aery/study/jdk9/JEP193_Variable_Handles.java)
 - 之前對於field的原子或有序操作都有部分問題存在, 在jdk9之前只有以下幾種方法:
-
-1. `Atomic*` : 這種方式導致額外的記憶體開銷且會有額外的併發問題 (AtomicInteger, AtomicLong, ...)
-2. `Atomic*FieldUpdater` : 通常會遇到操作本身更大的開銷 (AtomicIntegerFieldUpdater, AtomicLongFieldUpdater, ...)
-3. `Unsafe` : 這方式雖然快速但不安全且不易使用也有移植性問題 (可直接跟OS申請記憶體, 而繞過jvm記憶體管理模型)
-
+  1. `Atomic*` : 這種方式導致額外的記憶體開銷且會有額外的併發問題 (AtomicInteger, AtomicLong, ...)
+  2. `Atomic*FieldUpdater` : 通常會遇到操作本身更大的開銷 (AtomicIntegerFieldUpdater, AtomicLongFieldUpdater, ...)
+  3. `Unsafe` : 這方式雖然快速但不安全且不易使用也有移植性問題 (可直接跟OS申請記憶體, 而繞過jvm記憶體管理模型)
 - 所以 `VarHandle` 基本上就是等效 `java.util.concurrent.atomic` 、 `sun.misc.Unsafe` 的功能, 提供更安全便捷的操作
 - `VarHandle` 與 reflection 機制不同在於, 前者只有創建時會做檢查, 而後者每次操作都會做檢查
 

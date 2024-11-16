@@ -12,6 +12,7 @@ public class JEP286_Local_Variable_Type_Inference {
     void name() {
         var a = "";
         var b = List.of();
+//        a = b; // not allowed
     }
 
 //    private var metho1() {} // not allowed
