@@ -50,6 +50,12 @@ study all java version featiures.
   - [正式推出 **Shenandoah GC**, 是一個低延遲的垃圾回收器, 旨在最大限度地減少 GC 暫停時間](./version-feature/jdk15-features.md#377--zgc--a-scalable-low-latency-garbage-collector)
   - [引入了 **Text Blocks**, 允許多行字串文字表示法, 減少不必要的跳脫字元並改善程式碼的可讀性](./version-feature/jdk15-features.md#378--text-blocks)
   - [引入了隱藏類(Hidden Classes), 這些類僅能通過反射訪問而無法被其他類直接使用](./version-feature/jdk15-features.md#371--hidden-classes)
+- [java 16](./version-feature/jdk16-features.md)
+  - [針對 **值導向類別 (value-based classes)** 提供警告, 尤其是對原始類別包裝器(如 Integer、Double 等)進行調整](./version-feature/jdk16-features.md#390--warnings-for-value-based-classes)
+  - [提供了 `jpackage` 工具, 用於將 Java 應用程式打包成自包含的可安裝包](./version-feature/jdk16-features.md#392--packaging-tool)
+  - [提議為 `instanceof` 操作符引入模式匹配, 簡化類型檢查與轉型的代碼, EX: `if (obj instanceof String str) { System.out.println(str.toUpperCase()) }`](./version-feature/jdk16-features.md#394--pattern-matching-for-instanceof)
+  - [引入 `Record` 類別, 用來簡單表示不可變數據的透明載體, 會自動生成如 equals/hashCode/toString 等基本方法](./version-feature/jdk16-features.md#395--records)
+  - [改進 **ZGC** 的線程堆疊處理從 safepoint 遷移到並行階段的方案](./version-feature/jdk16-features.md#376--zgc--concurrent-thread-stack-processing)
 
 ---
 
