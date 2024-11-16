@@ -1,12 +1,12 @@
 <a id="head"></a>
 
-## [form OpenJDK - JDK10](https://openjdk.org/projects/jdk/10)
+# [form OpenJDK - JDK10](https://openjdk.org/projects/jdk/10)
 
-###### <a id="head1"></a> [不能不知道的版本特性](#不能不知道的版本特性)
+#### <a id="head1"></a> [不能不知道的版本特性](#不能不知道的版本特性)
 
 1. [286 : Local-Variable Type Inference](#286--local-variable-type-inference)
 
-###### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
+#### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
 1. [307 : Parallel Full GC for G1](#307--parallel-full-gc-for-g1)
 1. [310 : Application Class-Data Sharing](#310--application-class-data-sharing)
@@ -14,7 +14,7 @@
 1. [314 : Additional Unicode Language-Tag Extensions](#314--additional-unicode-language-tag-extensions)
 1. [316 : Heap Allocation on Alternative Memory Devices](#316--heap-allocation-on-alternative-memory-devices)
 
-###### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
+#### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 
 1. [296 : Consolidate the JDK Forest into a Single Repository](#296--consolidate-the-jdk-forest-into-a-single-repository)
 1. [304 : Garbage-Collector Interface](#304--garbage-collector-interface)
@@ -25,7 +25,7 @@
 
 ---
 
-### [不能不知道的版本特性](#head1)
+#### [不能不知道的版本特性](#head1)
 
 ###### [286 : Local-Variable Type Inference](https://openjdk.org/jeps/286)
 
@@ -35,7 +35,7 @@
 
 ---
 
-### [不知道沒差但知道了會變厲害的版本特性](#head2)
+#### [不知道沒差但知道了會變厲害的版本特性](#head2)
 
 ###### [307 : Parallel Full GC for G1](https://openjdk.org/jeps/307)
 
@@ -75,7 +75,7 @@
 
 ---
 
-### [不知道沒差但知道了也沒差的版本特性](#head3)
+#### [不知道沒差但知道了也沒差的版本特性](#head3)
 
 ###### [296 : Consolidate the JDK Forest into a Single Repository](https://openjdk.org/jeps/296)
 

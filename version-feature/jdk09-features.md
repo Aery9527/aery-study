@@ -1,12 +1,12 @@
 <a id="head"></a>
 
-## [form OpenJDK - JDK9](https://openjdk.org/projects/jdk9/)
+# [form OpenJDK - JDK9](https://openjdk.org/projects/jdk9/)
 
-###### <a id="head0"></a> [官網沒有提到的東西](#官網沒有提到的東西)
+#### <a id="head0"></a> [官網沒有提到的東西](#官網沒有提到的東西)
 
 1. [Cleaner](#Cleaner)
 
-###### <a id="head1"></a> [不能不知道的版本特性](#不能不知道的版本特性)
+#### <a id="head1"></a> [不能不知道的版本特性](#不能不知道的版本特性)
 
 1. [200 : The Modular JDK](#200--The-Modular-JDK)
 1. [201 : Modular Source Code](#201--Modular-Source-Code)
@@ -17,7 +17,7 @@
 1. [266 : More Concurrency Updates](#266--More-Concurrency-Updates)
 1. [269 : Convenience Factory Methods for Collections](#269--Convenience-Factory-Methods-for-Collections)
 
-###### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
+#### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
 1. [102 : Process API Updates](#102--Process-API-Updates)
 1. [110 : HTTP 2 Client](#110--HTTP-2-Client)
@@ -47,7 +47,7 @@
 1. [277 : Enhanced Deprecation](#277--Enhanced-Deprecation)
 1. [292 : Implement Selected ECMAScript 6 Features in Nashorn](#292--Implement-Selected-ECMAScript-6-Features-in-Nashorn)
 
-###### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
+#### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 
 1. [143 : Improve Contended Locking](#143--Improve-Contended-Locking)
 1. [197 : Segmented Code Cache](#197--Segmented-Code-Cache)
@@ -108,7 +108,7 @@
 
 ---
 
-### [官網沒有提到的東西](#head0)
+#### [官網沒有提到的東西](#head0)
 
 ###### [Cleaner](./src/test/java/org/aery/study/jdk9/JEPxxx_Cleaner.java)
 
@@ -116,7 +116,7 @@
 
 ---
 
-### [不能不知道的版本特性](#head1)
+#### [不能不知道的版本特性](#head1)
 
 ###### [200 : The Modular JDK](https://openjdk.org/jeps/200)
 
@@ -183,7 +183,7 @@
 
 ---
 
-### [不知道沒差但知道了會變厲害的版本特性](#head2)
+#### [不知道沒差但知道了會變厲害的版本特性](#head2)
 
 ###### [102 : Process API Updates](https://openjdk.org/jeps/102)
 
@@ -355,7 +355,7 @@
 
 - 在 Nashorn 中實現 ECMAScript 6 (ES6) 的一些新特性, 將分階段在 JDK 9 及其更新版本中實現這些功能，以提高 Nashorn 的兼容性和功能性
 
-### [不知道沒差但知道了也沒差的版本特性](#head3)
+#### [不知道沒差但知道了也沒差的版本特性](#head3)
 
 ###### [143 : Improve Contended Locking](https://openjdk.org/jeps/143)
 
