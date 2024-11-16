@@ -69,6 +69,8 @@ study all java version featiures.
   - [標記 **finalization** 機制即將移除, 建議使用 `try-with-resources` 或 Java 9 引入的 `Cleaner` 來管理資源](./version-feature/jdk18-features.md#421--deprecate-finalization-for-removal)
 - [java 19](./version-feature/jdk19-features.md)
   - none
+- [java 20](./version-feature/jdk20-features.md)
+  - none
 
 ---
 
