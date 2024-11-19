@@ -4,21 +4,21 @@
 
 #### <a id="head1"></a> [不能不知道的版本特性](#不能不知道的版本特性)
 
-1. [408 : Simple Web Server](#408--simple-web-server)
-1. [413 : Code Snippets in Java API Documentation](#413--code-snippets-in-java-api-documentation)
+1. 408 : Simple Web Server [[intellij]](#408--simple-web-server) [[github]](#408--simple-web-server)
+1. 413 : Code Snippets in Java API Documentation [[intellij]](#413--code-snippets-in-java-api-documentation) [[github]](#413--code-snippets-in-java-api-documentation)
 
 #### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
-1. [400 : UTF-8 by Default](#400--utf-8-by-default)
-1. [417 : Vector API (Third Incubator)](#417--vector-api--third-incubator-)
-1. [418 : Internet-Address Resolution SPI](#418--internet-address-resolution-spi)
-1. [419 : Foreign Function &amp; Memory API (Second Incubator)](#419--foreign-function--memory-api--second-incubator-)
-1. [420 : Pattern Matching for switch (Second Preview)](#420--pattern-matching-for-switch--second-preview-)
-1. [421 : Deprecate Finalization for Removal](#421--deprecate-finalization-for-removal)
+1. 400 : UTF-8 by Default [[intellij]](#400--utf-8-by-default) [[github]](#400--utf-8-by-default)
+1. 417 : Vector API (Third Incubator) [[intellij]](#417--vector-api--third-incubator-) [[github]](#417--vector-api-third-incubator)
+1. 418 : Internet-Address Resolution SPI [[intellij]](#418--internet-address-resolution-spi) [[github]](#418--internet-address-resolution-spi)
+1. 419 : Foreign Function & Memory API (Second Incubator) [[intellij]](#419--foreign-function--memory-api--second-incubator-) [[github]](#419--foreign-function--memory-api-second-incubator)
+1. 420 : Pattern Matching for switch (Second Preview) [[intellij]](#420--pattern-matching-for-switch--second-preview-) [[github]](#420--pattern-matching-for-switch-second-preview)
+1. 421 : Deprecate Finalization for Removal [[intellij]](#421--deprecate-finalization-for-removal) [[github]](#421--deprecate-finalization-for-removal)
 
 #### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 
-1. [416 : Reimplement Core Reflection with Method Handles](#416--reimplement-core-reflection-with-method-handles)
+1. 416 : Reimplement Core Reflection with Method Handles [[intellij]](#416--reimplement-core-reflection-with-method-handles) [[github]](#416--reimplement-core-reflection-with-method-handles)
 
 ---
 
