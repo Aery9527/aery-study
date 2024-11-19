@@ -24,7 +24,7 @@
 1. 315 : Improve Aarch64 Intrinsics [[intellij]](#315--improve-aarch64-intrinsics) [[github]](#315--improve-aarch64-intrinsics)
 1. 324 : Key Agreement with Curve25519 and Curve448 [[intellij]](#324--key-agreement-with-curve25519-and-curve448) [[github]](#324--key-agreement-with-curve25519-and-curve448)
 1. 332 : Transport Layer Security (TLS) 1.3 [[intellij]](#332--transport-layer-security--tls--13) [[github]](#332--transport-layer-security-tls-13)
-1. 333 : ZGC: A Scalable Low-Latency Garbage Collector (Experimental) [[intellij]](#333--zgc--a-scalable-low-latency-garbage-collector--experimental-) [[github]](#333--zgc--a-scalable-low-latency-garbage-collector--experimental-)
+1. 333 : ZGC: A Scalable Low-Latency Garbage Collector (Experimental) [[intellij]](#333--zgc--a-scalable-low-latency-garbage-collector--experimental-) [[github]](#333--zgc--a-scalable-low-latency-garbage-collector-experimental)
 1. 335 : Deprecate the Nashorn JavaScript Engine [[intellij]](#335--deprecate-the-nashorn-javascript-engine) [[github]](#335--deprecate-the-nashorn-javascript-engine)
 1. 336 : Deprecate the Pack200 Tools and API [[intellij]](#336--deprecate-the-pack200-tools-and-api) [[github]](#336--deprecate-the-pack200-tools-and-api)
 
