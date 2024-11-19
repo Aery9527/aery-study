@@ -4,27 +4,27 @@
 
 #### <a id="head1"></a> [不能不知道的版本特性](#不能不知道的版本特性)
 
-1. [431 : Sequenced Collections](#431--sequenced-collections)
-1. [440 : Record Patterns](#440--record-patterns)
-1. [441 : Pattern Matching for switch](#441--pattern-matching-for-switch)
-1. [444 : Virtual Threads](#444--virtual-threads)
+1. 431 : Sequenced Collections [[intellij]](#431--sequenced-collections) [[github]](#431--sequenced-collections)
+1. 440 : Record Patterns [[intellij]](#440--record-patterns) [[github]](#440--record-patterns)
+1. 441 : Pattern Matching for switch [[intellij]](#441--pattern-matching-for-switch) [[github]](#441--pattern-matching-for-switch)
+1. 444 : Virtual Threads [[intellij]](#444--virtual-threads) [[github]](#444--virtual-threads)
 
 #### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
-1. [430 : String Templates (Preview)](#430--string-templates--preview-)
-1. [439 : Generational ZGC](#439--generational-zgc)
-1. [442 : Foreign Function & Memory API (Third Preview)](#442--foreign-function--memory-api--third-preview-)
-1. [443 : Unnamed Patterns and Variables (Preview)](#443--unnamed-patterns-and-variables--preview-)
-1. [445 : Unnamed Classes and Instance Main Methods (Preview)](#445--unnamed-classes-and-instance-main-methods--preview-)
-1. [446 : Scoped Values (Preview)](#446--scoped-values--preview-)
-1. [448 : Vector API (Sixth Incubator)](#448--vector-api--sixth-incubator-)
-1. [451 : Prepare to Disallow the Dynamic Loading of Agents](#451--prepare-to-disallow-the-dynamic-loading-of-agents)
-1. [452 : Key Encapsulation Mechanism API](#452--key-encapsulation-mechanism-api)
-1. [453 : Structured Concurrency (Preview)](#453--structured-concurrency--preview-)
+1. 430 : String Templates (Preview) [[intellij]](#430--string-templates--preview-) [[github]](#430--string-templates-preview)
+1. 439 : Generational ZGC [[intellij]](#439--generational-zgc) [[github]](#439--generational-zgc)
+1. 442 : Foreign Function & Memory API (Third Preview) [[intellij]](#442--foreign-function--memory-api--third-preview-) [[github]](#442--foreign-function--memory-api-third-preview)
+1. 443 : Unnamed Patterns and Variables (Preview) [[intellij]](#443--unnamed-patterns-and-variables--preview-) [[github]](#443--unnamed-patterns-and-variables-preview)
+1. 445 : Unnamed Classes and Instance Main Methods (Preview) [[intellij]](#445--unnamed-classes-and-instance-main-methods--preview-) [[github]](#445--unnamed-classes-and-instance-main-methods-preview)
+1. 446 : Scoped Values (Preview) [[intellij]](#446--scoped-values--preview-) [[github]](#446--scoped-values-preview)
+1. 448 : Vector API (Sixth Incubator) [[intellij]](#448--vector-api--sixth-incubator-) [[github]](#448--vector-api-sixth-incubator)
+1. 451 : Prepare to Disallow the Dynamic Loading of Agents [[intellij]](#451--prepare-to-disallow-the-dynamic-loading-of-agents) [[github]](#451--prepare-to-disallow-the-dynamic-loading-of-agents)
+1. 452 : Key Encapsulation Mechanism API [[intellij]](#452--key-encapsulation-mechanism-api) [[github]](#452--key-encapsulation-mechanism-api)
+1. 453 : Structured Concurrency (Preview) [[intellij]](#453--structured-concurrency--preview-) [[github]](#453--structured-concurrency-preview)
 
 #### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 
-1. [449 : Deprecate the Applet API for Removal](#449--deprecate-the-windows-32-bit-x86-port-for-removal)
+1. 449 : Deprecate the Applet API for Removal [[intellij]](#449--deprecate-the-windows-32-bit-x86-port-for-removal) [[github]](#449--deprecate-the-windows-32-bit-x86-port-for-removal)
 
 ---
 
