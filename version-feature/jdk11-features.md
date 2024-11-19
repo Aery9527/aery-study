@@ -4,29 +4,29 @@
 
 #### <a id="head1"></a> [不能不知道的版本特性](#不能不知道的版本特性)
 
-1. [321 : HTTP Client (Standard)](#321--http-client--standard-)
-1. [323 : Local-Variable Syntax for Lambda Parameters](#323--Local-Variable-Syntax-for-Lambda-Parameters)
-1. [328 : Flight Recorder](#328--flight-recorder)
+1. 321 : HTTP Client (Standard) [[intellij]](#321--http-client--standard-) [[github]](#321--http-client-standard)
+1. 323 : Local-Variable Syntax for Lambda Parameters [[intellij]](#323--Local-Variable-Syntax-for-Lambda-Parameters) [[github]](#323--local-variable-syntax-for-lambda-parameters)
+1. 328 : Flight Recorder [[intellij]](#328--flight-recorder) [[github]](#328--flight-recorder)
 
 #### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
-1. [309 : Dynamic Class-File Constants](#309--dynamic-class-file-constants)
-1. [318 : Epsilon: A No-Op Garbage Collector](#318--epsilon--a-no-op-garbage-collector)
-1. [320 : Remove the Java EE and CORBA Modules](#320--remove-the-java-ee-and-corba-modules)
-1. [327 : Unicode 10](#327--unicode-10)
-1. [329 : ChaCha20 and Poly1305 Cryptographic Algorithms](#329--chacha20-and-poly1305-cryptographic-algorithms)
-1. [330 : Launch Single-File Source-Code Programs](#330--launch-single-file-source-code-programs)
-1. [331 : Low-Overhead Heap Profiling](#331--low-overhead-heap-profiling)
+1. 309 : Dynamic Class-File Constants [[intellij]](#309--dynamic-class-file-constants) [[github]](#309--dynamic-class-file-constants)
+1. 318 : Epsilon: A No-Op Garbage Collector [[intellij]](#318--epsilon--a-no-op-garbage-collector) [[github]](#318--epsilon--a-no-op-garbage-collector)
+1. 320 : Remove the Java EE and CORBA Modules [[intellij]](#320--remove-the-java-ee-and-corba-modules) [[github]](#320--remove-the-java-ee-and-corba-modules)
+1. 327 : Unicode 10 [[intellij]](#327--unicode-10) [[github]](#327--unicode-10)
+1. 329 : ChaCha20 and Poly1305 Cryptographic Algorithms [[intellij]](#329--chacha20-and-poly1305-cryptographic-algorithms) [[github]](#329--chacha20-and-poly1305-cryptographic-algorithms)
+1. 330 : Launch Single-File Source-Code Programs [[intellij]](#330--launch-single-file-source-code-programs) [[github]](#330--launch-single-file-source-code-programs)
+1. 331 : Low-Overhead Heap Profiling [[intellij]](#331--low-overhead-heap-profiling) [[github]](#331--low-overhead-heap-profiling)
 
 #### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 
-1. [181 : Nest-Based Access Control](#181--nest-based-access-control)
-1. [315 : Improve Aarch64 Intrinsics](#315--improve-aarch64-intrinsics)
-1. [324 : Key Agreement with Curve25519 and Curve448](#324--key-agreement-with-curve25519-and-curve448)
-1. [332 : Transport Layer Security (TLS) 1.3](#332--transport-layer-security--tls--13)
-1. [333 : ZGC: A Scalable Low-Latency Garbage Collector (Experimental)](#333--zgc--a-scalable-low-latency-garbage-collector--experimental-)
-1. [335 : Deprecate the Nashorn JavaScript Engine](#335--deprecate-the-nashorn-javascript-engine)
-1. [336 : Deprecate the Pack200 Tools and API](#336--deprecate-the-pack200-tools-and-api)
+1. 181 : Nest-Based Access Control [[intellij]](#181--nest-based-access-control) [[github]](#181--nest-based-access-control)
+1. 315 : Improve Aarch64 Intrinsics [[intellij]](#315--improve-aarch64-intrinsics) [[github]](#315--improve-aarch64-intrinsics)
+1. 324 : Key Agreement with Curve25519 and Curve448 [[intellij]](#324--key-agreement-with-curve25519-and-curve448) [[github]](#324--key-agreement-with-curve25519-and-curve448)
+1. 332 : Transport Layer Security (TLS) 1.3 [[intellij]](#332--transport-layer-security--tls--13) [[github]](#332--transport-layer-security-tls-13)
+1. 333 : ZGC: A Scalable Low-Latency Garbage Collector (Experimental) [[intellij]](#333--zgc--a-scalable-low-latency-garbage-collector--experimental-) [[github]](#333--zgc--a-scalable-low-latency-garbage-collector--experimental-)
+1. 335 : Deprecate the Nashorn JavaScript Engine [[intellij]](#335--deprecate-the-nashorn-javascript-engine) [[github]](#335--deprecate-the-nashorn-javascript-engine)
+1. 336 : Deprecate the Pack200 Tools and API [[intellij]](#336--deprecate-the-pack200-tools-and-api) [[github]](#336--deprecate-the-pack200-tools-and-api)
 
 ---
 
