@@ -4,26 +4,26 @@
 
 #### <a id="head1"></a> [不能不知道的版本特性](#不能不知道的版本特性)
 
-1. [356 : Enhanced Pseudo-Number Generators](#356--enhanced-pseudo-number-generators)
-1. [409 : Sealed Classes](#409--sealed-classes)
+1. 356 : Enhanced Pseudo-Number Generators [[intellij]](#356--enhanced-pseudo-number-generators) [[github]](#356--enhanced-pseudo-number-generators)
+1. 409 : Sealed Classes [[intellij]](#409--sealed-classes) [[github]](#409--sealed-classes)
 
 #### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
-1. [382 : New macOS Rendering Pipeline](#382--new-macos-rendering-pipeline)
-1. [403 : Strongly Encapsulate JDK Internals](#403--strongly-encapsulate-jdk-internals)
-1. [406 : Pattern Matching for switch (Preview)](#406--pattern-matching-for-switch--preview-)
-1. [412 : Foreign Function & Memory API (Incubator)](#412--foreign-function--memory-api--incubator-)
-1. [414 : Vector API (Second Incubator)](#414--vector-api--second-incubator-)
-1. [415 : Context-Specific Deserialization Filters](#415--context-specific-deserialization-filters)
+1. 382 : New macOS Rendering Pipeline [[intellij]](#382--new-macos-rendering-pipeline) [[github]](#382--new-macos-rendering-pipeline)
+1. 403 : Strongly Encapsulate JDK Internals [[intellij]](#403--strongly-encapsulate-jdk-internals) [[github]](#403--strongly-encapsulate-jdk-internals)
+1. 406 : Pattern Matching for switch (Preview) [[intellij]](#406--pattern-matching-for-switch--preview-) [[github]](#406--pattern-matching-for-switch-preview)
+1. 412 : Foreign Function & Memory API (Incubator) [[intellij]](#412--foreign-function--memory-api--incubator-) [[github]](#412--foreign-function--memory-api-incubator)
+1. 414 : Vector API (Second Incubator) [[intellij]](#414--vector-api--second-incubator-) [[github]](#414--vector-api-second-incubator)
+1. 415 : Context-Specific Deserialization Filters [[intellij]](#415--context-specific-deserialization-filters) [[github]](#415--context-specific-deserialization-filters)
 
 #### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 
-1. [306 : Restore Always-Strict Floating-Point Semantics](#306--restore-always-strict-floating-point-semantics)
-1. [391 : macOS & AArch64 Port](#391--macos--aarch64-port)
-1. [398 : Deprecate the Applet API for Removal](#398--deprecate-the-applet-api-for-removal)
-1. [407 : Remove RMI Activation](#407--remove-rmi-activation)
-1. [410 : Remove the Experimental AOT and JIT Compiler](#410--remove-the-experimental-aot-and-jit-compiler)
-1. [411 : Deprecate the Security Manager for Removal](#411--deprecate-the-security-manager-for-removal)
+1. 306 : Restore Always-Strict Floating-Point Semantics [[intellij]](#306--restore-always-strict-floating-point-semantics) [[github]](#306--restore-always-strict-floating-point-semantics)
+1. 391 : macOS & AArch64 Port [[intellij]](#391--macos--aarch64-port) [[github]](#391--macos--aarch64-port)
+1. 398 : Deprecate the Applet API for Removal [[intellij]](#398--deprecate-the-applet-api-for-removal) [[github]](#398--deprecate-the-applet-api-for-removal)
+1. 407 : Remove RMI Activation [[intellij]](#407--remove-rmi-activation) [[github]](#407--remove-rmi-activation)
+1. 410 : Remove the Experimental AOT and JIT Compiler [[intellij]](#410--remove-the-experimental-aot-and-jit-compiler) [[github]](#410--remove-the-experimental-aot-and-jit-compiler)
+1. 411 : Deprecate the Security Manager for Removal [[intellij]](#411--deprecate-the-security-manager-for-removal) [[github]](#411--deprecate-the-security-manager-for-removal)
 
 ---
 
