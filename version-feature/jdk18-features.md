@@ -32,7 +32,7 @@
 
 ###### [413 : Code Snippets in Java API Documentation](https://openjdk.org/jeps/413)
 
-- [study-code](./src/test/java/org/aery/study/jdk18/JEP408_Simple_Web_Server.java)
+- [study-code](./src/test/java/org/aery/study/jdk18/JEP413_Code_Snippets_in_Java_API_Documentation.java)
 - 引入了 `@snippet` 標籤, 用於在 Java API 文件中簡化代碼片段的展示
 - 這個功能改善了過去使用 `<pre>{@code ...}</pre>` 的方式, 並支援語法高亮/代碼驗證/以及與 IDE 整合
 - `@snippet` 可以內嵌或引用外部文件中的代碼, 並提供高階標記功能, 如高亮/替換和鏈接等, 方便開發者更容易維護和編寫文件中的示例代碼
