@@ -6,13 +6,13 @@
 
 #### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
-1. [429 : Scoped Values (Incubator)](#429--scoped-values--incubator-)
-1. [432 : Record Patterns (Second Preview)](#432--record-patterns--second-preview-)
-1. [433 : Pattern Matching for switch (Fourth Preview)](#433--pattern-matching-for-switch--fourth-preview-)
-1. [434 : Foreign Function & Memory API (Second Preview)](#434--foreign-function--memory-api--second-preview-)
-1. [436 : Virtual Threads (Second Preview)](#436--virtual-threads--second-preview-)
-1. [437 : Structured Concurrency (Second Incubator)](#437--structured-concurrency--second-incubator-)
-1. [438 : Vector API (Fifth Incubator)](#438--vector-api--fifth-incubator-)
+1. 429 : Scoped Values (Incubator) [[intellij]](#429--scoped-values--incubator-) [[github]](#429--scoped-values-incubator)
+1. 432 : Record Patterns (Second Preview) [[intellij]](#432--record-patterns--second-preview-) [[github]](#432--record-patterns-second-preview)
+1. 433 : Pattern Matching for switch (Fourth Preview) [[intellij]](#433--pattern-matching-for-switch--fourth-preview-) [[github]](#433--pattern-matching-for-switch-fourth-preview)
+1. 434 : Foreign Function & Memory API (Second Preview) [[intellij]](#434--foreign-function--memory-api--second-preview-) [[github]](#434--foreign-function--memory-api-second-preview)
+1. 436 : Virtual Threads (Second Preview) [[intellij]](#436--virtual-threads--second-preview-) [[github]](#436--virtual-threads-second-preview)
+1. 437 : Structured Concurrency (Second Incubator) [[intellij]](#437--structured-concurrency--second-incubator-) [[github]](#437--structured-concurrency-second-incubator)
+1. 438 : Vector API (Fifth Incubator) [[intellij]](#438--vector-api--fifth-incubator-) [[github]](#438--vector-api-fifth-incubator)
 
 #### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 

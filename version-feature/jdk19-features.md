@@ -6,16 +6,16 @@
 
 #### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
-1. [405 : Record Patterns (Preview)](#405--record-patterns--preview-)
-1. [424 : Foreign Function &amp; Memory API (Preview)](#424--foreign-function--memory-api--preview-)
-1. [425 : Virtual Threads (Preview)](#425--virtual-threads--preview-)
-1. [426 : Vector API (Fourth Incubator)](#426--vector-api--fourth-incubator-)
-1. [427 : Pattern Matching for switch (Third Preview)](#427--pattern-matching-for-switch--third-preview-)
-1. [428 : Structured Concurrency (Incubator)](#428--structured-concurrency--incubator-)
+1. 405 : Record Patterns (Preview) [[intellij]](#405--record-patterns--preview-) [[github]](#405--record-patterns-preview)
+1. 424 : Foreign Function & Memory API (Preview) [[intellij]](#424--foreign-function--memory-api--preview-) [[github]](#424--foreign-function--memory-api-preview)
+1. 425 : Virtual Threads (Preview) [[intellij]](#425--virtual-threads--preview-) [[github]](#425--virtual-threads-preview)
+1. 426 : Vector API (Fourth Incubator) [[intellij]](#426--vector-api--fourth-incubator-) [[github]](#426--vector-api-fourth-incubator)
+1. 427 : Pattern Matching for switch (Third Preview) [[intellij]](#427--pattern-matching-for-switch--third-preview-) [[github]](#427--pattern-matching-for-switch-third-preview)
+1. 428 : Structured Concurrency (Incubator) [[intellij]](#428--structured-concurrency--incubator-) [[github]](#428--structured-concurrency-incubator)
 
 #### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 
-1. [422 : Linux/RISC-V Port](#422--linuxrisc-v-port)
+1. 422 : Linux/RISC-V Port [[intellij]](#422--linuxrisc-v-port) [[github]](#422--linuxrisc-v-port)
 
 ---
 
