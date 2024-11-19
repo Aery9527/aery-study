@@ -4,26 +4,26 @@
 
 #### <a id="head1"></a> [不能不知道的版本特性](#不能不知道的版本特性)
 
-1. [377 : ZGC: A Scalable Low-Latency Garbage Collector](#377--zgc--a-scalable-low-latency-garbage-collector)
-1. [378 : Text Blocks](#378--text-blocks)
-1. [379 : Shenandoah: A Low-Pause-Time Garbage Collector](#379--shenandoah--a-low-pause-time-garbage-collector)
+1. 377 : ZGC: A Scalable Low-Latency Garbage Collector [[intellij]](#377--zgc--a-scalable-low-latency-garbage-collector) [[github]](#377--zgc-a-scalable-low-latency-garbage-collector)
+1. 378 : Text Blocks [[intellij]](#378--text-blocks) [[github]](#378--text-blocks)
+1. 379 : Shenandoah: A Low-Pause-Time Garbage Collector [[intellij]](#379--shenandoah--a-low-pause-time-garbage-collector) [[github]](#379--shenandoah-a-low-pause-time-garbage-collector)
  
 #### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
-1. [339 : Edwards-Curve Digital Signature Algorithm (EdDSA)](#339--edwards-curve-digital-signature-algorithm--eddsa-)
-1. [360 : Sealed Classes (Preview)](#360--sealed-classes--preview-)
-1. [371 : Hidden Classes](#371--hidden-classes)
-1. [372 : Remove the Nashorn JavaScript Engine](#372--remove-the-nashorn-javascript-engine)
-1. [375 : Pattern Matching for instanceof (Second Preview)](#375--pattern-matching-for-instanceof--second-preview-)
-1. [383 : Foreign-Memory Access API (Second Incubator)](#383--foreign-memory-access-api--second-incubator-)
-1. [384 : Records (Second Preview)](#384--records--second-preview-)
+1. 339 : Edwards-Curve Digital Signature Algorithm (EdDSA) [[intellij]](#339--edwards-curve-digital-signature-algorithm--eddsa-) [[github]](#339--edwards-curve-digital-signature-algorithm-eddsa)
+1. 360 : Sealed Classes (Preview) [[intellij]](#360--sealed-classes--preview-) [[github]](#360--sealed-classes-preview)
+1. 371 : Hidden Classes [[intellij]](#371--hidden-classes) [[github]](#371--hidden-classes) [[github]](#371--hidden-classes)
+1. 372 : Remove the Nashorn JavaScript Engine [[intellij]](#372--remove-the-nashorn-javascript-engine) [[github]](#372--remove-the-nashorn-javascript-engine)
+1. 375 : Pattern Matching for instanceof (Second Preview) [[intellij]](#375--pattern-matching-for-instanceof--second-preview-) [[github]](#375--pattern-matching-for-instanceof-second-preview)
+1. 383 : Foreign-Memory Access API (Second Incubator) [[intellij]](#383--foreign-memory-access-api--second-incubator-) [[github]](#383--foreign-memory-access-api-second-incubator)
+1. 384 : Records (Second Preview) [[intellij]](#384--records--second-preview-) [[github]](#384--records-second-preview)
 
 #### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 
-1. [373 : Reimplement the Legacy DatagramSocket API](#373--reimplement-the-legacy-datagramsocket-api)
-1. [374 : Disable and Deprecate Biased Locking](#374--disable-and-deprecate-biased-locking)
-1. [381 : Remove the Solaris and SPARC Ports](#381--remove-the-solaris-and-sparc-ports)
-1. [385 : Deprecate RMI Activation for Removal](#385--deprecate-rmi-activation-for-removal)
+1. 373 : Reimplement the Legacy DatagramSocket API [[intellij]](#373--reimplement-the-legacy-datagramsocket-api) [[github]](#373--reimplement-the-legacy-datagramsocket-api)
+1. 374 : Disable and Deprecate Biased Locking [[intellij]](#374--disable-and-deprecate-biased-locking) [[github]](#374--disable-and-deprecate-biased-locking)
+1. 381 : Remove the Solaris and SPARC Ports [[intellij]](#381--remove-the-solaris-and-sparc-ports) [[github]](#381--remove-the-solaris-and-sparc-ports)
+1. 385 : Deprecate RMI Activation for Removal [[intellij]](#385--deprecate-rmi-activation-for-removal) [[github]](#385--deprecate-rmi-activation-for-removal)
 
 ---
 

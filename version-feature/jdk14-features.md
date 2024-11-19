@@ -17,7 +17,7 @@
 1. 363 : Remove the Concurrent Mark Sweep (CMS) Garbage Collector [[intellij]](#363--remove-the-concurrent-mark-sweep--cms--garbage-collector) [[github]](#363--remove-the-concurrent-mark-sweep-cms-garbage-collector)
 1. 364 : ZGC on macOS (Experimental) [[intellij]](#364--zgc-on-macos--Experimental-) [[github]](#364--zgc-on-macos-experimental)
 1. 365 : ZGC on Windows (Experimental) [[intellij]](#365--zgc-on-windows--Experimental-) [[github]](#365--zgc-on-windows-experimental)
-1. 366 : Deprecate the ParallelScavenge + SerialOld GC Combination [[intellij]](#366--deprecate-the-parallelscavenge--serialold-gc-combination) [[github]](#366--deprecate-the-parallelscavenge-serialold-gc-combination)
+1. 366 : Deprecate the ParallelScavenge + SerialOld GC Combination [[intellij]](#366--deprecate-the-parallelscavenge--serialold-gc-combination) [[github]](#366--deprecate-the-parallelscavenge--serialold-gc-combination)
 1. 368 : Text Blocks (Second Preview) [[intellij]](#368--text-blocks--second-preview-) [[github]](#368--text-blocks-second-preview)
 1. 370 : Foreign-Memory Access API (Incubator) [[intellij]](#370--foreign-memory-access-api--incubator-) [[github]](#370--foreign-memory-access-api-incubator)
 
