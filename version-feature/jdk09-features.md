@@ -27,7 +27,7 @@
 1. 217 : Annotations Pipeline 2.0 [[intellij]](#217--Annotations-Pipeline-20) [[github]](#217--Annotations-Pipeline-20)
 1. 219 : Datagram Transport Layer Security (DTLS) [[intellij]](#219--Datagram-Transport-Layer-Security--DTLS-) [[github]](#219--Datagram-Transport-Layer-Security-DTLS)
 1. 221 : Simplified Doclet API [[intellij]](#221--Simplified-Doclet-API) [[github]](#221--Simplified-Doclet-API)
-1. 222 : jshell: The Java Shell (Read-Eval-Print Loop) [[intellij]](#222--jshell--The-Java-Shell--Read-Eval-Print-Loop-) [[github]](#222--jshell--The-Java-Shell-Read-Eval-Print-Loop)
+1. 222 : jshell: The Java Shell (Read-Eval-Print Loop) [[intellij]](#222--jshell--The-Java-Shell--Read-Eval-Print-Loop-) [[github]](#222--jshell--The-Java-ShellRead-Eval-Print-Loop)
 1. 223 : New Version-String Scheme [[intellij]](#223--New-Version-String-Scheme) [[github]](#223--New-Version-String-Scheme)
 1. 226 : UTF-8 Property Files [[intellij]](#226--UTF-8-Property-Files) [[github]](#226--UTF-8-Property-Files)
 1. 227 : Unicode 7.0 [[intellij]](#227--Unicode-70) [[github]](#227--Unicode-70)
