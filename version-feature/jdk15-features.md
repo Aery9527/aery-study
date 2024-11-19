@@ -12,7 +12,7 @@
 
 1. 339 : Edwards-Curve Digital Signature Algorithm (EdDSA) [[intellij]](#339--edwards-curve-digital-signature-algorithm--eddsa-) [[github]](#339--edwards-curve-digital-signature-algorithm-eddsa)
 1. 360 : Sealed Classes (Preview) [[intellij]](#360--sealed-classes--preview-) [[github]](#360--sealed-classes-preview)
-1. 371 : Hidden Classes [[intellij]](#371--hidden-classes) [[github]](#371--hidden-classes) [[github]](#371--hidden-classes)
+1. 371 : Hidden Classes [[intellij]](#371--hidden-classes) [[github]](#371--hidden-classes)
 1. 372 : Remove the Nashorn JavaScript Engine [[intellij]](#372--remove-the-nashorn-javascript-engine) [[github]](#372--remove-the-nashorn-javascript-engine)
 1. 375 : Pattern Matching for instanceof (Second Preview) [[intellij]](#375--pattern-matching-for-instanceof--second-preview-) [[github]](#375--pattern-matching-for-instanceof-second-preview)
 1. 383 : Foreign-Memory Access API (Second Incubator) [[intellij]](#383--foreign-memory-access-api--second-incubator-) [[github]](#383--foreign-memory-access-api-second-incubator)

@@ -4,29 +4,29 @@
 
 #### <a id="head1"></a> [不能不知道的版本特性](#不能不知道的版本特性)
 
-1. [390 : Warnings for Value-Based Classes](#390--warnings-for-value-based-classes)
-1. [392 : Packaging Tool](#392--packaging-tool)
-1. [394 : Pattern Matching for instanceof](#394--pattern-matching-for-instanceof)
-1. [395 : Records](#395--records)
+1. 390 : Warnings for Value-Based Classes [[intellij]](#390--warnings-for-value-based-classes) [[github]](#390--warnings-for-value-based-classes)
+1. 392 : Packaging Tool [[intellij]](#392--packaging-tool) [[github]](#392--packaging-tool)
+1. 394 : Pattern Matching for instanceof [[intellij]](#394--pattern-matching-for-instanceof) [[github]](#394--pattern-matching-for-instanceof)
+1. 395 : Records [[intellij]](#395--records) [[github]](#395--records)
 
 #### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
-1. [338 : Vector API (Incubator)](#338--vector-api--incubator-)
-1. [376 : ZGC: Concurrent Thread-Stack Processing](#376--zgc--concurrent-thread-stack-processing)
-1. [380 : Unix-Domain Socket Channels](#380--unix-domain-socket-channels)
-1. [386 : Alpine Linux Port](#386--alpine-linux-port)
-1. [387 : Elastic Metaspace](#387--elastic-metaspace)
-1. [389 : Foreign Linker API (Incubator)](#389--foreign-linker-api--incubator-)
-1. [393 : Foreign-Memory Access API (Third Incubator)](#393--foreign-memory-access-api--third-incubator-)
-1. [396 : Strongly Encapsulate JDK Internals by Default](#396--strongly-encapsulate-jdk-internals-by-default)
-1. [397 : Sealed Classes (Second Preview)](#397--sealed-classes--second-preview-)
+1. 338 : Vector API (Incubator) [[intellij]](#338--vector-api--incubator-) [[github]](#338--vector-api-incubator-)
+1. 376 : ZGC: Concurrent Thread-Stack Processing [[intellij]](#376--zgc--concurrent-thread-stack-processing) [[github]](#376--zgc-concurrent-thread-stack-processing)
+1. 380 : Unix-Domain Socket Channels [[intellij]](#380--unix-domain-socket-channels) [[github]](#380--unix-domain-socket-channels)
+1. 386 : Alpine Linux Port [[intellij]](#386--alpine-linux-port) [[github]](#386--alpine-linux-port)
+1. 387 : Elastic Metaspace [[intellij]](#387--elastic-metaspace) [[github]](#387--elastic-metaspace)
+1. 389 : Foreign Linker API (Incubator) [[intellij]](#389--foreign-linker-api--incubator-) [[github]](#389--foreign-linker-api-incubator)
+1. 393 : Foreign-Memory Access API (Third Incubator) [[intellij]](#393--foreign-memory-access-api--third-incubator-) [[github]](#393--foreign-memory-access-api-third-incubator)
+1. 396 : Strongly Encapsulate JDK Internals by Default [[intellij]](#396--strongly-encapsulate-jdk-internals-by-default) [[github]](#396--strongly-encapsulate-jdk-internals-by-default)
+1. 397 : Sealed Classes (Second Preview) [[intellij]](#397--sealed-classes--second-preview-) [[github]](#397--sealed-classes-second-preview)
 
 #### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 
-1. [347 : Enable C++14 Language Features](#347--enable-c14-language-features)
-1. [357 : Migrate from Mercurial to Git](#357--migrate-from-mercurial-to-git)
-1. [369 : Migrate to GitHub](#369--migrate-to-github)
-1. [388 : Windows & AArch64 Port](#388--windows--aarch64-port)
+1. 347 : Enable C++14 Language Features [[intellij]](#347--enable-c14-language-features) [[github]](#347--enable-c14-language-features)
+1. 357 : Migrate from Mercurial to Git [[intellij]](#357--migrate-from-mercurial-to-git) [[github]](#357--migrate-from-mercurial-to-git)
+1. 369 : Migrate to GitHub [[intellij]](#369--migrate-to-github) [[github]](#369--migrate-to-github)
+1. 388 : Windows & AArch64 Port [[intellij]](#388--windows--aarch64-port) [[github]](#388--windows--aarch64-port)
 
 ---
 
