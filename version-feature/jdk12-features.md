@@ -6,7 +6,7 @@
 
 #### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
-1. 189 : Shenandoah: A Low-Pause-Time Garbage Collector (Experimental) [[intellij]](#189--shenandoah--a-low-pause-time-garbage-collector--experimental-) [[github]](#189--shenandoah--a-low-pause-time-garbage-collector-experimental)
+1. 189 : Shenandoah: A Low-Pause-Time Garbage Collector (Experimental) [[intellij]](#189--shenandoah-a-low-pause-time-garbage-collector--experimental-) [[github]](#189--shenandoah--a-low-pause-time-garbage-collector-experimental)
 1. 230 : Microbenchmark Suite [[intellij]](#230--microbenchmark-suite) [[github]](#230--microbenchmark-suite)
 1. 325 : Switch Expressions (Preview) [[intellij]](#325--switch-expressions--preview-) [[github]](#325--switch-expressions-preview)
 1. 344 : Abortable Mixed Collections for G1 [[intellij]](#344--abortable-mixed-collections-for-g1) [[github]](#344--abortable-mixed-collections-for-g1)

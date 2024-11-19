@@ -6,11 +6,11 @@
 
 #### <a id="head2"></a> [不知道沒差但知道了會變厲害的版本特性](#不知道沒差但知道了會變厲害的版本特性)
 
-1. [350 : Dynamic CDS Archives](#350--dynamic-cds-archives)
-1. [351 : ZGC: Uncommit Unused Memory (Experimental)](#351--zgc--uncommit-unused-memory--Experimental-)
-1. [353 : Reimplement the Legacy Socket API](#353--reimplement-the-legacy-socket-api)
-1. [354 : Switch Expressions (Preview)](#354--switch-expressions--preview-)
-1. [355 : Text Blocks (Preview)](#355--text-blocks--preview-)
+1. 350 : Dynamic CDS Archives [[intellij]](#350--dynamic-cds-archives) [[github]](#350--dynamic-cds-archives)
+1. 351 : ZGC: Uncommit Unused Memory (Experimental) [[intellij]](#351--zgc--uncommit-unused-memory--Experimental-) [[github]](#351--zgc-uncommit-unused-memory-experimental)
+1. 353 : Reimplement the Legacy Socket API [[intellij]](#353--reimplement-the-legacy-socket-api) [[github]](#353--reimplement-the-legacy-socket-api)
+1. 354 : Switch Expressions (Preview) [[intellij]](#354--switch-expressions--preview-) [[github]](#354--switch-expressions-preview)
+1. 355 : Text Blocks (Preview) [[intellij]](#355--text-blocks--preview-) [[github]](#355--text-blocks-preview)
 
 #### <a id="head3"></a> [不知道沒差但知道了也沒差的版本特性](#不知道沒差但知道了也沒差的版本特性)
 
