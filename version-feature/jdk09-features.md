@@ -152,7 +152,7 @@
 
 ###### [259 : Stack-Walking API](https://openjdk.org/jeps/259)
 
-- [study-code](./src/test/java/org/aery/study/jdk9/JEP259_StackWalking.java)
+- [study-code](./src/test/java/org/aery/study/jdk9/JEP259_StackWalker.java)
 - 引入一個新的堆疊遍歷 API, 簡化和改進 Java 程式中對堆疊訊息的訪問和操作
 - 它提供一個高效的機制來訪問和操作堆疊資訊, 並且可以過濾跟篩選堆疊幀
 - 新 API 通過 `java.lang.StackWalker 類來實現`

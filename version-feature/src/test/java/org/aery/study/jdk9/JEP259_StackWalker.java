@@ -3,7 +3,7 @@ package org.aery.study.jdk9;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class JEP259_StackWalking {
+public class JEP259_StackWalker {
 
     @Test
     void stacktrace() {
@@ -38,7 +38,6 @@ public class JEP259_StackWalking {
 
             System.out.println(frame + " | " + descriptor);
         });
-
     }
 
     /**
